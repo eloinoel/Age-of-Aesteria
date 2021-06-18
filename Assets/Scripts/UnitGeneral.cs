@@ -6,14 +6,20 @@ public class UnitGeneral : MonoBehaviour {
     public bool onLeftPlayerSide = true;
     public int health = 100;
 
+    private float lifeTime = -1.0f;
+
     void Start() {
         
     }
 
     void Update() {
-        if(health <= 0) { Destroy(this.gameObject); }
         // TODO - handle gameEndMessage/Event for Bases i.e. maybe call onDeath Function from other script or something
+        if(lifeTime <= 0.0f && lifeTime != -1.0f) { Destroy(this.gameObject); }
+        if(lifeTime != -1.0f) { lifeTime -= Time.deltaTime; }
     }
 
-    // TODO - Handle damage animation here rather the elsewhere i.e. provide callable function
+    // if you want to kill your boy in some time...
+    public void timedDeath(float time) {
+        lifeTime = time;
+    }
 }

@@ -31,6 +31,7 @@ public class SpawnEngine : MonoBehaviour {
     }
 
     public void spawnLeftHero() {
+        // TODO create build-queue instead of this test
         if(Time.frameCount - lastLeftSpawn < respawnTime * (1.0f / Time.deltaTime)) { return; }
         lastLeftSpawn = Time.frameCount;
         GameObject new_instance = Instantiate(unitPrefab3) as GameObject;
@@ -38,7 +39,7 @@ public class SpawnEngine : MonoBehaviour {
     }
 
     public void spawnRight() {
-        GameObject new_instance = Instantiate(unitPrefab1) as GameObject;
+        GameObject new_instance = Instantiate(unitPrefab3) as GameObject;
         new_instance.transform.position = new Vector2(rightLocation.x, rightLocation.y);
         new_instance.GetComponent<SpriteRenderer>().flipX = true;
         new_instance.GetComponent<UnitGeneral>().onLeftPlayerSide = false;

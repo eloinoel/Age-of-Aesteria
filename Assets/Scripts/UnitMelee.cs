@@ -7,9 +7,11 @@ public class UnitMelee : MonoBehaviour {
     public float attackStun = 0.25f;
     public float attackSpeed = 3.0f;
     public float dodgeChance = 0.2f; //In percent from 0-1
+    public float comboChance = 0.5f; //In percent from 0-1
 
     private Animator m_animator;
     private bool fighting = false;
+    private int attackCounter = 0;
     private float timeSinceAttack = 0.0f;
     private float delay = 0.0f;
 
@@ -43,17 +45,26 @@ public class UnitMelee : MonoBehaviour {
 
     public void Attack(GameObject enemy) {
         enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, attackDamage, attackStun);
-        m_animator.SetTrigger("Attack" + 1);
+        if(comboChance > Random.value) {
+            attackCounter = ((attackCounter + 1) % 3);
+            delay = 0.25f;
+        } else {
+            attackCounter = 0;
+            delay = 0.5f;
+        }
+        m_animator.SetTrigger("Attack" + (attackCounter+1));
         timeSinceAttack = 0.0f;
-        delay = 0.5f;
     }
 
     public void beAttacked(GameObject enemy, int damage, float stun) {
         // dodge attack (set dodgeChance to 0 if character doesnt have dodge-Animation)
         if(dodgeChance < Random.value) {
             this.GetComponent<UnitGeneral>().health -= damage;
-            if (this.GetComponent<UnitGeneral>().health <= 0) {
+            if(this.GetComponent<UnitGeneral>().health <= 0) {
+                // set up everything for death animation and destruction of gameObject
                 m_animator.SetTrigger("Death");
+                this.GetComponent<Rigidbody2D>().simulated = false;
+                this.GetComponent<UnitGeneral>().timedDeath(3.0f);
                 fighting = false;
                 enemy.GetComponent<UnitMelee>().winFight();
             } else {
@@ -62,8 +73,7 @@ public class UnitMelee : MonoBehaviour {
             }
         } else {
             m_animator.SetTrigger("Block");
-            delay += 0.1f;
-            // TODO - maybe add enemy stun
+            delay = 0.1f;
         }
     }
 

@@ -39,10 +39,12 @@ public class UnitMelee : MonoBehaviour {
 
     public void enterFight() {
         // stop running animation, when encountering an enemy
+        // if(this.GetComponent<UnitGeneral>().health <= 0) { return; } //Attempt 1 of fixing TODO
         m_animator.SetInteger("AnimState", 0);
         fighting = true;
     }
 
+    // TODO - sometimes two fuckers kill each other at the same time, leaving one of them to stay in the idle animation, rather than the death one
     public void Attack(GameObject enemy) {
         enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, attackDamage, attackStun);
         if(comboChance > Random.value) {
@@ -62,9 +64,7 @@ public class UnitMelee : MonoBehaviour {
             this.GetComponent<UnitGeneral>().health -= damage;
             if(this.GetComponent<UnitGeneral>().health <= 0) {
                 // set up everything for death animation and destruction of gameObject
-                m_animator.SetTrigger("Death");
-                this.GetComponent<Rigidbody2D>().simulated = false;
-                this.GetComponent<UnitGeneral>().timedDeath(3.0f);
+                this.GetComponent<UnitGeneral>().die();
                 fighting = false;
                 enemy.GetComponent<UnitMelee>().winFight();
             } else {
@@ -76,9 +76,10 @@ public class UnitMelee : MonoBehaviour {
             delay = 0.1f;
         }
     }
-
+    
     public void winFight() {
         // start running animation after killing an enemy
+        //if(this.GetComponent<UnitGeneral>().health <= 0) { return; } //Attempt 1 of fixing TODO
         m_animator.SetInteger("AnimState", 1);
         fighting = false;
     }

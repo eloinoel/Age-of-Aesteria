@@ -9032,7 +9032,8 @@ MonoBehaviour:
   unitPrefab1: {fileID: 1258768165757650192, guid: d8a051c9a9858494fa55c3264e13387d, type: 3}
   unitPrefab2: {fileID: 0}
   unitPrefab3: {fileID: 7964595881207251754, guid: a524e4bb28b253c4d8f760d640e043a2, type: 3}
-  respawnTime: 5
+  respawnTime: 3
+  spawnforBoth: 1
   leftLocation: {x: -22.5, y: -4}
   rightLocation: {x: 22.5, y: -4}
 --- !u!4 &1841868783
@@ -9993,7 +9994,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.6955836, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10010,7 +10011,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104573771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -320, y: -239.875, z: -10}
+  m_LocalPosition: {x: -537.5, y: -316.875, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271827815}

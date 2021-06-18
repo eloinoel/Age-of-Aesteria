@@ -18,8 +18,10 @@ public class UnitGeneral : MonoBehaviour {
         if(lifeTime != -1.0f) { lifeTime -= Time.deltaTime; }
     }
 
-    // if you want to kill your boy in some time...
-    public void timedDeath(float time) {
-        lifeTime = time;
+    // if you want to kill your boy...
+    public void die() {
+        this.GetComponent<Rigidbody2D>().simulated = false;
+        this.GetComponent<Animator>().SetTrigger("Death");
+        lifeTime = 3.0f;
     }
 }

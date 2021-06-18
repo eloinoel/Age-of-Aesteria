@@ -4,22 +4,73 @@ using UnityEngine;
 
 public class UnitMelee : MonoBehaviour {
     public int attackDamage = 20;
-    public int attackSpeed = 30;
+    public float attackStun = 0.25f;
+    public float attackSpeed = 3.0f;
+    public float dodgeChance = 0.2f; //In percent from 0-1
+
+    private Animator m_animator;
+    private bool fighting = false;
+    private float timeSinceAttack = 0.0f;
+    private float delay = 0.0f;
+
+    void Start() {
+        m_animator = this.GetComponent<Animator>();
+    }
 
     void Update() {
-
+        // Increase timer that controls attack combo
+        timeSinceAttack += Time.deltaTime;
     }
 
     private void OnCollisionStay2D(Collision2D dataFromCollision) {
-        this.GetComponent<SpriteRenderer>().color = Color.white; // TODO - maybe generalize to more than Sprites
-        if (Time.frameCount % attackSpeed != 0) { return; } // TODO - adjust Conditions for attacking bases and tweak as well
-        if(dataFromCollision.gameObject.GetComponent<UnitGeneral>() == null) { return; }
-        if(dataFromCollision.gameObject.GetComponent<UnitGeneral>().onLeftPlayerSide == this.GetComponent<UnitGeneral>().onLeftPlayerSide) { return; }
-        Color c = dataFromCollision.gameObject.GetComponent<SpriteRenderer>().color;
-        if (c != Color.red) {
-            dataFromCollision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        // check if fightable and if enemy
+        if (dataFromCollision.gameObject.GetComponent<UnitGeneral>() == null) { return; }
+        if (dataFromCollision.gameObject.GetComponent<UnitGeneral>().onLeftPlayerSide == this.GetComponent<UnitGeneral>().onLeftPlayerSide) { return; }
+        if (fighting) {
+            if(dataFromCollision.gameObject.GetComponent<UnitMelee>() == null) { return; }
+            if(timeSinceAttack >= delay) { Attack(dataFromCollision.gameObject); }
+        } else {       
+            enterFight();
+
         }
-        dataFromCollision.gameObject.GetComponent<UnitGeneral>().health -= attackDamage;
+    }
+
+    public void enterFight() {
+        // stop running animation, when encountering an enemy
+        m_animator.SetInteger("AnimState", 0);
+        fighting = true;
+    }
+
+    public void Attack(GameObject enemy) {
+        enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, attackDamage, attackStun);
+        m_animator.SetTrigger("Attack" + 1);
+        timeSinceAttack = 0.0f;
+        delay = 0.5f;
+    }
+
+    public void beAttacked(GameObject enemy, int damage, float stun) {
+        // dodge attack (set dodgeChance to 0 if character doesnt have dodge-Animation)
+        if(dodgeChance < Random.value) {
+            this.GetComponent<UnitGeneral>().health -= damage;
+            if (this.GetComponent<UnitGeneral>().health <= 0) {
+                m_animator.SetTrigger("Death");
+                fighting = false;
+                enemy.GetComponent<UnitMelee>().winFight();
+            } else {
+                delay += stun;
+                m_animator.SetTrigger("Hurt");
+            }
+        } else {
+            m_animator.SetTrigger("Block");
+            delay += 0.1f;
+            // TODO - maybe add enemy stun
+        }
+    }
+
+    public void winFight() {
+        // start running animation after killing an enemy
+        m_animator.SetInteger("AnimState", 1);
+        fighting = false;
     }
 
     /*private void OnCollisionEnter2D(Collision2D dataFromCollision) {

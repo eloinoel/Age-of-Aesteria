@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7964595881207251761}
   - component: {fileID: 7964595881207251758}
   - component: {fileID: 7964595881207251759}
+  - component: {fileID: 421054169894303413}
   - component: {fileID: 5546836839067508658}
   - component: {fileID: 7964595881207251756}
   - component: {fileID: 7964595881207251757}
@@ -135,6 +136,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &421054169894303413
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7964595881207251754}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c2a5b7097b0fe44394328c0bdb9252e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5546836839067508658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,4 +195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 30
-  attackSpeed: 10
+  attackStun: 1
+  attackSpeed: 1
+  dodgeChance: 0.2

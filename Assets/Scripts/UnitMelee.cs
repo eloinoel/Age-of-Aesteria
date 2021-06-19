@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class UnitMelee : MonoBehaviour {
     public int attackDamage = 20;
-    public float attackStun = 0.25f;
+    public float attackStun = 0.5f; //0.25f;
     public float attackSpeed = 3.0f;
     public float dodgeChance = 0.2f; //In percent from 0-1
     public float comboChance = 0.5f; //In percent from 0-1
+
+    // TODO - implement attack-specific lagtimes instead of attackspeed
 
     private Animator m_animator;
     private bool fighting = false;
@@ -48,10 +50,10 @@ public class UnitMelee : MonoBehaviour {
         enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, attackDamage, attackStun);
         if(comboChance > Random.value) {
             attackCounter = ((attackCounter + 1) % 3);
-            delay = 0.25f;
+            delay = 0.5f;//0.25f;
         } else {
             attackCounter = 0;
-            delay = 0.5f;
+            delay = 1.0f;//0.5f;
         }
         m_animator.SetTrigger("Attack" + (attackCounter+1));
         timeSinceAttack = 0.0f;
@@ -72,7 +74,7 @@ public class UnitMelee : MonoBehaviour {
             }
         } else {
             m_animator.SetTrigger("Block");
-            delay = 0.1f;
+            delay = 0.25f;//0.1f;
         }
     }
     

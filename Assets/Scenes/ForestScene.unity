@@ -309,7 +309,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &173001175
 Rigidbody2D:
@@ -372,6 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 1
   health: 1500
+  deathTime: 1
 --- !u!114 &173001178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6694,7 +6695,7 @@ GameObject:
   - component: {fileID: 902770275}
   - component: {fileID: 902770274}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Grid (not needed anymore)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6726,7 +6727,7 @@ Transform:
   - {fileID: 536293367}
   - {fileID: 514631834}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &940205809
 GameObject:
@@ -6814,7 +6815,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &940205812
 Rigidbody2D:
@@ -6868,6 +6869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 0
   health: 1500
+  deathTime: 1
 --- !u!95 &940205815
 Animator:
   serializedVersion: 3
@@ -6929,7 +6931,7 @@ GameObject:
   - component: {fileID: 948221346}
   - component: {fileID: 948221350}
   m_Layer: 0
-  m_Name: HeroBase
+  m_Name: HeroBase (not needed anymore)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6963,6 +6965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 1
   health: 100
+  deathTime: 1
 --- !u!212 &948221347
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9497,10 +9500,13 @@ MonoBehaviour:
   unitPrefab1: {fileID: 1258768165757650192, guid: d8a051c9a9858494fa55c3264e13387d, type: 3}
   unitPrefab2: {fileID: 0}
   unitPrefab3: {fileID: 7964595881207251754, guid: a524e4bb28b253c4d8f760d640e043a2, type: 3}
-  respawnTime: 3
-  spawnforBoth: 0
-  leftLocation: {x: -22.5, y: -4}
-  rightLocation: {x: 22.5, y: -4}
+  enemyPrefab1: {fileID: 8684944776907128972, guid: 76e2fb39c0aa55f449524da99f9707d0, type: 3}
+  enemyPrefab2: {fileID: 0}
+  enemyPrefab3: {fileID: 0}
+  respawnTime: 5
+  spawnForBoth: 1
+  leftLocation: {x: -23.5, y: -5}
+  rightLocation: {x: 23.5, y: -5}
 --- !u!4 &1841868783
 Transform:
   m_ObjectHideFlags: 0
@@ -10459,7 +10465,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9794629, y: 1}
+    m_SensorSize: {x: 1.7460568, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10476,7 +10482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104573771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -626.5, y: -316.375, z: -10}
+  m_LocalPosition: {x: -553.5, y: -316.875, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271827815}

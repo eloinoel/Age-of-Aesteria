@@ -25,15 +25,12 @@ public class SpawnEngine : MonoBehaviour {
     }
 
     public void spawnLeft() {
-        //if(Time.frameCount - lastLeftSpawn < respawnTime*(1.0f/Time.deltaTime)) { return; }
         lastLeftSpawn = Time.frameCount;
         GameObject new_instance = Instantiate(unitPrefab1) as GameObject;
         new_instance.transform.position = new Vector2(leftLocation.x, leftLocation.y);
     }
 
     public void spawnLeftHero() {
-        // TODO create build-queue instead of this test
-        //if(Time.frameCount - lastLeftSpawn < respawnTime * (1.0f / Time.deltaTime)) { return; }
         lastLeftSpawn = Time.frameCount;
         GameObject new_instance = Instantiate(unitPrefab3) as GameObject;
         new_instance.transform.position = new Vector2(leftLocation.x, leftLocation.y);
@@ -44,6 +41,8 @@ public class SpawnEngine : MonoBehaviour {
         new_instance.transform.position = new Vector2(rightLocation.x, rightLocation.y);
         new_instance.GetComponent<SpriteRenderer>().flipX = true;
         new_instance.GetComponent<UnitGeneral>().onLeftPlayerSide = false;
+        // this is slightly changing the y dimension of the BoxCollider of the unit to create the illusion, that different units walk at different depths
+        new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y+(Random.value/4.0f));
     }
 
     private IEnumerator spawn() {

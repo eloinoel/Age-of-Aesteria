@@ -26,9 +26,9 @@ public class UnitMelee : MonoBehaviour {
 
     private void OnCollisionStay2D(Collision2D dataFromCollision) {
         // check if fightable and if enemy
-        if (dataFromCollision.gameObject.GetComponent<UnitGeneral>() == null) { return; }
-        if (dataFromCollision.gameObject.GetComponent<UnitGeneral>().onLeftPlayerSide == this.GetComponent<UnitGeneral>().onLeftPlayerSide) { return; }
-        if (fighting) {
+        if(dataFromCollision.gameObject.GetComponent<UnitGeneral>() == null) { return; }
+        if(dataFromCollision.gameObject.GetComponent<UnitGeneral>().onLeftPlayerSide == this.GetComponent<UnitGeneral>().onLeftPlayerSide) { return; }
+        if(fighting) {
             if(dataFromCollision.gameObject.GetComponent<UnitMelee>() == null) { return; }
             if(timeSinceAttack >= delay) { Attack(dataFromCollision.gameObject); }
         } else {       
@@ -39,12 +39,11 @@ public class UnitMelee : MonoBehaviour {
 
     public void enterFight() {
         // stop running animation, when encountering an enemy
-        // if(this.GetComponent<UnitGeneral>().health <= 0) { return; } //Attempt 1 of fixing TODO
+        if(this.GetComponent<UnitGeneral>().health <= 0) { return; }
         m_animator.SetInteger("AnimState", 0);
         fighting = true;
     }
 
-    // TODO - sometimes two fuckers kill each other at the same time, leaving one of them to stay in the idle animation, rather than the death one
     public void Attack(GameObject enemy) {
         enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, attackDamage, attackStun);
         if(comboChance > Random.value) {
@@ -79,7 +78,6 @@ public class UnitMelee : MonoBehaviour {
     
     public void winFight() {
         // start running animation after killing an enemy
-        //if(this.GetComponent<UnitGeneral>().health <= 0) { return; } //Attempt 1 of fixing TODO
         m_animator.SetInteger("AnimState", 1);
         fighting = false;
     }

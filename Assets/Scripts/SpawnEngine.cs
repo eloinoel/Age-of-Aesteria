@@ -12,7 +12,7 @@ public class SpawnEngine : MonoBehaviour {
     public Vector2 rightLocation = new Vector2(8, -2);
 
     private int lastLeftSpawn = 0;
-    private int lastRightSpawn = 0;
+    //private int lastRightSpawn = 0; // TODO - just commented, so the compiler is happy for now
 
     // Start is called before the first frame update
     void Start() {

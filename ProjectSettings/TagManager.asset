@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - blue_fort
+  - red_fort
   layers:
   - Default
   - TransparentFX

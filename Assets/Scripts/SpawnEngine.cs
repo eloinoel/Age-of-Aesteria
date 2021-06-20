@@ -33,12 +33,13 @@ public class SpawnEngine : MonoBehaviour {
 
     public void spawnLeftHero() {
         GameObject new_instance = Instantiate(unitPrefab3) as GameObject;
+        //GameObject new_instance = Instantiate(enemyPrefab1) as GameObject;
         new_instance.transform.position = new Vector2(leftLocation.x, leftLocation.y);
         // this is slightly changing the y dimension of the BoxCollider of the unit to create the illusion, that different units walk at different depths
         new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
     }
 
-    public void spawnRightSkeleton() {
+    public void spawnRightGoblin() {
         GameObject new_instance = Instantiate(enemyPrefab1) as GameObject;
         new_instance.transform.position = new Vector2(rightLocation.x, rightLocation.y);
         new_instance.GetComponent<SpriteRenderer>().flipX = true;
@@ -47,21 +48,32 @@ public class SpawnEngine : MonoBehaviour {
         new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
     }
 
-    public void spawnRight() {
-        GameObject new_instance = Instantiate(unitPrefab3) as GameObject;
+    public void spawnRightSkeleton() {
+        GameObject new_instance = Instantiate(enemyPrefab2) as GameObject;
         new_instance.transform.position = new Vector2(rightLocation.x, rightLocation.y);
         new_instance.GetComponent<SpriteRenderer>().flipX = true;
         new_instance.GetComponent<UnitGeneral>().onLeftPlayerSide = false;
         // this is slightly changing the y dimension of the BoxCollider of the unit to create the illusion, that different units walk at different depths
-        new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y+(Random.value/4.0f));
+        new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
+    }
+
+    //spawn a random unit on the right side
+    public void spawnRight() {
+        float rnd = Random.value;
+        if(rnd < 0.5) {
+            spawnRightGoblin();
+        } else if(rnd < 0.8) {
+            spawnRightSkeleton();
+        } else { 
+        
+        }
     }
 
     private IEnumerator spawn() {
         while(true) {
             yield return new WaitForSeconds(respawnTime);
             if(spawnForBoth) { spawnLeftHero(); }
-            //spawnLeft();
-            spawnRightSkeleton();            
+            spawnRight();                     
         }
     }
 }

@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 173001178}
   m_Layer: 0
   m_Name: blue_fort
-  m_TagString: Untagged
+  m_TagString: blue_fort
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,9 +387,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 0
   attackStun: 0
-  attackSpeed: 10
   dodgeChance: 0
   comboChance: 0
+  dodgeRetaliate: 0
+  dodgeRetaliationDamage: 10
+  dodgeRetaliationStun: 1
+  attack1Lag: 3
+  attack2Lag: 3
+  attack3Lag: 3
+  hurtLag: 1
+  dodgeLag: 1
+  combo1Lag: 1
+  combo2Lag: 1
+  combo3Lag: 1
 --- !u!95 &173001179
 Animator:
   serializedVersion: 3
@@ -6746,7 +6756,7 @@ GameObject:
   - component: {fileID: 940205813}
   m_Layer: 0
   m_Name: red_fort
-  m_TagString: Untagged
+  m_TagString: red_fort
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6852,9 +6862,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 0
   attackStun: 0
-  attackSpeed: 10
   dodgeChance: 0
   comboChance: 0
+  dodgeRetaliate: 0
+  dodgeRetaliationDamage: 10
+  dodgeRetaliationStun: 1
+  attack1Lag: 3
+  attack2Lag: 3
+  attack3Lag: 3
+  hurtLag: 1
+  dodgeLag: 1
+  combo1Lag: 1
+  combo2Lag: 1
+  combo3Lag: 1
 --- !u!114 &940205814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7079,9 +7099,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 20
   attackStun: 0.25
-  attackSpeed: 3
   dodgeChance: 0.2
   comboChance: 0.5
+  dodgeRetaliate: 0
+  dodgeRetaliationDamage: 10
+  dodgeRetaliationStun: 1
+  attack1Lag: 3
+  attack2Lag: 3
+  attack3Lag: 3
+  hurtLag: 1
+  dodgeLag: 1
+  combo1Lag: 1
+  combo2Lag: 1
+  combo3Lag: 1
 --- !u!95 &948221351
 Animator:
   serializedVersion: 3
@@ -9500,13 +9530,13 @@ MonoBehaviour:
   unitPrefab1: {fileID: 1258768165757650192, guid: d8a051c9a9858494fa55c3264e13387d, type: 3}
   unitPrefab2: {fileID: 0}
   unitPrefab3: {fileID: 7964595881207251754, guid: a524e4bb28b253c4d8f760d640e043a2, type: 3}
-  enemyPrefab1: {fileID: 8684944776907128972, guid: 76e2fb39c0aa55f449524da99f9707d0, type: 3}
-  enemyPrefab2: {fileID: 0}
+  enemyPrefab1: {fileID: 4398869189019565653, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+  enemyPrefab2: {fileID: 8684944776907128972, guid: 76e2fb39c0aa55f449524da99f9707d0, type: 3}
   enemyPrefab3: {fileID: 0}
   respawnTime: 5
   spawnForBoth: 1
-  leftLocation: {x: -23.5, y: -5}
-  rightLocation: {x: 23.5, y: -5}
+  leftLocation: {x: -26, y: -5}
+  rightLocation: {x: 26, y: -5}
 --- !u!4 &1841868783
 Transform:
   m_ObjectHideFlags: 0
@@ -10465,7 +10495,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7460568, y: 1}
+    m_SensorSize: {x: 1.7539432, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10482,7 +10512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104573771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -553.5, y: -316.875, z: -10}
+  m_LocalPosition: {x: -556, y: -316.875, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271827815}
@@ -10589,3 +10619,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene_camera: {fileID: 519420028}
   parallaxStrength: 0.05
+--- !u!1001 &4398869189697149549
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4398869189019565649, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398869189019565649, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.347
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398869189019565649, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.553
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398869189019565649, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398869189019565649, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398869189019565649, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398869189019565649, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398869189019565649, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398869189019565649, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398869189019565649, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398869189019565649, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398869189019565651, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: dodgeChance
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398869189019565653, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: m_Name
+      value: Goblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398869189019565653, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}

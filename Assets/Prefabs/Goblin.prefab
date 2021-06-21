@@ -201,12 +201,12 @@ MonoBehaviour:
   comboChance: 0.25
   dodgeRetaliate: 1
   dodgeRetaliationDamage: 10
-  dodgeRetaliationStun: 1
+  dodgeRetaliationStun: 2
   attack1Lag: 0.5
   attack2Lag: 0.5
   attack3Lag: 0.5
   hurtLag: 1
-  dodgeLag: 1.25
+  dodgeLag: 2
   combo1Lag: 0.25
   combo2Lag: 0.25
   combo3Lag: 0.25

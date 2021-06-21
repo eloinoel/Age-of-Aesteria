@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitMelee : MonoBehaviour {
+    public bool doFight = true;
     public int attackDamage = 20;
     public float attackStun = 0.5f;
     public float dodgeChance = 0.2f; //In percent from 0-1
@@ -44,7 +45,7 @@ public class UnitMelee : MonoBehaviour {
         if(dataFromCollision.gameObject.GetComponent<UnitGeneral>().onLeftPlayerSide == this.GetComponent<UnitGeneral>().onLeftPlayerSide) { return; }
         if(fighting) {
             if(dataFromCollision.gameObject.GetComponent<UnitMelee>() == null) { return; }
-            if(timeSinceAttack >= delay) { Attack(dataFromCollision.gameObject); }
+            if(timeSinceAttack >= delay && doFight) { Attack(dataFromCollision.gameObject); }
         } else {       
             enterFight();
 
@@ -110,8 +111,8 @@ public class UnitMelee : MonoBehaviour {
             }
         } else {
             m_animator.SetTrigger("Block");
-            if(dodgeRetaliate) { Retaliate(enemy); }
             delay = dodgeLag;
+            if (dodgeRetaliate) { Retaliate(enemy); }
         }
     }
 

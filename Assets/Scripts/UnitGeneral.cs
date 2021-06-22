@@ -27,4 +27,15 @@ public class UnitGeneral : MonoBehaviour {
         this.GetComponent<Animator>().SetTrigger("Death");
         lifeTime = deathTime;
     }
+
+    public void hurt(int damage)
+    {
+        if(health - damage <= 0)
+        {
+            die();
+            return;
+        }
+        this.GetComponent<Animator>().SetTrigger("Hurt");
+        this.health -= damage;
+    }
 }

@@ -305,7 +305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173001172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.82, y: -0.35, z: 0}
+  m_LocalPosition: {x: -14, y: -0.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6371,6 +6371,91 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &613374198
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8191114097432193386, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_Name
+      value: MeteorRainSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193386, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193388, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193388, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193388, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5706819
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193388, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.32073566
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193388, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193388, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193388, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193388, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193388, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193388, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193388, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193388, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193389, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: meteor
+      value: 
+      objectReference: {fileID: 1404296675533268182, guid: ac5b937195ce3174abaa6aecc4fa6be4, type: 3}
+    - target: {fileID: 8191114097432193389, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: posleft
+      value: -33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193389, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: duration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193389, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: posright
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191114097432193389, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
+      propertyPath: offsetRight
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a6838af7a612314e8932803e4a5dc1b, type: 3}
 --- !u!1 &715806031
 GameObject:
   m_ObjectHideFlags: 0
@@ -6896,7 +6981,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940205809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.268147, y: -0.8303379, z: 0}
+  m_LocalPosition: {x: 14, y: -0.8303379, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9264,7 +9349,7 @@ GameObject:
   - component: {fileID: 1706551835}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9679,8 +9764,8 @@ MonoBehaviour:
   enemyPrefab1: {fileID: 4398869189019565653, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
   enemyPrefab2: {fileID: 8684944776907128972, guid: 76e2fb39c0aa55f449524da99f9707d0, type: 3}
   enemyPrefab3: {fileID: 0}
-  respawnTime: 5
-  spawnForBoth: 0
+  respawnTime: 2
+  spawnForBoth: 1
   leftLocation: {x: -26, y: -5}
   rightLocation: {x: 26, y: -5}
 --- !u!4 &1841868783
@@ -10641,7 +10726,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9952681, y: 1}
+    m_SensorSize: {x: 1.1797134, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10658,7 +10743,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104573771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -632.5, y: -316.875, z: -10}
+  m_LocalPosition: {x: -535, y: -453.375, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271827815}

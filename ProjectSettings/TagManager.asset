@@ -6,6 +6,7 @@ TagManager:
   tags:
   - blue_fort
   - red_fort
+  - ground
   layers:
   - Default
   - TransparentFX

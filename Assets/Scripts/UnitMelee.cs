@@ -9,6 +9,8 @@ public class UnitMelee : MonoBehaviour {
     public float dodgeChance = 0.2f; //In percent from 0-1
     public float comboChance = 0.5f; //In percent from 0-1
 
+    public bool dodgeIsResist = false;
+    public float resistFactor = 0.5f;
     public bool dodgeRetaliate = false;
     public int dodgeRetaliationDamage = 10;
     public float dodgeRetaliationStun = 1.0f;
@@ -99,7 +101,7 @@ public class UnitMelee : MonoBehaviour {
     public void beAttacked(GameObject enemy, int damage, float stun) {
         // dodge attack (set dodgeChance to 0 if character doesnt have dodge-Animation)
         if(dodgeChance < Random.value) {
-            this.GetComponent<UnitGeneral>().health -= damage;
+            this.GetComponent<UnitGeneral>().health -= (int) (damage*resistFactor);
             if(this.GetComponent<UnitGeneral>().health <= 0) {
                 // set up everything for death animation and destruction of gameObject
                 this.GetComponent<UnitGeneral>().die();
@@ -110,7 +112,12 @@ public class UnitMelee : MonoBehaviour {
                 m_animator.SetTrigger("Hurt");
             }
         } else {
-            m_animator.SetTrigger("Block");
+            if(dodgeIsResist) {
+                this.GetComponent<UnitGeneral>().health -= damage;
+                m_animator.SetTrigger("Block"); // could set special resist animation
+            } else {
+                m_animator.SetTrigger("Block");
+            }
             delay = dodgeLag;
             if (dodgeRetaliate) { Retaliate(enemy); }
         }

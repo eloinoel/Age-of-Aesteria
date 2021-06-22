@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8684944776907128972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.463, y: -2.171, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -195,10 +195,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0fa5710e7c51f4d83dbabe4782a4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doFight: 1
   attackDamage: 20
   attackStun: 0.25
   dodgeChance: 0.65
   comboChance: 0.25
+  dodgeRetaliate: 0
+  dodgeRetaliationDamage: 10
+  dodgeRetaliationStun: 1
   attack1Lag: 1
   attack2Lag: 1
   attack3Lag: 1

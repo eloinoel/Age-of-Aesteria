@@ -23,7 +23,7 @@ public class SpawnQueue : MonoBehaviour {
             if(next == 1) {
                 spawn_engine.GetComponent<SpawnEngine>().spawnLeft();
             } else if(next == 2) {
-
+                spawn_engine.GetComponent<SpawnEngine>().spawnLeft2();
             } else if(next == 3) {
                 spawn_engine.GetComponent<SpawnEngine>().spawnLeftHero();
             }

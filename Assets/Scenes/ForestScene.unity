@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 173001179}
   - component: {fileID: 173001177}
   - component: {fileID: 173001178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: blue_fort
   m_TagString: blue_fort
   m_Icon: {fileID: 0}
@@ -773,7 +773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 425422398}
   target: {fileID: 547355642}
-  panningStrength: 20
+  panningStrength: 7
 --- !u!1 &434213381
 GameObject:
   m_ObjectHideFlags: 0
@@ -6914,7 +6914,7 @@ GameObject:
   - component: {fileID: 940205815}
   - component: {fileID: 940205814}
   - component: {fileID: 940205813}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: red_fort
   m_TagString: red_fort
   m_Icon: {fileID: 0}
@@ -9766,8 +9766,8 @@ MonoBehaviour:
   enemyPrefab3: {fileID: 0}
   respawnTime: 2
   spawnForBoth: 1
-  leftLocation: {x: -26, y: -5}
-  rightLocation: {x: 26, y: -5}
+  leftLocation: {x: -16, y: -5}
+  rightLocation: {x: 16, y: -5}
 --- !u!4 &1841868783
 Transform:
   m_ObjectHideFlags: 0
@@ -9776,7 +9776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841868781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -25.578768}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10726,7 +10726,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.1797134, y: 1}
+    m_SensorSize: {x: 2.274448, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10743,7 +10743,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104573771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -535, y: -453.375, z: -10}
+  m_LocalPosition: {x: -721, y: -316.875, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271827815}

@@ -34,6 +34,9 @@ public class MeteorSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // ignore collision between Ally and Magic Layer
+        Physics2D.IgnoreLayerCollision(7, 8);
+
         nextFire = Time.time;
     }
 

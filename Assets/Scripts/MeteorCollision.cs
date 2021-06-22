@@ -9,7 +9,8 @@ public class MeteorCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-   
+        // ignore collision between Ally and Magic Layer
+        Physics2D.IgnoreLayerCollision(7, 8);
     }
 
     //predefined method called on collision
@@ -23,7 +24,7 @@ public class MeteorCollision : MonoBehaviour
             Destroy(this.gameObject);
         } else if(collided.GetComponent<UnitGeneral>() != null && (collided.GetComponent<UnitGeneral>().onLeftPlayerSide))
         {
-            Physics2D.IgnoreCollision(collided.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<CircleCollider2D>());   
+            //Physics2D.IgnoreCollision(collided.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<CircleCollider2D>());   
         } else //ground
         {
             Destroy(this.gameObject);

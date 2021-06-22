@@ -18,9 +18,11 @@ public class MeteorSpawner : MonoBehaviour
     public float fireRate = 0.5f;
 
     private bool active = false;
-    private float sinceActivation = 0.0f;
+    private float startTime = 0.0f;
 
-    public void Spawn()
+    private float nextFire = 0.0f;
+
+    private void Spawn()
     {
         for(int i = 0; i<meteorsPerSpawn; i++)
         {
@@ -28,6 +30,16 @@ public class MeteorSpawner : MonoBehaviour
             new_meteor.transform.position = new Vector2(Random.Range(posleft, posright), height);
             new_meteor.GetComponent<Rigidbody2D>().velocity = startvelocity;
         }
+    }
+
+    /**
+     * Use this method to trigger one meteor shower
+     * the parameters can be tweaked in the unity gameObject
+     */
+    public void activateMeteorShower()
+    {
+        startTime = Time.time;
+        active = true;
     }
 
     
@@ -42,25 +54,26 @@ public class MeteorSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(sinceActivation >= duration) { sinceActivation = 0.0f;  active = false; }
-        if(Input.GetKeyDown("space")) {
-            active = true;
-        }
-        if(active)
+        
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            sinceActivation += Time.deltaTime;
-            Spawn();
+            activateMeteorShower();
         }
 
-        //duration -= Time.deltaTime;
-        /*if(duration <= 0)
+        //stop when duration exceeded limit
+        if(active)
         {
-            Destroy(this);
-        }*/
+            if (Time.time - startTime >= duration)
+            {
+                active = false;
+            }
+            if (Time.time >= nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                Spawn();
+            }
+        }
+
         
-        /*if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Spawn();
-        }*/
     }
 }

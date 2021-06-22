@@ -2444,11 +2444,11 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2468,7 +2468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.125, z: -10}
+  m_LocalPosition: {x: 0, y: 0.9975004, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6099,7 +6099,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547355642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: 0, y: -3.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6829,7 +6829,7 @@ GameObject:
   - component: {fileID: 940205815}
   - component: {fileID: 940205814}
   - component: {fileID: 940205813}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: red_fort
   m_TagString: red_fort
   m_Icon: {fileID: 0}
@@ -9680,7 +9680,7 @@ MonoBehaviour:
   enemyPrefab2: {fileID: 8684944776907128972, guid: 76e2fb39c0aa55f449524da99f9707d0, type: 3}
   enemyPrefab3: {fileID: 0}
   respawnTime: 2
-  spawnForBoth: 1
+  spawnForBoth: 0
   leftLocation: {x: -16, y: -5}
   rightLocation: {x: 16, y: -5}
 --- !u!4 &1841868783
@@ -10634,14 +10634,14 @@ MonoBehaviour:
   m_Follow: {fileID: 547355644}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 5.9
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.8328076, y: 1}
+    m_SensorSize: {x: 1.0132304, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10658,7 +10658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104573771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -264, y: -316.875, z: -10}
+  m_LocalPosition: {x: -459.5, y: -452.5025, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271827815}
@@ -10773,7 +10773,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8191114097910919580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5706819, y: 0.32073566, z: 8}
+  m_LocalPosition: {x: -0.5706819, y: 0.32073566, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10793,9 +10793,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteor: {fileID: 1404296675533268182, guid: ac5b937195ce3174abaa6aecc4fa6be4, type: 3}
   startvelocity: {x: 10, y: -3}
-  posleft: -33
-  posright: 5
-  height: 10
+  posleft: -25
+  posright: 0
+  height: 8
   duration: 5
   meteorsPerSpawn: 2
   fireRate: 0.5

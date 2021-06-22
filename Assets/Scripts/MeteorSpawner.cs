@@ -16,8 +16,9 @@ public class MeteorSpawner : MonoBehaviour
     public int meteorsPerSpawn = 3;
 
     public float fireRate = 0.5f;
-    private float nextFire = 0.0f;
 
+    private bool active = false;
+    private float sinceActivation = 0.0f;
 
     public void Spawn()
     {
@@ -36,20 +37,22 @@ public class MeteorSpawner : MonoBehaviour
     {
         // ignore collision between Ally and Magic Layer
         Physics2D.IgnoreLayerCollision(7, 8);
-
-        nextFire = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.time >= nextFire)
+        if(sinceActivation >= duration) { sinceActivation = 0.0f;  active = false; }
+        if(Input.GetKeyDown("space")) {
+            active = true;
+        }
+        if(active)
         {
+            sinceActivation += Time.deltaTime;
             Spawn();
-            nextFire += fireRate;
         }
 
-        duration -= Time.deltaTime;
+        //duration -= Time.deltaTime;
         /*if(duration <= 0)
         {
             Destroy(this);

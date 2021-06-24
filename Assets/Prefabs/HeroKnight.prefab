@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5546836839067508658}
   - component: {fileID: 7964595881207251756}
   - component: {fileID: 7964595881207251757}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HeroKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,9 +197,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doFight: 1
   attackDamage: 30
-  attackStun: 1
+  attackStun: 0
   dodgeChance: 0.2
   comboChance: 0.5
+  dodgeIsResist: 0
+  resistFactor: 0.5
   dodgeRetaliate: 0
   dodgeRetaliationDamage: 0
   dodgeRetaliationStun: 0

@@ -197,9 +197,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doFight: 1
   attackDamage: 20
-  attackStun: 0.25
+  attackStun: 0
   dodgeChance: 0.65
   comboChance: 0.25
+  dodgeIsResist: 0
+  resistFactor: 0.5
   dodgeRetaliate: 0
   dodgeRetaliationDamage: 10
   dodgeRetaliationStun: 1

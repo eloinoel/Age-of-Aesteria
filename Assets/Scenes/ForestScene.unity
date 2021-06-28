@@ -7348,7 +7348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206e0712daaf3bf4e9e2e9e42ddc4f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meteor: {fileID: 1404296675533268182, guid: ac5b937195ce3174abaa6aecc4fa6be4, type: 3}
+  meteor: {fileID: 0}
   startvelocity: {x: 10, y: -3}
   posleft: -25
   posright: 0

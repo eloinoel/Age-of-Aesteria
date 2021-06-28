@@ -10,7 +10,6 @@ public class UnitGeneral : MonoBehaviour {
 
 
     private float lifeTime = -1.0f;
-    private bool died = false;
 
     private bool isHurt = false;
     private float sinceHurt = 0.0f;
@@ -38,12 +37,13 @@ public class UnitGeneral : MonoBehaviour {
             sinceHurt = Time.time;
             this.GetComponent<SpriteRenderer>().material.shader = hurtShader;
             this.GetComponent<SpriteRenderer>().material.color = new Color(241.0f/255.0f, 241.0f/255f, 241.0f/255.0f, 255.0f/255.0f);
-            this.GetComponent<Animator>().SetTrigger("Hurt");
 
             this.health -= pendDamage;
             this.pendDamage = 0;
-            if(health <= 0) {
+            if (health <= 0) {
                 die();
+            } else {
+                this.GetComponent<Animator>().SetTrigger("Hurt");
             }
         }
         // return to normal shader after damage flash
@@ -62,6 +62,7 @@ public class UnitGeneral : MonoBehaviour {
         this.GetComponent<Rigidbody2D>().simulated = false;
         this.GetComponent<Animator>().SetTrigger("Death");
         lifeTime = deathTime;
+        if(this.GetComponent<UnitMelee>().getFighting() == true) { this.GetComponent<UnitMelee>().getEnemy().GetComponent<UnitMelee>().winFight(); }
     }
 
     public void hurt(int damage, float delay) {

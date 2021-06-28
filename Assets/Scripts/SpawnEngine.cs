@@ -28,7 +28,7 @@ public class SpawnEngine : MonoBehaviour {
         GameObject new_instance = Instantiate(unitPrefab1) as GameObject;
         new_instance.transform.position = new Vector2(leftLocation.x, leftLocation.y);
         // this is slightly changing the y dimension of the BoxCollider of the unit to create the illusion, that different units walk at different depths
-        new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
+        //new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
     }
 
     public void spawnLeft2()
@@ -36,7 +36,7 @@ public class SpawnEngine : MonoBehaviour {
         GameObject new_instance = Instantiate(unitPrefab2) as GameObject;
         new_instance.transform.position = new Vector2(leftLocation.x, leftLocation.y);
         // this is slightly changing the y dimension of the BoxCollider of the unit to create the illusion, that different units walk at different depths
-        new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
+        //new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
     }
 
     public void spawnLeftHero() {
@@ -44,7 +44,7 @@ public class SpawnEngine : MonoBehaviour {
         //GameObject new_instance = Instantiate(enemyPrefab1) as GameObject;
         new_instance.transform.position = new Vector2(leftLocation.x, leftLocation.y);
         // this is slightly changing the y dimension of the BoxCollider of the unit to create the illusion, that different units walk at different depths
-        new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
+        //new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
     }
 
     public void spawnRightGoblin() {
@@ -53,7 +53,7 @@ public class SpawnEngine : MonoBehaviour {
         new_instance.GetComponent<SpriteRenderer>().flipX = true;
         new_instance.GetComponent<UnitGeneral>().onLeftPlayerSide = false;
         // this is slightly changing the y dimension of the BoxCollider of the unit to create the illusion, that different units walk at different depths
-        new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
+        //new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
     }
 
     public void spawnRightSkeleton() {
@@ -62,7 +62,7 @@ public class SpawnEngine : MonoBehaviour {
         new_instance.GetComponent<SpriteRenderer>().flipX = true;
         new_instance.GetComponent<UnitGeneral>().onLeftPlayerSide = false;
         // this is slightly changing the y dimension of the BoxCollider of the unit to create the illusion, that different units walk at different depths
-        new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
+        //new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
     }
 
     public void spawnRightFungus() {
@@ -71,7 +71,7 @@ public class SpawnEngine : MonoBehaviour {
         new_instance.GetComponent<SpriteRenderer>().flipX = true;
         new_instance.GetComponent<UnitGeneral>().onLeftPlayerSide = false;
         // this is slightly changing the y dimension of the BoxCollider of the unit to create the illusion, that different units walk at different depths
-        new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
+        //new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
     }
 
     //spawn a random unit on the right side
@@ -81,7 +81,7 @@ public class SpawnEngine : MonoBehaviour {
             spawnRightGoblin();
         } else if(rnd < 0.7) {
             spawnRightSkeleton();
-        } else {
+        } else if(rnd < 1.0) {
             spawnRightFungus();
         }
         //spawnRightFungus();

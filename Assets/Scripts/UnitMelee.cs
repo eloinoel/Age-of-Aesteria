@@ -29,6 +29,8 @@ public class UnitMelee : MonoBehaviour {
     public float attack3HurtDelay = 0.0f;
     public float retaliateHurtDelay = 0.0f;
 
+    private GameObject enemy = null;
+
     private Animator m_animator;
     private bool fighting = false;
     private int attackCounter = 0;
@@ -64,7 +66,7 @@ public class UnitMelee : MonoBehaviour {
                 if (collision.gameObject.GetComponent<UnitMelee>() == null) { return; }
                 if (timeSinceAttack >= delay && doFight) { Attack(collision.gameObject); }
             } else {
-                enterFight();
+                enterFight(collision.gameObject);
             }
         }
 
@@ -96,12 +98,13 @@ public class UnitMelee : MonoBehaviour {
         }
     }
 
-    public void enterFight() {
+    public void enterFight(GameObject opponent) {
         // stop running animation, when encountering an enemy
         if(this.GetComponent<UnitMovement>() != null) { this.GetComponent<UnitMovement>().haltMoving(); }
         if(this.GetComponent<UnitGeneral>().health <= 0) { return; }
         m_animator.SetInteger("AnimState", 0);
         fighting = true;
+        enemy = opponent;
     }
 
     public void Attack(GameObject enemy) {
@@ -198,4 +201,7 @@ public class UnitMelee : MonoBehaviour {
         if(this.GetComponent<UnitGeneral>().health > 0) { m_animator.SetInteger("AnimState", 1); }
         fighting = false;
     }
+
+    public bool getFighting() { return this.fighting; }
+    public GameObject getEnemy() { return this.enemy; }
 }

@@ -9,6 +9,7 @@ public class VoiceRecognition : MonoBehaviour
 {
     private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
+    private AudioSource _audioSource;
 
     void Start() {
         actions.Add("meteor", MeteorRain);
@@ -16,9 +17,28 @@ public class VoiceRecognition : MonoBehaviour
         actions.Add("charge", Charge);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray()); //keys = strings
-        Debug.Log("Started KeywordRecognizer with words " + actions.Keys.ToString());
+        Debug.Log("Started KeywordRecognizer with words " + string.Join("\n", actions.Keys.ToArray()));
+        printMicrophones();
+
+        /*AudioClip microphoneInput;
+        if(Microphone.devices.Length > 0)
+        {
+            microphoneInput = Microphone.Start(Microphone.devices[3], true, 999, 44100);
+        }*/
+        _audioSource = GetComponent<AudioSource>();
+        Debug.Log(_audioSource.ToString());
+
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
         keywordRecognizer.Start();
+    }
+
+
+    private void printMicrophones()
+    {
+        foreach(var item in Microphone.devices)
+        {
+            Debug.Log(item.ToString());
+        }
     }
 
     private void RecognizedSpeech(PhraseRecognizedEventArgs speech) {

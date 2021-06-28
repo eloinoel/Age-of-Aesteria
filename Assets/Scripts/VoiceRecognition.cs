@@ -9,7 +9,10 @@ public class VoiceRecognition : MonoBehaviour
 {
     private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
-    private AudioSource _audioSource;
+
+    public GameObject abilitySpawner;
+
+
 
     void Start() {
         actions.Add("meteor", MeteorRain);
@@ -17,16 +20,8 @@ public class VoiceRecognition : MonoBehaviour
         actions.Add("charge", Charge);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray()); //keys = strings
-        Debug.Log("Started KeywordRecognizer with words " + string.Join("\n", actions.Keys.ToArray()));
-        printMicrophones();
-
-        /*AudioClip microphoneInput;
-        if(Microphone.devices.Length > 0)
-        {
-            microphoneInput = Microphone.Start(Microphone.devices[3], true, 999, 44100);
-        }*/
-        _audioSource = GetComponent<AudioSource>();
-        Debug.Log(_audioSource.ToString());
+        Debug.Log("Started KeywordRecognizer" /*with words " + string.Join("\n", actions.Keys.ToArray())*/);
+        //printMicrophones();
 
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
         keywordRecognizer.Start();
@@ -48,7 +43,7 @@ public class VoiceRecognition : MonoBehaviour
 
     private void MeteorRain()
     {
-        Debug.Log("MeteorRain Function");
+        abilitySpawner.GetComponent<AbilitySpawner>().activateMeteorShower();
     }
 
     private void Attack()

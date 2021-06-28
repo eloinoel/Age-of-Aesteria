@@ -113,7 +113,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6}
+  m_Size: {x: 0.5, y: 0.6}
   m_EdgeRadius: 0
 --- !u!50 &4398869189019565652
 Rigidbody2D:
@@ -169,7 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 1
   health: 50
-  deathTime: 1
+  deathTime: 0.5
+  hurtTime: 0.1
 --- !u!114 &4398869189019565650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  waitTime: 0.5
 --- !u!114 &4398869189019565651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,11 +207,15 @@ MonoBehaviour:
   dodgeRetaliate: 1
   dodgeRetaliationDamage: 10
   dodgeRetaliationStun: 2
-  attack1Lag: 0.5
-  attack2Lag: 0.5
-  attack3Lag: 0.5
+  attack1Lag: 2
+  attack2Lag: 2
+  attack3Lag: 2
   hurtLag: 1
   dodgeLag: 2
-  combo1Lag: 0.25
-  combo2Lag: 0.25
-  combo3Lag: 0.25
+  combo1Lag: 1.25
+  combo2Lag: 1.25
+  combo3Lag: 1.25
+  attack1HurtDelay: 0.4
+  attack2HurtDelay: 0.4
+  attack3HurtDelay: 0.4
+  retaliateHurtDelay: 1.1

@@ -855,6 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ffe547484cabc447a56978e3e96ce9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilitySpawner: {fileID: 8191114097910919580}
 --- !u!4 &350379829
 Transform:
   m_ObjectHideFlags: 0
@@ -867,7 +868,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &375734130
 GameObject:
@@ -6066,7 +6067,8 @@ MonoBehaviour:
   enemyPrefab2: {fileID: 8684944776907128972, guid: 76e2fb39c0aa55f449524da99f9707d0, type: 3}
   enemyPrefab3: {fileID: 2448260195393476389, guid: 8efa48585d71e3e45a3497f3fa10faad, type: 3}
   respawnTime: 2
-  spawnForBoth: 0
+  spawnLeftb: 0
+  spawnRightb: 0
   leftLocation: {x: -16, y: -4.5}
   rightLocation: {x: 16, y: -4.5}
 --- !u!4 &1841868783
@@ -7118,7 +7120,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1719244, y: 1}
+    m_SensorSize: {x: 1.6524487, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7135,7 +7137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104573771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -688.5, y: -316.0025, z: -10}
+  m_LocalPosition: {x: -523, y: -315.5025, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271827815}
@@ -7317,7 +7319,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8191114097910919579
+--- !u!1 &8191114097910919580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8191114097910919578}
+  - component: {fileID: 8191114097910919581}
+  m_Layer: 0
+  m_Name: AbilitySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &8191114097910919581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7329,7 +7348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206e0712daaf3bf4e9e2e9e42ddc4f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meteor: {fileID: 1404296675533268182, guid: ac5b937195ce3174abaa6aecc4fa6be4, type: 3}
+  meteor: {fileID: 0}
   startvelocity: {x: 10, y: -3}
   posleft: -25
   posright: 0
@@ -7337,20 +7356,3 @@ MonoBehaviour:
   duration: 5
   meteorsPerSpawn: 2
   fireRate: 0.5
---- !u!1 &8191114097910919580
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8191114097910919578}
-  - component: {fileID: 8191114097910919579}
-  m_Layer: 0
-  m_Name: MeteorRainSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1

@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class UnitMovement : MonoBehaviour {
     public float speed = 1.0f;
+    public float waitTime = 0.5f;
 
     private Animator m_animator;
     private Rigidbody2D rigid_body;
     private Vector2 screenBounds;
+
+    private bool move = true;
+    private float sinceStop = 0.0f;
+    private bool halted = false;
 
     void Start() {
         m_animator = this.GetComponent<Animator>();
@@ -25,10 +30,34 @@ public class UnitMovement : MonoBehaviour {
             Destroy(this.gameObject);
         }*/
 
-        if (this.GetComponent<UnitGeneral>().onLeftPlayerSide) {
-            rigid_body.velocity = new Vector2(speed, 0);
-        } else {
-            rigid_body.velocity = new Vector2(-speed, 0);
+        if(move) {
+            if (this.GetComponent<UnitGeneral>().onLeftPlayerSide) {
+                rigid_body.velocity = new Vector2(speed, 0);
+            } else {
+                rigid_body.velocity = new Vector2(-speed, 0);
+            }
         }
+        if(!move && !halted && Time.time - sinceStop >= waitTime) { startMoving(); }
+    }
+
+    public void startMoving() {
+        this.move = true;
+        m_animator.SetInteger("AnimState", 1);
+    }
+
+    public void stopMoving() {
+        this.move = false;
+        m_animator.SetInteger("AnimState", 0);
+        sinceStop = Time.time;
+    }
+
+    public void haltMoving() {
+        this.halted = true;
+        this.stopMoving();
+    }
+
+    public void unhaltMoving() {
+        this.halted = false;
+        this.startMoving();
     }
 }

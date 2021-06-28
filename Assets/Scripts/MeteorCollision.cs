@@ -20,7 +20,7 @@ public class MeteorCollision : MonoBehaviour
         GameObject collided = collision.gameObject;
 
         if (collided.GetComponent<UnitGeneral>() != null && (!collided.GetComponent<UnitGeneral>().onLeftPlayerSide)) {
-            collided.GetComponent<UnitGeneral>().hurt(damage);
+            collided.GetComponent<UnitGeneral>().hurt(damage, 0.0f);
             Destroy(this.gameObject);
         } else if(collided.GetComponent<UnitGeneral>() != null && (collided.GetComponent<UnitGeneral>().onLeftPlayerSide))
         {

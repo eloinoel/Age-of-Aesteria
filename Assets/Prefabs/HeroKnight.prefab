@@ -170,6 +170,7 @@ MonoBehaviour:
   onLeftPlayerSide: 1
   health: 100
   deathTime: 1
+  hurtTime: 0.1
 --- !u!114 &7964595881207251756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  waitTime: 0.5
 --- !u!114 &7964595881207251757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,11 +207,15 @@ MonoBehaviour:
   dodgeRetaliate: 0
   dodgeRetaliationDamage: 0
   dodgeRetaliationStun: 0
-  attack1Lag: 0.5
-  attack2Lag: 0.5
-  attack3Lag: 1
-  hurtLag: 0.25
-  dodgeLag: 0.25
-  combo1Lag: 0.25
-  combo2Lag: 0.25
-  combo3Lag: 0.5
+  attack1Lag: 1.5
+  attack2Lag: 1.5
+  attack3Lag: 3
+  hurtLag: 1
+  dodgeLag: 1.25
+  combo1Lag: 1.25
+  combo2Lag: 1.25
+  combo3Lag: 2.5
+  attack1HurtDelay: 0.2
+  attack2HurtDelay: 0.2
+  attack3HurtDelay: 0.2
+  retaliateHurtDelay: 0

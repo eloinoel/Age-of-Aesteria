@@ -12,7 +12,8 @@ public class SpawnEngine : MonoBehaviour {
     public GameObject enemyPrefab3;
 
     public float respawnTime = 5.0f;
-    public bool spawnForBoth = false;
+    public bool spawnLeftb = false;
+    public bool spawnRightb = false;
     public Vector2 leftLocation = new Vector2(-8, -2);
     public Vector2 rightLocation = new Vector2(8, -2);
 
@@ -90,8 +91,8 @@ public class SpawnEngine : MonoBehaviour {
     private IEnumerator spawn() {
         while(true) {
             yield return new WaitForSeconds(respawnTime);
-            if(spawnForBoth) { spawnLeftHero(); }
-            spawnRight();                     
+            if(spawnLeftb) { spawnLeftHero(); }
+            if(spawnRightb) { spawnRight(); }                       
         }
     }
 }

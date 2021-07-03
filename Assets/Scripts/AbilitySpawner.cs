@@ -17,12 +17,12 @@ public class MeteorSpawner : MonoBehaviour
 
     public float fireRate = 0.5f;
 
-    private bool active = false;
+    private bool meteors_active = false;
     private float startTime = 0.0f;
 
     private float nextFire = 0.0f;
 
-    private void Spawn()
+    private void SpawnMeteors()
     {
         for(int i = 0; i<meteorsPerSpawn; i++)
         {
@@ -39,7 +39,7 @@ public class MeteorSpawner : MonoBehaviour
     public void activateMeteorShower()
     {
         startTime = Time.time;
-        active = true;
+        meteors_active = true;
     }
 
     
@@ -61,16 +61,16 @@ public class MeteorSpawner : MonoBehaviour
         }
 
         //stop when duration exceeded limit
-        if(active)
+        if(meteors_active)
         {
             if (Time.time - startTime >= duration)
             {
-                active = false;
+                meteors_active = false;
             }
             if (Time.time >= nextFire)
             {
                 nextFire = Time.time + fireRate;
-                Spawn();
+                SpawnMeteors();
             }
         }
 

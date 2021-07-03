@@ -16,8 +16,15 @@ public class VoiceRecognition : MonoBehaviour
 
     void Start() {
         actions.Add("meteor", MeteorRain);
+        actions.Add("meteors", MeteorRain);
+        actions.Add("meteor rain", MeteorRain);
+        actions.Add("meteor storm", MeteorRain);
         actions.Add("attack", Attack);
+        actions.Add("berserk", Attack);
+        actions.Add("go berserk", Attack);
+        actions.Add("unlimited power", Attack);
         actions.Add("charge", Charge);
+        actions.Add("kill them all", Charge);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray()); //keys = strings
         Debug.Log("Started KeywordRecognizer" /*with words " + string.Join("\n", actions.Keys.ToArray())*/);

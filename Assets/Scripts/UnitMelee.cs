@@ -102,6 +102,7 @@ public class UnitMelee : MonoBehaviour {
         // stop running animation, when encountering an enemy
         if(this.GetComponent<UnitMovement>() != null) { this.GetComponent<UnitMovement>().haltMoving(); }
         if(this.GetComponent<UnitGeneral>().health <= 0) { return; }
+        this.GetComponent<UnitGeneral>().activateHealthBar();
         m_animator.SetInteger("AnimState", 0);
         fighting = true;
         enemy = opponent;
@@ -199,6 +200,7 @@ public class UnitMelee : MonoBehaviour {
         // start running animation after killing an enemy
         if(this.GetComponent<UnitMovement>() != null) { this.GetComponent<UnitMovement>().unhaltMoving(); }
         if(this.GetComponent<UnitGeneral>().health > 0) { m_animator.SetInteger("AnimState", 1); }
+        this.GetComponent<UnitGeneral>().deactivateHealthBar();
         fighting = false;
     }
 

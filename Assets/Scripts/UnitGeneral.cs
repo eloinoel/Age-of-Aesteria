@@ -5,6 +5,7 @@ using UnityEngine;
 public class UnitGeneral : MonoBehaviour {
     public bool onLeftPlayerSide = true;
     public int health = 100;
+    public HealthBar healthBar;
     public float deathTime = 1.0f; // length of afterdeath animation
     public float hurtTime = 1.0f;
 
@@ -25,6 +26,8 @@ public class UnitGeneral : MonoBehaviour {
     void Start() {
         defaultShader = Shader.Find("Sprites/Default");
         hurtShader = Shader.Find("GUI/Text Shader");
+        healthBar.setMaxHealth(health);
+        deactivateHealthBar();
     }
 
     void Update() {
@@ -39,6 +42,7 @@ public class UnitGeneral : MonoBehaviour {
             this.GetComponent<SpriteRenderer>().material.color = new Color(241.0f/255.0f, 241.0f/255f, 241.0f/255.0f, 255.0f/255.0f);
 
             this.health -= pendDamage;
+            this.healthBar.setHealth(this.health);
             this.pendDamage = 0;
             if (health <= 0) {
                 die();
@@ -62,6 +66,7 @@ public class UnitGeneral : MonoBehaviour {
         this.GetComponent<Rigidbody2D>().simulated = false;
         this.GetComponent<Animator>().SetTrigger("Death");
         lifeTime = deathTime;
+        deactivateHealthBar();
         if(this.GetComponent<UnitMelee>().getFighting() == true) { this.GetComponent<UnitMelee>().getEnemy().GetComponent<UnitMelee>().winFight(); }
     }
 
@@ -73,5 +78,13 @@ public class UnitGeneral : MonoBehaviour {
         pendDamage = damage;
 
         //this.GetComponent<Animator>().SetTrigger("Hurt");
+    }
+
+    public void activateHealthBar() {
+        transform.GetChild(0).gameObject.SetActive(true);
+    }
+
+    public void deactivateHealthBar() {
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 }

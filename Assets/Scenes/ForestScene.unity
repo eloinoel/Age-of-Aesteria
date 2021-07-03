@@ -6067,8 +6067,8 @@ MonoBehaviour:
   enemyPrefab2: {fileID: 8684944776907128972, guid: 76e2fb39c0aa55f449524da99f9707d0, type: 3}
   enemyPrefab3: {fileID: 2448260195393476389, guid: 8efa48585d71e3e45a3497f3fa10faad, type: 3}
   respawnTime: 2
-  spawnLeftb: 0
-  spawnRightb: 0
+  spawnLeftb: 1
+  spawnRightb: 1
   leftLocation: {x: -16, y: -4.5}
   rightLocation: {x: 16, y: -4.5}
 --- !u!4 &1841868783
@@ -7120,7 +7120,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6524487, y: 1}
+    m_SensorSize: {x: 1.8811475, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7137,7 +7137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104573771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -523, y: -315.5025, z: -10}
+  m_LocalPosition: {x: -688.5, y: -365.0025, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271827815}

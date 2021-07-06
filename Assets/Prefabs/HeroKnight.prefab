@@ -421,6 +421,8 @@ MonoBehaviour:
   onLeftPlayerSide: 1
   health: 100
   healthBar: {fileID: 6681531603030967860}
+  alwaysShowHealth: 0
+  showHealthTime: 2
   deathTime: 1
   hurtTime: 0.1
 --- !u!114 &7964595881207251756
@@ -452,25 +454,27 @@ MonoBehaviour:
   doFight: 1
   attackDamage: 30
   attackStun: 0
-  dodgeChance: 0.2
+  dodgeChance: 0
   comboChance: 0.5
   dodgeIsResist: 0
   resistFactor: 0.5
   dodgeRetaliate: 0
   dodgeRetaliationDamage: 0
   dodgeRetaliationStun: 0
-  attack1Lag: 1.5
-  attack2Lag: 1.5
-  attack3Lag: 3
+  attack1Lag: 1
+  attack2Lag: 1
+  attack3Lag: 1.5
   hurtLag: 1
   dodgeLag: 1.25
-  combo1Lag: 1.25
-  combo2Lag: 1.25
-  combo3Lag: 2.5
+  combo1Lag: 0.6
+  combo2Lag: 0.6
+  combo3Lag: 0.75
   attack1HurtDelay: 0.2
   attack2HurtDelay: 0.2
   attack3HurtDelay: 0.2
   retaliateHurtDelay: 0
+  buffTime: 5
+  sinceBuff: 0
 --- !u!1 &9218465322725276586
 GameObject:
   m_ObjectHideFlags: 0

@@ -524,6 +524,8 @@ MonoBehaviour:
   onLeftPlayerSide: 1
   health: 80
   healthBar: {fileID: 170875915181969043}
+  alwaysShowHealth: 0
+  showHealthTime: 2
   deathTime: 0.5
   hurtTime: 0.1
 --- !u!114 &8684944776907128981
@@ -538,7 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ceeb7fdb7076324494668ea4fe89f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
   waitTime: 0.5
 --- !u!114 &8684944776907128980
 MonoBehaviour:
@@ -553,24 +555,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doFight: 1
-  attackDamage: 20
+  attackDamage: 25
   attackStun: 0
   dodgeChance: 0
-  comboChance: 0.25
+  comboChance: 0.75
   dodgeIsResist: 0
   resistFactor: 0.5
   dodgeRetaliate: 0
   dodgeRetaliationDamage: 10
   dodgeRetaliationStun: 1
-  attack1Lag: 3.5
-  attack2Lag: 3.5
-  attack3Lag: 3.5
-  hurtLag: 2.5
-  dodgeLag: 2.5
-  combo1Lag: 2
-  combo2Lag: 2
-  combo3Lag: 2
+  attack1Lag: 0.75
+  attack2Lag: 0.75
+  attack3Lag: 0.75
+  hurtLag: 1
+  dodgeLag: 1
+  combo1Lag: 0.75
+  combo2Lag: 0.5
+  combo3Lag: 1
   attack1HurtDelay: 0.5
   attack2HurtDelay: 0.5
   attack3HurtDelay: 0.5
   retaliateHurtDelay: 0
+  buffTime: 5
+  sinceBuff: 0

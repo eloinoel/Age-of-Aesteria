@@ -18,12 +18,13 @@ public class SpawnQueue : MonoBehaviour {
     void Update() {
         timeSinceSpawn += Time.deltaTime;
         // TODO - for now cost is just 1,2,3 seconds
+        // TODO - sometimes Peek() throws a Nullpointer apparently (The if should terminate earlier then though)
         if(buildOrders.Count > 0 && timeSinceSpawn >= (int) buildOrders.Peek()) {
             int next = (int) buildOrders.Dequeue();
             if(next == 1) {
-                spawn_engine.GetComponent<SpawnEngine>().spawnLeft();
+                spawn_engine.GetComponent<SpawnEngine>().spawnLeftBandit();
             } else if(next == 2) {
-                spawn_engine.GetComponent<SpawnEngine>().spawnLeft2();
+                spawn_engine.GetComponent<SpawnEngine>().spawnLeftValkyrie();
             } else if(next == 3) {
                 spawn_engine.GetComponent<SpawnEngine>().spawnLeftHero();
             }

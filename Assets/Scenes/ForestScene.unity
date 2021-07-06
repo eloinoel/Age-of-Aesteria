@@ -584,8 +584,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 1
-  health: 1500
+  health: 15000
   healthBar: {fileID: 938541782}
+  alwaysShowHealth: 1
+  showHealthTime: 2
   deathTime: 1
   hurtTime: 0.1
 --- !u!114 &173001178
@@ -622,6 +624,8 @@ MonoBehaviour:
   attack2HurtDelay: 0
   attack3HurtDelay: 0
   retaliateHurtDelay: 0
+  buffTime: 5
+  sinceBuff: 0
 --- !u!95 &173001179
 Animator:
   serializedVersion: 3
@@ -2104,7 +2108,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 11.466, y: -3.318, z: -92.075}
 --- !u!1 &715806031
 GameObject:
@@ -3389,6 +3393,8 @@ MonoBehaviour:
   attack2HurtDelay: 0
   attack3HurtDelay: 0
   retaliateHurtDelay: 0
+  buffTime: 5
+  sinceBuff: 0
 --- !u!114 &940205814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3402,8 +3408,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 0
-  health: 1500
+  health: 15000
   healthBar: {fileID: 892304678}
+  alwaysShowHealth: 1
+  showHealthTime: 2
   deathTime: 1
   hurtTime: 0.1
 --- !u!95 &940205815
@@ -6738,14 +6746,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d73233f643bae3e45b73538bb1fee2cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitPrefab1: {fileID: 1258768165757650192, guid: d8a051c9a9858494fa55c3264e13387d, type: 3}
-  unitPrefab2: {fileID: 2448260195393476389, guid: 8efa48585d71e3e45a3497f3fa10faad, type: 3}
+  unitPrefab1: {fileID: 4158092487273403608, guid: 9fb9a8c142bde0b4896eb040138cfe06, type: 3}
+  unitPrefab2: {fileID: 6736378778990943449, guid: 1db486dbaf41cca42b4c491c4cf98b97, type: 3}
   unitPrefab3: {fileID: 7964595881207251754, guid: a524e4bb28b253c4d8f760d640e043a2, type: 3}
   enemyPrefab1: {fileID: 4398869189019565653, guid: 42c0966e4dbb9f3498adf580b8f35a3b, type: 3}
   enemyPrefab2: {fileID: 8684944776907128972, guid: 76e2fb39c0aa55f449524da99f9707d0, type: 3}
   enemyPrefab3: {fileID: 3460906270622762382, guid: 0420c329363fbc94eb6c90a4b03b43f9, type: 3}
-  respawnTime: 2
-  spawnLeftb: 0
+  respawnTime: 5
+  spawnLeftb: 1
   spawnRightb: 1
   leftLocation: {x: -16, y: -4.5}
   rightLocation: {x: 16, y: -4.5}
@@ -8051,7 +8059,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.4341958, y: 1}
+    m_SensorSize: {x: 3.0550847, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8068,7 +8076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104573771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -637.5, y: -443.5025, z: -10}
+  m_LocalPosition: {x: -721, y: -235.0025, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271827815}

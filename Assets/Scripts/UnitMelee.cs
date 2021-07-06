@@ -29,6 +29,11 @@ public class UnitMelee : MonoBehaviour {
     public float attack3HurtDelay = 0.0f;
     public float retaliateHurtDelay = 0.0f;
 
+    private bool buffed = false;
+    public float buffTime = 5.0f;
+    public float sinceBuff = 0.0f;
+    private float attackBuff = 1.0f;
+
     private GameObject enemy = null;
 
     private Animator m_animator;
@@ -54,7 +59,17 @@ public class UnitMelee : MonoBehaviour {
             dodgeIncepted = false; 
             dodgeDelay = 0.0f;
             sinceDodgeInception = 0.0f;
-            m_animator.SetTrigger("Block"); 
+            m_animator.SetTrigger("Block");
+            delay = dodgeLag;
+        }
+
+        // end buffed state
+        if(buffed && Time.time - sinceBuff >= buffTime) {
+            buffed = false;
+            attackBuff = 1.0f;
+            this.GetComponent<UnitMovement>().setSpeedBuff(1.0f);
+            this.GetComponent<UnitGeneral>().setRegenerationBuff(0.0f);
+
         }
     }
 
@@ -63,8 +78,8 @@ public class UnitMelee : MonoBehaviour {
         if(collision.gameObject.GetComponent<UnitGeneral>() == null) { return; }
         if(collision.gameObject.GetComponent<UnitGeneral>().onLeftPlayerSide != this.GetComponent<UnitGeneral>().onLeftPlayerSide) {
             if(fighting) {
-                if (collision.gameObject.GetComponent<UnitMelee>() == null) { return; }
-                if (timeSinceAttack >= delay && doFight) { Attack(collision.gameObject); }
+                if(collision.gameObject.GetComponent<UnitMelee>() == null) { return; }
+                if(timeSinceAttack >= delay && doFight) { Attack(collision.gameObject); }
             } else {
                 enterFight(collision.gameObject);
             }
@@ -110,64 +125,40 @@ public class UnitMelee : MonoBehaviour {
 
     public void Attack(GameObject enemy) {
         if(comboChance > Random.value) {
-            attackCounter = ((attackCounter + 1) % 3);
             if(attackCounter == 0) {
                 delay = combo1Lag;
-                enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, attackDamage, attackStun, attack1HurtDelay);
+                enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, (int) (attackDamage*attackBuff), attackStun, attack1HurtDelay);
             } else if(attackCounter == 1) {
                 delay = combo2Lag;
-                enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, attackDamage, attackStun, attack2HurtDelay);
+                enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, (int) (attackDamage*attackBuff), attackStun, attack2HurtDelay);
             } else if(attackCounter == 2) {
                 delay = combo3Lag;
-                enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, attackDamage, attackStun, attack3HurtDelay);
+                enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, (int) (attackDamage*attackBuff), attackStun, attack3HurtDelay);
             }
+            m_animator.SetTrigger("Attack" + (attackCounter+1));
+            attackCounter = ((attackCounter + 1) % 3);
         } else {
             attackCounter = 0;
             if(attackCounter == 0) {
                 delay = attack1Lag;
-                enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, attackDamage, attackStun, attack1HurtDelay);
+                enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, (int) (attackDamage*attackBuff), attackStun, attack1HurtDelay);
             } else if(attackCounter == 1) {
                 delay = attack2Lag;
-                enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, attackDamage, attackStun, attack2HurtDelay);
+                enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, (int) (attackDamage*attackBuff), attackStun, attack2HurtDelay);
             } else if(attackCounter == 2) {
                 delay = attack3Lag;
-                enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, attackDamage, attackStun, attack3HurtDelay);
+                enemy.GetComponent<UnitMelee>().beAttacked(this.gameObject, (int) (attackDamage*attackBuff), attackStun, attack3HurtDelay);
             }
+            m_animator.SetTrigger("Attack" + (attackCounter+1));
         }
-        m_animator.SetTrigger("Attack" + (attackCounter+1));
         timeSinceAttack = 0.0f;
     }
 
-    /*public void beAttacked(GameObject enemy, int damage, float stun) {
-        // dodge attack (set dodgeChance to 0 if character doesnt have dodge-Animation)
-        if(dodgeChance < Random.value) {
-            this.GetComponent<UnitGeneral>().health -= damage;
-            if(this.GetComponent<UnitGeneral>().health <= 0) {
-                // set up everything for death animation and destruction of gameObject
-                this.GetComponent<UnitGeneral>().die();
-                fighting = false;
-                enemy.GetComponent<UnitMelee>().winFight();
-            } else {
-                delay += hurtLag + stun;
-                m_animator.SetTrigger("Hurt");
-            }
-        } else {
-            if(dodgeIsResist) {
-                this.GetComponent<UnitGeneral>().health -= (int) (damage*resistFactor);
-                m_animator.SetTrigger("Block"); // could set special resist animation
-            } else {
-                m_animator.SetTrigger("Block");
-            }
-            delay = dodgeLag;
-            if (dodgeRetaliate) { Retaliate(enemy); }
-        }
-    }*/
-
-    public void beAttacked(GameObject enemy, int damage, float stun, float hurtDelay)
-    {
+    public void beAttacked(GameObject enemy, int damage, float stun, float hurtDelay) {
         // dodge attack (set dodgeChance to 0 if character doesnt have dodge-Animation) (and cannot dodge when not idle)
-        if (dodgeChance < Random.value || !m_animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) {
-            this.GetComponent<UnitGeneral>().hurt(damage, hurtDelay);
+        if(dodgeChance < Random.value || timeSinceAttack < delay) { //!m_animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")
+            this.GetComponent<UnitGeneral>().hurt(damage, hurtDelay, false);
+            this.resetCombo();
             if (this.GetComponent<UnitGeneral>().health <= 0) {
                 // set up everything for death animation and destruction of gameObject
                 fighting = false;
@@ -177,8 +168,9 @@ public class UnitMelee : MonoBehaviour {
                 //m_animator.SetTrigger("Hurt");
             }
         } else {
-            if (dodgeIsResist) {
-                this.GetComponent<UnitGeneral>().hurt((int)(damage * resistFactor), hurtDelay);
+            Debug.Log("Dodged");
+            if(dodgeIsResist) {
+                this.GetComponent<UnitGeneral>().hurt((int)(damage * resistFactor), hurtDelay, true);
                 dodgeIncepted = true;
                 dodgeDelay = hurtDelay;
                 sinceDodgeInception = Time.time;
@@ -187,8 +179,8 @@ public class UnitMelee : MonoBehaviour {
                 dodgeDelay = hurtDelay;
                 sinceDodgeInception = Time.time;
             }
-            delay = dodgeLag;
-            if (dodgeRetaliate) { Retaliate(enemy); }
+            delay = hurtDelay;
+            if(dodgeRetaliate) { Retaliate(enemy); }
         }
     }
 
@@ -200,15 +192,23 @@ public class UnitMelee : MonoBehaviour {
         // start running animation after killing an enemy
         if(this.GetComponent<UnitMovement>() != null) { this.GetComponent<UnitMovement>().unhaltMoving(); }
         if(this.GetComponent<UnitGeneral>().health > 0) { m_animator.SetInteger("AnimState", 1); }
-        this.GetComponent<UnitGeneral>().deactivateHealthBar();
+        //this.GetComponent<UnitGeneral>().deactivateHealthBar();
         fighting = false;
+        this.resetCombo();
     }
 
     public bool getFighting() { return this.fighting; }
     public GameObject getEnemy() { return this.enemy; }
 
-    public void buff()
-    {
-        Debug.Log(this.gameObject.name);
+    public void buff() {
+        buffed = true;
+        sinceBuff = Time.time;
+        attackBuff = 1.5f;
+        this.GetComponent<UnitMovement>().setSpeedBuff(1.5f);
+        this.GetComponent<UnitGeneral>().setRegenerationBuff(0.1f);
+    }
+
+    private void resetCombo() {
+        this.attackCounter = 0;
     }
 }

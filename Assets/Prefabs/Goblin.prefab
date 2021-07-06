@@ -278,7 +278,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.1}
+  m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -289,7 +289,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.6}
+  m_Size: {x: 0.5, y: 0.4}
   m_EdgeRadius: 0
 --- !u!50 &4398869189019565652
 Rigidbody2D:
@@ -344,8 +344,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 1
+  unitType: 1
   health: 50
   healthBar: {fileID: 8126280831562214897}
+  alwaysShowHealth: 0
+  showHealthTime: 2
   deathTime: 0.5
   hurtTime: 0.1
 --- !u!114 &4398869189019565650
@@ -377,25 +380,27 @@ MonoBehaviour:
   doFight: 1
   attackDamage: 15
   attackStun: 0
-  dodgeChance: 0.7
-  comboChance: 0.25
+  dodgeChance: 0
+  comboChance: 0.2
   dodgeIsResist: 0
   resistFactor: 0.5
   dodgeRetaliate: 1
   dodgeRetaliationDamage: 10
-  dodgeRetaliationStun: 2
-  attack1Lag: 2
-  attack2Lag: 2
-  attack3Lag: 2
+  dodgeRetaliationStun: 1.5
+  attack1Lag: 1.5
+  attack2Lag: 1.5
+  attack3Lag: 1.5
   hurtLag: 1
-  dodgeLag: 2
-  combo1Lag: 1.25
-  combo2Lag: 1.25
-  combo3Lag: 1.25
+  dodgeLag: 2.5
+  combo1Lag: 0.75
+  combo2Lag: 0.75
+  combo3Lag: 0.75
   attack1HurtDelay: 0.4
   attack2HurtDelay: 0.4
   attack3HurtDelay: 0.4
   retaliateHurtDelay: 1.1
+  buffTime: 5
+  sinceBuff: 0
 --- !u!1 &5780279225859584508
 GameObject:
   m_ObjectHideFlags: 0

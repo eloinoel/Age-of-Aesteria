@@ -14,6 +14,8 @@ public class UnitMovement : MonoBehaviour {
     private float sinceStop = 0.0f;
     private bool halted = false;
 
+    private float speedBuff = 1.0f;
+
     void Start() {
         m_animator = this.GetComponent<Animator>();
         rigid_body = this.GetComponent<Rigidbody2D>();
@@ -29,12 +31,19 @@ public class UnitMovement : MonoBehaviour {
         /*if(transform.position.x < screenBounds.x) {
             Destroy(this.gameObject);
         }*/
-
-        if(move) {
-            if (this.GetComponent<UnitGeneral>().onLeftPlayerSide) {
+        if(this.GetComponent<UnitMelee>().getFighting()) {
+            if(this.GetComponent<UnitGeneral>().onLeftPlayerSide) {
                 rigid_body.velocity = new Vector2(speed, 0);
             } else {
                 rigid_body.velocity = new Vector2(-speed, 0);
+            }
+        }
+
+        if(move) {
+            if (this.GetComponent<UnitGeneral>().onLeftPlayerSide) {
+                rigid_body.velocity = new Vector2(speed*speedBuff, 0);
+            } else {
+                rigid_body.velocity = new Vector2(-speed*speedBuff, 0);
             }
         }
         if(!move && !halted && Time.time - sinceStop >= waitTime) { startMoving(); }
@@ -59,5 +68,9 @@ public class UnitMovement : MonoBehaviour {
     public void unhaltMoving() {
         this.halted = false;
         this.startMoving();
+    }
+
+    public void setSpeedBuff(float speedBuff) {
+        this.speedBuff = speedBuff;
     }
 }

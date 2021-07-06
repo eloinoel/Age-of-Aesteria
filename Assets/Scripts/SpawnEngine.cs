@@ -25,15 +25,14 @@ public class SpawnEngine : MonoBehaviour {
         
     }
 
-    public void spawnLeft() {
+    public void spawnLeftBandit() {
         GameObject new_instance = Instantiate(unitPrefab1) as GameObject;
         new_instance.transform.position = new Vector2(leftLocation.x, leftLocation.y);
         // this is slightly changing the y dimension of the BoxCollider of the unit to create the illusion, that different units walk at different depths
         //new_instance.GetComponent<BoxCollider2D>().size = new Vector2(new_instance.GetComponent<BoxCollider2D>().size.x, new_instance.GetComponent<BoxCollider2D>().size.y + (Random.value / 4.0f));
     }
 
-    public void spawnLeft2()
-    {
+    public void spawnLeftValkyrie() {
         GameObject new_instance = Instantiate(unitPrefab2) as GameObject;
         new_instance.transform.position = new Vector2(leftLocation.x, leftLocation.y);
         // this is slightly changing the y dimension of the BoxCollider of the unit to create the illusion, that different units walk at different depths
@@ -87,6 +86,18 @@ public class SpawnEngine : MonoBehaviour {
         }
     }
 
+    //spawn a random unit on the right side
+    public void spawnLeft() {
+        float rnd = Random.value;
+        if (rnd < 0.4) {
+            spawnLeftBandit();
+        } else if (rnd < 0.7) {
+            spawnLeftValkyrie();
+        } else if (rnd < 1.0) {
+            spawnLeftHero();
+        }
+    }
+
     private IEnumerator spawn() {
         while(true) {
             yield return new WaitForSeconds(respawnTime);
@@ -99,7 +110,7 @@ public class SpawnEngine : MonoBehaviour {
                     if(collision == null || collision.gameObject == null) { continue; }
                     if(collision.gameObject.tag != "ground" && collision.gameObject.tag != "blue_fort") { leftClear = false; break; }
                 }
-                if(leftClear) { spawnLeftHero(); }
+                if(leftClear) { spawnLeft(); }
             }
             if(spawnRightb) {
                 // this tests whether there is something blocking the spawn location

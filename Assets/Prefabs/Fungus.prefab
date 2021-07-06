@@ -269,8 +269,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 1
-  health: 300
+  health: 200
   healthBar: {fileID: 3460906271283494765}
+  alwaysShowHealth: 0
+  showHealthTime: 2
   deathTime: 1
   hurtTime: 0.1
 --- !u!114 &3460906270622762378
@@ -309,11 +311,11 @@ MonoBehaviour:
   dodgeRetaliate: 0
   dodgeRetaliationDamage: 10
   dodgeRetaliationStun: 1
-  attack1Lag: 5
-  attack2Lag: 5
-  attack3Lag: 5
-  hurtLag: 2
-  dodgeLag: 1.5
+  attack1Lag: 1
+  attack2Lag: 1
+  attack3Lag: 1
+  hurtLag: 1.5
+  dodgeLag: 1
   combo1Lag: 3
   combo2Lag: 3
   combo3Lag: 3
@@ -321,6 +323,8 @@ MonoBehaviour:
   attack2HurtDelay: 0.75
   attack3HurtDelay: 0.75
   retaliateHurtDelay: 0
+  buffTime: 5
+  sinceBuff: 0
 --- !u!1 &3460906271283494771
 GameObject:
   m_ObjectHideFlags: 0

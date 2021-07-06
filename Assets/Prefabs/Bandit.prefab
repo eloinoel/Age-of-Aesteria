@@ -244,8 +244,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 1
+  unitType: 0
   health: 75
   healthBar: {fileID: 4158092488349392528}
+  lootPopup: {fileID: 8422982290847985692, guid: 56f090f22166ec511ba8e5c43b90c983, type: 3}
   alwaysShowHealth: 0
   showHealthTime: 2
   deathTime: 1

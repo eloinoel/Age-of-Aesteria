@@ -7,19 +7,19 @@ public class Shadow : MonoBehaviour {
     public float time = 0.5f;
 
     void Start() {
-        StartCoroutine(tryDespawn());
+        StartCoroutine(tick());
     }
 
-    private void despawn() {
+    private void tryDespawn() {
         int r = rand.Next(1, 10);
         if(r > 1) return;
         Destroy(this.gameObject);
     }
 
-    private IEnumerator tryDespawn() {
+    private IEnumerator tick() {
         while(true) {
             yield return new WaitForSeconds(time);
-            despawn();
+            tryDespawn();
         }
     }
 }

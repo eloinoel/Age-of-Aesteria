@@ -587,6 +587,7 @@ MonoBehaviour:
   unitType: 0
   health: 15000
   healthBar: {fileID: 938541782}
+  lootDisplay: {fileID: 0}
   alwaysShowHealth: 1
   showHealthTime: 2
   deathTime: 1
@@ -3522,6 +3523,7 @@ MonoBehaviour:
   unitType: 0
   health: 15000
   healthBar: {fileID: 892304678}
+  lootDisplay: {fileID: 0}
   alwaysShowHealth: 1
   showHealthTime: 2
   deathTime: 1

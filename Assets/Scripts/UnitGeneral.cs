@@ -7,6 +7,8 @@ public class UnitGeneral : MonoBehaviour {
     public int unitType;
     public int health = 100;
     public HealthBar healthBar;
+
+    public LootDisplay lootDisplay;
     public bool alwaysShowHealth = false;
     public float showHealthTime = 2.0f;
 
@@ -30,7 +32,8 @@ public class UnitGeneral : MonoBehaviour {
     private Shader defaultShader;
     private Shader hurtShader;
 
-    private int[] LOOT = { 0, 11, 16, 21 }; 
+    // TODO: clarify unit indices
+    private int[] LOOT = { 10, 11, 16, 21 }; 
 
     void Start() {
         defaultShader = Shader.Find("Sprites/Default");
@@ -79,7 +82,10 @@ public class UnitGeneral : MonoBehaviour {
 
     // if you want to kill your boy...
     public void die() {
-        if(!onLeftPlayerSide) Money.money += LOOT[this.unitType];
+        if(!onLeftPlayerSide) {
+            Money.money += LOOT[this.unitType];
+            lootAnimation();
+        }
         this.GetComponent<Rigidbody2D>().simulated = false;
         this.GetComponent<Animator>().SetTrigger("Death");
         lifeTime = deathTime;
@@ -110,4 +116,9 @@ public class UnitGeneral : MonoBehaviour {
     public bool getHurtIncepted() { return this.hurtIncepted; }
 
     public void setRegenerationBuff(float regenerationBuff) { this.regenerationBuff = regenerationBuff; }
+
+    public void lootAnimation() {
+        LootDisplay lootPopup = Instantiate(lootDisplay, transform.position, Quaternion.identity).GetComponent<LootDisplay>();
+        lootPopup.SetLootText(LOOT[this.unitType]);
+    }
 }

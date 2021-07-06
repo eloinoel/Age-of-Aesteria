@@ -200,12 +200,13 @@ public class UnitMelee : MonoBehaviour {
     public bool getFighting() { return this.fighting; }
     public GameObject getEnemy() { return this.enemy; }
 
-    public void buff() {
+    public void buff(float duration) {
+        this.buffTime = duration;
         buffed = true;
         sinceBuff = Time.time;
         attackBuff = 1.5f;
         this.GetComponent<UnitMovement>().setSpeedBuff(1.5f);
-        this.GetComponent<UnitGeneral>().setRegenerationBuff(0.1f);
+        this.GetComponent<UnitGeneral>().setRegenerationBuff(0.1f); //TODO
     }
 
     private void resetCombo() {

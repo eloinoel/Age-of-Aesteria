@@ -224,7 +224,7 @@ public class AbilitySpawner : MonoBehaviour
                     UnitGeneral unitGeneral = nearbyObject.gameObject.GetComponent<UnitGeneral>();
                     if (unitGeneral != null && nearbyObject.name != "red_fort" && nearbyObject.name != "blue_fort")
                     {
-                        unitGeneral.hurt(fireDmgPerTick, 0.0f);
+                        unitGeneral.hurt(fireDmgPerTick, 0.0f, false);
                     }
                 }
             }

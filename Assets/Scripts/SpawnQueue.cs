@@ -8,12 +8,17 @@ public class SpawnQueue : MonoBehaviour {
     public GameObject spawn_engine;
 
     public Text queueText;
+
+    public LootDisplay lootDisplay;
+
     public int capacity = 5;
 
     private Queue buildOrders;
     private float timeSinceSpawn = 0.0f; // time since last spawn
 
     public Vector2 queueBaseLocation = new Vector2(-10, 6);
+
+    public Vector2 castleLocation = new Vector2(-13, -3);
 
     // first elements are just for offset
     private string[] NAMES = { "", "Unit 1", "Unit 2", "Knight" };
@@ -47,6 +52,7 @@ public class SpawnQueue : MonoBehaviour {
         if(Money.money < COST[order]) return;
         Money.money -= COST[order];
         buildOrders.Enqueue(order);
+        costAnimation(COST[order]);
     }
 
     private void displayQueue() {
@@ -61,5 +67,10 @@ public class SpawnQueue : MonoBehaviour {
             newQueueDisplay += " | ";
         }
         queueText.text = newQueueDisplay;
+    }
+
+    public void costAnimation(int cost) {
+        LootDisplay costPopup = Instantiate(lootDisplay, castleLocation, Quaternion.identity).GetComponent<LootDisplay>();
+        costPopup.SetLootText(cost * -1);
     }
 }

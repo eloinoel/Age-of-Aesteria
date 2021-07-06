@@ -19,8 +19,6 @@ public class LootDisplay : MonoBehaviour
 
     void Start()
     {
-        transform.LookAt(2 * transform.position - Camera.main.transform.position);
-
         iniPos = transform.position;
         float dist = Random.Range(minDist, maxDist);
         targetPos = iniPos + new Vector2(0, dist);

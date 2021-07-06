@@ -207,7 +207,7 @@ public class UnitMelee : MonoBehaviour {
     public bool getFighting() { return this.fighting; }
     public GameObject getEnemy() { return this.enemy; }
 
-    public void buff()
+    public void buff(float duration)
     {
         Debug.Log(this.gameObject.name);
     }

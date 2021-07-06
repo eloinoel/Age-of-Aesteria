@@ -21,15 +21,18 @@ public class AbilitySpawner : MonoBehaviour
     private float nextFire = 0.0f;
 
     //ATTACK BUFF VARIABLES
-    private bool skillshot = false;
     public GameObject ressurection_vfx;
     public GameObject buff_vfx;
     public Image skillshot_marker;
     public float atk_y = 0;
-    private GameObject beam;
-    private float timeBeam = 3.5f;
-    private float timeField = 3f;
+    public float buffRadius = 5f;
+
+    private bool skillshot = false;
+    private bool skillactive = false;
+    private float buffvfxDuration = 3.5f;
+    private bool buffvfx = false;
     private float atk_start = 0f;
+    private Vector3 buffPosition;
 
 
     private void SpawnMeteors()
@@ -46,6 +49,24 @@ public class AbilitySpawner : MonoBehaviour
      * Use this method to trigger one meteor shower
      * the parameters can be tweaked in the unity gameObject
      */
+    private void MeteorShower()
+    {
+        //stop when duration exceeded limit
+        if (meteors_active)
+        {
+            if (Time.time - startTime >= duration)
+            {
+                meteors_active = false;
+            }
+            if (Time.time >= nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                SpawnMeteors();
+            }
+        }
+
+    }
+
     public void activateMeteorShower()
     {
         startTime = Time.time;
@@ -53,36 +74,74 @@ public class AbilitySpawner : MonoBehaviour
     }
 
    
-    public void atk_Buff()
+    private void atk_Buff()
     {
-        //spawn beam
+        //skillshot images follows mouse
+        if(skillshot)
+        {
+            //Mouse Input
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            skillshot_marker.transform.position = new Vector3(mousePosition.x, atk_y + (skillshot_marker.GetComponent<RectTransform>().rect.height * skillshot_marker.transform.localScale.y)/2, 0f);
+        }
+
+        //spawn beam and despawn skillshot image
         if(skillshot && Input.GetMouseButton(0))
         {
-            skillshot = true;
             atk_start = Time.time;
             skillshot_marker.GetComponent<Image>().enabled = false;
+            buffPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             GameObject beam = Instantiate(ressurection_vfx) as GameObject;
+            beam.transform.position = new Vector3(buffPosition.x, atk_y + 0.2f, 0f);
+            skillshot = false;
+            skillactive = true;
+            buffvfx = false;
         }
 
-        //spawn field with delay
-        if (Time.time - atk_start >= 1 )
+        //while ability is active
+        if(skillactive)
         {
-            
-        }
+            //spawn field with delay
+            if (!buffvfx && Time.time - atk_start >= 0.7)
+            {
+                GameObject field = Instantiate(buff_vfx) as GameObject;
+                field.transform.position = new Vector3(buffPosition.x, atk_y + 0.2f, 0f);
+                buffvfx = true;
 
-        //despawn beam
-        if (Time.time - atk_start >= timeBeam)
-        {
-            
-        }
-
-
-        //despawn field
-        if (Time.time - atk_start >= nextFire)
-        {
-             
-        }
+                //get nearby ally units
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(buffPosition.x, atk_y + 0.2f), buffRadius);
+                //OnDrawGizmos(); //DEBUG
+                //Debug.Log(colliders.Length);
+                foreach (Collider2D nearbyObject in colliders)
+                {
+                    UnitGeneral unitGeneral = nearbyObject.gameObject.GetComponent<UnitGeneral>();
+                    if(unitGeneral != null && unitGeneral.onLeftPlayerSide && nearbyObject.name != "blue_fort")
+                    {
+                        nearbyObject.gameObject.GetComponent<UnitMelee>().buff();
+                    }
+                }
+            }
+            if (Time.time - atk_start >= buffvfxDuration)
+            {
+                //Destroy(field);
+                skillactive = false;
+                buffvfx = false; 
+            }
+        }  
     }
+
+    public void activateBuff()
+    {
+        skillshot_marker.GetComponent<Image>().enabled = true;
+        skillshot = true;
+    }
+
+    //DEBUG TO SHOW CIRCLES
+    /*private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        //Use the same vars you use to draw your Overlap SPhere to draw your Wire Sphere.
+        Gizmos.DrawWireSphere(new Vector3(buffPosition.x, atk_y + 0.2f, 0f), buffRadius);
+    }*/
 
 
     // Start is called before the first frame update
@@ -98,20 +157,13 @@ public class AbilitySpawner : MonoBehaviour
     void Update()
     {
         atk_Buff();
+        MeteorShower();
 
         //------------------------------------------------------------------
         //Attack Buff
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!skillshot && Input.GetKeyDown(KeyCode.E))
         {
-            skillshot_marker.GetComponent<Image>().enabled = true;    
-        }
-
-        //Mouse Input
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-        {
-            skillshot_marker.transform.position = new Vector3(hit.point.x, skillshot_marker.transform.position.y, skillshot_marker.transform.position.z);
+            activateBuff();
         }
 
         //------------------------------------------------------------------
@@ -120,19 +172,7 @@ public class AbilitySpawner : MonoBehaviour
         {
             activateMeteorShower();
         }
-        //stop when duration exceeded limit
-        if (meteors_active)
-        {
-            if (Time.time - startTime >= duration)
-            {
-                meteors_active = false;
-            }
-            if (Time.time >= nextFire)
-            {
-                nextFire = Time.time + fireRate;
-                SpawnMeteors();
-            }
-        }
+        
 
 
     }

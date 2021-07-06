@@ -19,10 +19,12 @@ public class VoiceRecognition : MonoBehaviour
         actions.Add("meteors", MeteorRain);
         actions.Add("meteor rain", MeteorRain);
         actions.Add("meteor storm", MeteorRain);
-        actions.Add("attack", Attack);
-        actions.Add("berserk", Attack);
-        actions.Add("go berserk", Attack);
-        actions.Add("unlimited power", Attack);
+        actions.Add("Holy light", Buff);
+        actions.Add("light", Buff);
+        actions.Add("lights blessing", Buff);
+        actions.Add("shining light", Buff);
+        actions.Add("blessing", Buff);
+        actions.Add("suns blessing", Buff);
         actions.Add("charge", Charge);
         actions.Add("kill them all", Charge);
 
@@ -53,9 +55,9 @@ public class VoiceRecognition : MonoBehaviour
         abilitySpawner.GetComponent<AbilitySpawner>().activateMeteorShower();
     }
 
-    private void Attack()
+    private void Buff()
     {
-        Debug.Log("Attack Buff Function");
+        abilitySpawner.GetComponent<AbilitySpawner>().activateBuff();
     }
 
     private void Charge()

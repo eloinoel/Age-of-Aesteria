@@ -1,15 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnQueue : MonoBehaviour {
 
     public GameObject spawn_engine;
+
+    public Text queueText;
     public int capacity = 5;
 
     private Queue buildOrders;
     private float timeSinceSpawn = 0.0f; // time since last spawn
 
+    public Vector2 queueBaseLocation = new Vector2(-10, 6);
+
+    // first elements are just for offset
+    private string[] NAMES = { "", "Unit 1", "Unit 2", "Knight" };
+
+    private int[] COST = { 0, 10, 15, 20 };
 
     void Start() {
         buildOrders = new Queue();
@@ -30,11 +39,27 @@ public class SpawnQueue : MonoBehaviour {
             }
             timeSinceSpawn = 0.0f;
         }
-        // TODO - draw current queue
+        displayQueue();
     }
 
     public void try_queueOrder(int order) {
-        if(buildOrders.Count >= capacity) { return; }
+        if(buildOrders.Count >= capacity) return;
+        if(Money.money < COST[order]) return;
+        Money.money -= COST[order];
         buildOrders.Enqueue(order);
+    }
+
+    private void displayQueue() {
+        // TODO - display images
+        string newQueueDisplay = "";
+        float timeToSpawn = timeSinceSpawn * -1;
+        foreach (var element in buildOrders) {
+            newQueueDisplay += NAMES[(int)element];
+            timeToSpawn += (float)(int)element;
+            newQueueDisplay += " ";
+            newQueueDisplay += timeToSpawn.ToString("0");
+            newQueueDisplay += " | ";
+        }
+        queueText.text = newQueueDisplay;
     }
 }

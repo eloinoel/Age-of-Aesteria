@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UnitGeneral : MonoBehaviour {
     public bool onLeftPlayerSide = true;
+    public int unitType;
     public int health = 100;
     public HealthBar healthBar;
     public bool alwaysShowHealth = false;
@@ -28,6 +29,8 @@ public class UnitGeneral : MonoBehaviour {
 
     private Shader defaultShader;
     private Shader hurtShader;
+
+    private int[] LOOT = { 0, 11, 16, 21 }; 
 
     void Start() {
         defaultShader = Shader.Find("Sprites/Default");
@@ -76,6 +79,7 @@ public class UnitGeneral : MonoBehaviour {
 
     // if you want to kill your boy...
     public void die() {
+        if(!onLeftPlayerSide) Money.money += LOOT[this.unitType];
         this.GetComponent<Rigidbody2D>().simulated = false;
         this.GetComponent<Animator>().SetTrigger("Death");
         lifeTime = deathTime;

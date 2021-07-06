@@ -344,6 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 1
+  unitType: 1
   health: 50
   healthBar: {fileID: 8126280831562214897}
   alwaysShowHealth: 0

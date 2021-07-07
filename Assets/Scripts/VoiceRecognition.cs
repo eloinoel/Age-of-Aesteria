@@ -15,18 +15,21 @@ public class VoiceRecognition : MonoBehaviour
 
 
     void Start() {
-        actions.Add("meteor", MeteorRain);
+        actions.Add("Meteor", MeteorRain);
+        actions.Add("mitior", MeteorRain);
         actions.Add("meteors", MeteorRain);
         actions.Add("meteor rain", MeteorRain);
-        actions.Add("meteor storm", MeteorRain);
-        actions.Add("Holy light", Buff);
+        actions.Add("meteor hagel", MeteorRain);
+        actions.Add("Lichtschein", Buff);
         actions.Add("light", Buff);
-        actions.Add("lights blessing", Buff);
-        actions.Add("shining light", Buff);
+        actions.Add("Segen", Buff);
+        actions.Add("Heiliges Licht", Buff);
+        actions.Add("Licht", Buff);
+        actions.Add("baff", Buff);
         actions.Add("blessing", Buff);
-        actions.Add("suns blessing", Buff);
-        actions.Add("hellfire", Hellfire);
-        actions.Add("fire", Hellfire);
+        actions.Add("Licht Segen", Buff);
+        actions.Add("Höllenfeuer", Hellfire);
+        actions.Add("Feuer", Hellfire);
         actions.Add("feier", Hellfire);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray()); //keys = strings

@@ -31,7 +31,7 @@ public class SpawnQueue : MonoBehaviour {
     public Vector2 castleLocation = new Vector2(-13, -3);
 
     // first elements are just for offset
-    private string[] Names = { "", "Bandit", "Valkyrie", "HeroKnight" };
+    private string[] Names = { "", "Bandit", "Walküre", "Ritter" };
 
     private int[] COST = { 0, 10, 15, 20 };
 
@@ -93,7 +93,7 @@ public class SpawnQueue : MonoBehaviour {
     private void displayQueue() {
         string trainText = "";
         if(buildOrders.Count >= 1) {
-            trainText += "Training "+Names[(int) buildOrders.Peek()]+" "+"...";
+            trainText += "Trainiere "+Names[(int) buildOrders.Peek()]+" "+"...";
 
         }
         queueText.text = trainText;

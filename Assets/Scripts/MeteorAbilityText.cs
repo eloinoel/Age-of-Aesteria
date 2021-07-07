@@ -17,7 +17,7 @@ public class MeteorAbilityText : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerEnter(PointerEventData eventData) {
         mouse_over = true;
-        abilityText.text = "Space - Meteor Storm";
+        abilityText.text = "Space - Meteorhagel";
     }
 
     public void OnPointerExit(PointerEventData eventData) {

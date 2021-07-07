@@ -285,9 +285,18 @@ public class AbilitySpawner : MonoBehaviour
 
     public void updateCooldowns()
     {
-        timeSinceMeteor = Time.time - startTime;
-        timeSinceBuff = Time.time - atk_start;
-        timeSinceHellfire = Time.time - fire_start;
+        if(Time.time >= 7)
+        {
+            timeSinceMeteor = Time.time - startTime;
+            timeSinceBuff = Time.time - atk_start;
+            timeSinceHellfire = Time.time - fire_start;
+        } else
+        {
+            timeSinceMeteor = meteorCooldown;
+            timeSinceBuff = buffCooldown;
+            timeSinceHellfire = hellfireCooldown;
+        }
+        
     }
 
     //FISSURE
@@ -307,10 +316,6 @@ public class AbilitySpawner : MonoBehaviour
         skillshot_marker.GetComponent<Image>().enabled = false;
         //skillshot_marker.transform.position.Set(0f, atk_y, 0f);
         fire_skillshot_img.GetComponent<Image>().enabled = false;
-
-        atk_start = -10f;
-        fire_start = -10f;
-        atk_start = -10f;
     }
 
     // Update is called once per frame

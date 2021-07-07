@@ -12,6 +12,9 @@ public class SpawnQueue : MonoBehaviour {
     public float HeroKnightSpawnDelay = 7.0f;
 
     public Text queueText;
+
+    public LootDisplay lootDisplay;
+
     public int capacity = 5;
 
     private Queue buildOrders;
@@ -24,6 +27,8 @@ public class SpawnQueue : MonoBehaviour {
     private Sprite HeroKnight;
 
     public Vector2 queueBaseLocation = new Vector2(-10, 6);
+
+    public Vector2 castleLocation = new Vector2(-13, -3);
 
     // first elements are just for offset
     private string[] Names = { "", "Bandit", "Valkyrie", "HeroKnight" };
@@ -82,6 +87,7 @@ public class SpawnQueue : MonoBehaviour {
         Money.money -= COST[order];
         buildOrders.Enqueue(order);
         if(buildOrders.Count == 1) { startCooldown(); timeSinceSpawn = 0.0f; }
+        costAnimation(COST[order]);
     }
 
     private void displayQueue() {
@@ -114,5 +120,10 @@ public class SpawnQueue : MonoBehaviour {
 
     private void startCooldown() {
         cooldownAnimator.SetTrigger("Cooldown" + this.buildOrders.Peek());
+    }
+
+    public void costAnimation(int cost) {
+        LootDisplay costPopup = Instantiate(lootDisplay, castleLocation, Quaternion.identity).GetComponent<LootDisplay>();
+        costPopup.SetLootText(cost * -1);
     }
 }

@@ -347,6 +347,7 @@ MonoBehaviour:
   unitType: 1
   health: 50
   healthBar: {fileID: 8126280831562214897}
+  lootDisplay: {fileID: 4717637458432036455, guid: c023eb1823d9902b2b40e071e4c25131, type: 3}
   alwaysShowHealth: 0
   showHealthTime: 2
   deathTime: 0.5

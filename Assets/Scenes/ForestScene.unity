@@ -662,6 +662,7 @@ MonoBehaviour:
   unitType: 0
   health: 15000
   healthBar: {fileID: 938541782}
+  lootDisplay: {fileID: 0}
   alwaysShowHealth: 1
   showHealthTime: 2
   deathTime: 1
@@ -849,8 +850,10 @@ MonoBehaviour:
   ValkyrieSpawnDelay: 1.5
   HeroKnightSpawnDelay: 2.9
   queueText: {fileID: 202626504}
+  lootDisplay: {fileID: 4717637458432036455, guid: c023eb1823d9902b2b40e071e4c25131, type: 3}
   capacity: 5
-  queueBaseLocation: {x: -8, y: 2}
+  queueBaseLocation: {x: -12, y: 3}
+  castleLocation: {x: -13, y: -3}
 --- !u!224 &233276776
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3850,6 +3853,7 @@ MonoBehaviour:
   unitType: 0
   health: 15000
   healthBar: {fileID: 892304678}
+  lootDisplay: {fileID: 0}
   alwaysShowHealth: 1
   showHealthTime: 2
   deathTime: 1
@@ -9066,3 +9070,12 @@ MonoBehaviour:
   skillshot_marker: {fileID: 1792200359}
   atk_y: -4.5
   buffRadius: 2.9
+  buff_duration: 10
+  orb_vfx: {fileID: 0}
+  explosion_vfx: {fileID: 0}
+  fire_vfx: {fileID: 0}
+  fire_skillshot_img: {fileID: 0}
+  fireHitBox: {x: 5.2, y: 3}
+  fireDuration: 3
+  fireDmgPerTick: 35
+  fireTickRate: 0.5

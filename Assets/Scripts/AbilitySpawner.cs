@@ -26,6 +26,7 @@ public class AbilitySpawner : MonoBehaviour
     public Image skillshot_marker;
     public float atk_y = 0;
     public float buffRadius = 5f;
+    public float buff_duration = 10;
 
     private bool skillshot = false;
     private bool skillactive = false;
@@ -33,6 +34,25 @@ public class AbilitySpawner : MonoBehaviour
     private bool buffvfx = false;
     private float atk_start = 0f;
     private Vector3 buffPosition;
+
+    //HELL FIRE VARIABLES
+    public GameObject orb_vfx;
+    public GameObject explosion_vfx;
+    public GameObject fire_vfx;
+    public Image fire_skillshot_img;
+    public Vector2 fireHitBox = new Vector2(5.2f, 3);
+    public float fireDuration = 3;
+    public int fireDmgPerTick = 35;
+    public float fireTickRate = 0.5f;
+
+    private bool fire_skillshot = false;
+    private bool fire_active = false;
+    private Vector3 firePosition;
+    private float fire_start = 0f;
+    private bool explosion_instantiated = false;
+    private bool fire_instantiated = false;
+    private GameObject fire;
+    private float nextFireTick = 0f;
 
 
     private void SpawnMeteors()
@@ -116,10 +136,11 @@ public class AbilitySpawner : MonoBehaviour
                     UnitGeneral unitGeneral = nearbyObject.gameObject.GetComponent<UnitGeneral>();
                     if(unitGeneral != null && unitGeneral.onLeftPlayerSide && nearbyObject.name != "blue_fort")
                     {
-                        nearbyObject.gameObject.GetComponent<UnitMelee>().buff();
+                        nearbyObject.gameObject.GetComponent<UnitMelee>().buff(buff_duration);
                     }
                 }
             }
+            //animation over
             if (Time.time - atk_start >= buffvfxDuration)
             {
                 //Destroy(field);
@@ -129,6 +150,7 @@ public class AbilitySpawner : MonoBehaviour
         }  
     }
 
+
     public void activateBuff()
     {
         skillshot_marker.GetComponent<Image>().enabled = true;
@@ -136,12 +158,93 @@ public class AbilitySpawner : MonoBehaviour
     }
 
     //DEBUG TO SHOW CIRCLES
-    /*private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         //Use the same vars you use to draw your Overlap SPhere to draw your Wire Sphere.
-        Gizmos.DrawWireSphere(new Vector3(buffPosition.x, atk_y + 0.2f, 0f), buffRadius);
-    }*/
+        //Gizmos.DrawWireSphere(new Vector3(buffPosition.x, atk_y + 0.2f, 0f), buffRadius);
+        Gizmos.DrawWireCube(new Vector3(firePosition.x, atk_y + fireHitBox.y/2, 0f), new Vector3(fireHitBox.x, fireHitBox.y, 0)); 
+    }
+
+    public void hellFire()
+    {
+        //skillshot images follows mouse
+        if (fire_skillshot)
+        {
+            //Mouse Input
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            fire_skillshot_img.transform.position = new Vector3(mousePosition.x, atk_y, 0f);//TODO
+        }
+
+        //spawn beam and despawn skillshot image
+        if (fire_skillshot && Input.GetMouseButton(0))
+        {
+            //disable skillshot img
+            fire_start = Time.time;
+            fire_skillshot_img.GetComponent<Image>().enabled = false;
+
+            //instantiate first particle system
+            firePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            GameObject orb = Instantiate(orb_vfx) as GameObject;
+            orb.transform.position = new Vector3(firePosition.x, atk_y + 0.2f, 0f); //TODO
+            fire_skillshot = false;
+            fire_active = true;
+            explosion_instantiated = false;
+            fire_instantiated = false;
+        }
+
+        //while skill active, spawn particle systems, apply damage
+        if(fire_active)
+        {
+            //instantiate explosion
+            if(!explosion_instantiated && Time.time - fire_start >= 0.7)   //TODO
+            {
+                GameObject explosion = Instantiate(explosion_vfx) as GameObject;
+                explosion.transform.position = new Vector3(firePosition.x, atk_y + 0.1f, 0f); //TODO
+                explosion_instantiated = true;
+            }
+
+            //instantiate fire
+            if(!fire_instantiated && Time.time - fire_start >= 1.0)   
+            {
+                fire = Instantiate(fire_vfx) as GameObject;
+                fire.transform.position = new Vector3(firePosition.x, atk_y, 0f); //TODO
+                fire_instantiated = true;
+            }
+
+            //apply damage
+            if(Time.time - fire_start >= 1.0 && Time.time > nextFireTick)
+            {
+                nextFireTick = Time.time + fireTickRate;
+
+                //get nearby units
+                Collider2D[] colliders = Physics2D.OverlapAreaAll(new Vector2(firePosition.x - (fireHitBox.x/2), atk_y), new Vector2(firePosition.x + (fireHitBox.x/2), atk_y + fireHitBox.y));
+                foreach (Collider2D nearbyObject in colliders)
+                {
+                    UnitGeneral unitGeneral = nearbyObject.gameObject.GetComponent<UnitGeneral>();
+                    if (unitGeneral != null && nearbyObject.name != "red_fort" && nearbyObject.name != "blue_fort")
+                    {
+                        unitGeneral.hurt(fireDmgPerTick, 0.0f, false);
+                    }
+                }
+            }
+            
+            //stop fire animation
+            if(fire_instantiated && Time.time - startTime >= fireDuration + 1)
+            {
+                Destroy(fire);
+                fire_instantiated = false;
+                explosion_instantiated = false;
+                fire_active = false;
+            }
+        }
+    }
+
+    public void activateHellFire()
+    {
+        fire_skillshot_img.GetComponent<Image>().enabled = true;
+        fire_skillshot = true;
+    }
 
 
     // Start is called before the first frame update
@@ -150,7 +253,8 @@ public class AbilitySpawner : MonoBehaviour
         // ignore collision between Ally and Magic Layer
         Physics2D.IgnoreLayerCollision(7, 8);
         skillshot_marker.GetComponent<Image>().enabled = false;
-        skillshot_marker.transform.position.Set(0f, atk_y, 0f);
+        //skillshot_marker.transform.position.Set(0f, atk_y, 0f);
+        fire_skillshot_img.GetComponent<Image>().enabled = false;
     }
 
     // Update is called once per frame
@@ -158,6 +262,7 @@ public class AbilitySpawner : MonoBehaviour
     {
         atk_Buff();
         MeteorShower();
+        hellFire();
 
         //------------------------------------------------------------------
         //Attack Buff
@@ -172,7 +277,13 @@ public class AbilitySpawner : MonoBehaviour
         {
             activateMeteorShower();
         }
-        
+
+        //------------------------------------------------------------------
+        //Hellfire
+        if (!fire_skillshot && Input.GetKeyDown(KeyCode.Q))
+        {
+            activateHellFire();
+        }
 
 
     }

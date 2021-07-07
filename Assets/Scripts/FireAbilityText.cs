@@ -17,7 +17,7 @@ public class FireAbilityText : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerEnter(PointerEventData eventData) {
         mouse_over = true;
-        abilityText.text = "Q - Hellfire";
+        abilityText.text = "Q - Höllenfeuer";
     }
 
     public void OnPointerExit(PointerEventData eventData) {

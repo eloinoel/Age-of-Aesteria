@@ -17,7 +17,7 @@ public class LightAbilityText : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerEnter(PointerEventData eventData) {
         mouse_over = true;
-        abilityText.text = "E - Lights Blessing";
+        abilityText.text = "E - Lichtsegen";
     }
 
     public void OnPointerExit(PointerEventData eventData) {

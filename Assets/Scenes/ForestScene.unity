@@ -795,7 +795,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 127.57172, y: -22.934296}
+  m_AnchoredPosition: {x: 127.57172, y: -22.934326}
   m_SizeDelta: {x: 14.4465, y: 6.4137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &233276777
@@ -7125,7 +7125,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841868781}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b97fe5d859e8b5ebe86384f1ed465c21, type: 3}
   m_Name: 
@@ -7450,6 +7450,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879197555}
+  m_CullTransparentMesh: 1
+--- !u!1 &1881430680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1881430681}
+  - component: {fileID: 1881430683}
+  - component: {fileID: 1881430682}
+  m_Layer: 0
+  m_Name: fire_skillshot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1881430681
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881430680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2089631052}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.02, y: -2.98}
+  m_SizeDelta: {x: 5.2, y: 1.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1881430682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881430680}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6666667}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: c1e3f33eaf413ba4c87d08d364186ba3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1881430683
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881430680}
   m_CullTransparentMesh: 1
 --- !u!1001 &1886848068
 PrefabInstance:
@@ -8207,7 +8282,7 @@ GameObject:
   - component: {fileID: 2089631054}
   - component: {fileID: 2089631053}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: Skillshot_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8225,6 +8300,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1792200358}
+  - {fileID: 1881430681}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8474,7 +8550,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1843138, y: 1}
+    m_SensorSize: {x: 2.015126, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8491,7 +8567,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104573771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -400, y: -182.40755, z: -7.181329}
+  m_LocalPosition: {x: -400.00003, y: -197.8332, z: -6.6722274}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271827815}
@@ -8672,10 +8748,10 @@ MonoBehaviour:
   atk_y: -4.5
   buffRadius: 2.9
   buff_duration: 10
-  orb_vfx: {fileID: 0}
-  explosion_vfx: {fileID: 0}
-  fire_vfx: {fileID: 0}
-  fire_skillshot_img: {fileID: 0}
+  orb_vfx: {fileID: 7567199887679750944, guid: 366898d4184cdba42b26da99d5c78257, type: 3}
+  explosion_vfx: {fileID: 5283124041093662892, guid: 2950e8d66eb1fdc48b18fa18bd280347, type: 3}
+  fire_vfx: {fileID: 3581202134021124114, guid: 04a6ad38e13cd194da25a4303d4407a9, type: 3}
+  fire_skillshot_img: {fileID: 1881430682}
   fireHitBox: {x: 5.2, y: 3}
   fireDuration: 3
   fireDmgPerTick: 35

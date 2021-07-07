@@ -43,8 +43,8 @@ public class LootDisplay : MonoBehaviour
 
     public void SetLootText(int loot)
     {
-        Debug.Log("setting loot: ");
-        Debug.Log(loot);
+        //Debug.Log("setting loot: ");
+        //Debug.Log(loot);
         text.text = loot.ToString();
     }
 }

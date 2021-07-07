@@ -8,6 +8,7 @@ public class AbilitySpawner : MonoBehaviour
     //METEOR VARIABLES
     public GameObject meteor;
     public Vector2 startvelocity = new Vector2(30, -3);
+    public float meteorCooldown = 5f;
 
     public float posleft = -25;
     public float posright = 25;
@@ -19,6 +20,7 @@ public class AbilitySpawner : MonoBehaviour
     private bool meteors_active = false;
     private float startTime = 0.0f;
     private float nextFire = 0.0f;
+    private float timeSinceMeteor = 0f;
 
     //ATTACK BUFF VARIABLES
     public GameObject ressurection_vfx;
@@ -27,6 +29,7 @@ public class AbilitySpawner : MonoBehaviour
     public float atk_y = 0;
     public float buffRadius = 5f;
     public float buff_duration = 10;
+    public float buffCooldown = 3f;
 
     private bool skillshot = false;
     private bool skillactive = false;
@@ -34,6 +37,7 @@ public class AbilitySpawner : MonoBehaviour
     private bool buffvfx = false;
     private float atk_start = 0f;
     private Vector3 buffPosition;
+    private float timeSinceBuff;
 
     //HELL FIRE VARIABLES
     public GameObject orb_vfx;
@@ -44,6 +48,7 @@ public class AbilitySpawner : MonoBehaviour
     public float fireDuration = 3;
     public int fireDmgPerTick = 35;
     public float fireTickRate = 0.5f;
+    public float hellfireCooldown = 7f;
 
     private bool fire_skillshot = false;
     private bool fire_active = false;
@@ -53,6 +58,7 @@ public class AbilitySpawner : MonoBehaviour
     private bool fire_instantiated = false;
     private GameObject fire;
     private float nextFireTick = 0f;
+    private float timeSinceHellfire;
 
 
     private void SpawnMeteors()
@@ -89,8 +95,11 @@ public class AbilitySpawner : MonoBehaviour
 
     public void activateMeteorShower()
     {
-        startTime = Time.time;
-        meteors_active = true;
+        if(timeSinceMeteor >= meteorCooldown)
+        {
+            startTime = Time.time;
+            meteors_active = true;
+        }
     }
 
    
@@ -153,8 +162,12 @@ public class AbilitySpawner : MonoBehaviour
 
     public void activateBuff()
     {
-        skillshot_marker.GetComponent<Image>().enabled = true;
-        skillshot = true;
+        if(timeSinceBuff >= buffCooldown)
+        {
+            skillshot_marker.GetComponent<Image>().enabled = true;
+            skillshot = true;
+        }
+        
     }
 
     //DEBUG TO SHOW CIRCLES
@@ -173,7 +186,7 @@ public class AbilitySpawner : MonoBehaviour
         {
             //Mouse Input
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            fire_skillshot_img.transform.position = new Vector3(mousePosition.x, atk_y, 0f);//TODO
+            fire_skillshot_img.transform.position = new Vector3(mousePosition.x, atk_y + (fire_skillshot_img.GetComponent<RectTransform>().rect.height * fire_skillshot_img.transform.localScale.y) / 2, 0f);
         }
 
         //spawn beam and despawn skillshot image
@@ -186,7 +199,7 @@ public class AbilitySpawner : MonoBehaviour
             //instantiate first particle system
             firePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             GameObject orb = Instantiate(orb_vfx) as GameObject;
-            orb.transform.position = new Vector3(firePosition.x, atk_y + 0.2f, 0f); //TODO
+            orb.transform.position = new Vector3(firePosition.x, atk_y + fireHitBox.y/4, 0f); 
             fire_skillshot = false;
             fire_active = true;
             explosion_instantiated = false;
@@ -213,7 +226,9 @@ public class AbilitySpawner : MonoBehaviour
             }
 
             //apply damage
-            if(Time.time - fire_start >= 1.0 && Time.time > nextFireTick)
+            float tmp = Time.time - fire_start;
+            Debug.Log("curDuration: " + tmp + ", nextFireTick: " + nextFireTick + ", Time: " + Time.time);
+            if(Time.time - fire_start >= 1.0 && Time.time >= nextFireTick)
             {
                 nextFireTick = Time.time + fireTickRate;
 
@@ -224,15 +239,15 @@ public class AbilitySpawner : MonoBehaviour
                     UnitGeneral unitGeneral = nearbyObject.gameObject.GetComponent<UnitGeneral>();
                     if (unitGeneral != null && nearbyObject.name != "red_fort" && nearbyObject.name != "blue_fort")
                     {
+                        Debug.Log(unitGeneral.gameObject.name);
                         unitGeneral.hurt(fireDmgPerTick, 0.0f, false);
                     }
                 }
             }
             
             //stop fire animation
-            if(fire_instantiated && Time.time - startTime >= fireDuration + 1)
+            if(fire_instantiated && Time.time - fire_start >= fireDuration + 1)
             {
-                Destroy(fire);
                 fire_instantiated = false;
                 explosion_instantiated = false;
                 fire_active = false;
@@ -242,8 +257,18 @@ public class AbilitySpawner : MonoBehaviour
 
     public void activateHellFire()
     {
-        fire_skillshot_img.GetComponent<Image>().enabled = true;
-        fire_skillshot = true;
+        if(timeSinceHellfire >= hellfireCooldown)
+        {
+            fire_skillshot_img.GetComponent<Image>().enabled = true;
+            fire_skillshot = true;
+        } 
+    }
+
+    public void updateCooldowns()
+    {
+        timeSinceMeteor = Time.time - startTime;
+        timeSinceBuff = Time.time - atk_start;
+        timeSinceHellfire = Time.time - fire_start;
     }
 
 
@@ -263,6 +288,9 @@ public class AbilitySpawner : MonoBehaviour
         atk_Buff();
         MeteorShower();
         hellFire();
+
+        //update cooldowns
+        updateCooldowns();
 
         //------------------------------------------------------------------
         //Attack Buff

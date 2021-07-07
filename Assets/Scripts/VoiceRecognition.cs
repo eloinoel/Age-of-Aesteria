@@ -25,8 +25,9 @@ public class VoiceRecognition : MonoBehaviour
         actions.Add("shining light", Buff);
         actions.Add("blessing", Buff);
         actions.Add("suns blessing", Buff);
-        actions.Add("charge", Charge);
-        actions.Add("kill them all", Charge);
+        actions.Add("hellfire", Hellfire);
+        actions.Add("fire", Hellfire);
+        actions.Add("feier", Hellfire);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray()); //keys = strings
         Debug.Log("Started KeywordRecognizer" /*with words " + string.Join("\n", actions.Keys.ToArray())*/);
@@ -60,8 +61,8 @@ public class VoiceRecognition : MonoBehaviour
         abilitySpawner.GetComponent<AbilitySpawner>().activateBuff();
     }
 
-    private void Charge()
+    private void Hellfire()
     {
-        Debug.Log("Charge Attack Function");
+        abilitySpawner.GetComponent<AbilitySpawner>().activateHellFire();
     }
 }

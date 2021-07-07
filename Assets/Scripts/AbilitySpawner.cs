@@ -116,6 +116,7 @@ public class AbilitySpawner : MonoBehaviour
         //spawn beam and despawn skillshot image
         if(skillshot && Input.GetMouseButton(0))
         {
+
             atk_start = Time.time;
             skillshot_marker.GetComponent<Image>().enabled = false;
             buffPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

@@ -150,7 +150,7 @@ public class AbilityBar : MonoBehaviour {
     }
 
     public void setWarning(int ability) {
-        switch (cooldown) {
+        switch(ability) {
             case 1:
                 // Meteor Warning
                 meteorWarning = true;

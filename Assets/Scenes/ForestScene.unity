@@ -182,6 +182,8 @@ MonoBehaviour:
   meteorCounter: {fileID: 1579470294}
   lightCounter: {fileID: 1269733139}
   fireCounter: {fileID: 312987329}
+  grey: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 0.72156864}
+  warnColor: {r: 0.85882354, g: 0.07058824, b: 0.19215687, a: 0.72156864}
 --- !u!1 &63944604
 GameObject:
   m_ObjectHideFlags: 0

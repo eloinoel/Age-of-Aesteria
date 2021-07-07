@@ -20,6 +20,9 @@ public class VoiceRecognition : MonoBehaviour
         actions.Add("meteors", MeteorRain);
         actions.Add("meteor rain", MeteorRain);
         actions.Add("meteor hagel", MeteorRain);
+        actions.Add("Meteoritenhagel", MeteorRain);
+        actions.Add("Meteorsturm", MeteorRain);
+        actions.Add("Meteoritensturm", MeteorRain);
         actions.Add("Lichtschein", Buff);
         actions.Add("light", Buff);
         actions.Add("Segen", Buff);
@@ -29,6 +32,8 @@ public class VoiceRecognition : MonoBehaviour
         actions.Add("blessing", Buff);
         actions.Add("Licht Segen", Buff);
         actions.Add("Höllenfeuer", Hellfire);
+        actions.Add("Höllenbrand", Hellfire);
+        actions.Add("Brand", Hellfire);
         actions.Add("Feuer", Hellfire);
         actions.Add("feier", Hellfire);
         actions.Add("hellfeier", Hellfire);

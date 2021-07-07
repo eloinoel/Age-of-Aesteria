@@ -168,7 +168,6 @@ public class UnitMelee : MonoBehaviour {
                 //m_animator.SetTrigger("Hurt");
             }
         } else {
-            Debug.Log("Dodged");
             if(dodgeIsResist) {
                 this.GetComponent<UnitGeneral>().hurt((int)(damage * resistFactor), hurtDelay, true);
                 dodgeIncepted = true;

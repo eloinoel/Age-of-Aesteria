@@ -60,6 +60,7 @@ public class AbilitySpawner : MonoBehaviour
     private float nextFireTick = 0f;
     private float timeSinceHellfire;
 
+    public GameObject AbilityBar;
 
     private void SpawnMeteors()
     {
@@ -99,6 +100,8 @@ public class AbilitySpawner : MonoBehaviour
         {
             startTime = Time.time;
             meteors_active = true;
+            // set Cooldown
+            AbilityBar.GetComponent<AbilityBar>().setCooldown(1, meteorCooldown);
         }
     }
 
@@ -124,6 +127,8 @@ public class AbilitySpawner : MonoBehaviour
             skillshot = false;
             skillactive = true;
             buffvfx = false;
+            // set Cooldown
+            AbilityBar.GetComponent<AbilityBar>().setCooldown(2, buffCooldown);
         }
 
         //while ability is active
@@ -204,6 +209,8 @@ public class AbilitySpawner : MonoBehaviour
             fire_active = true;
             explosion_instantiated = false;
             fire_instantiated = false;
+            // set Cooldown
+            AbilityBar.GetComponent<AbilityBar>().setCooldown(3, hellfireCooldown);
         }
 
         //while skill active, spawn particle systems, apply damage

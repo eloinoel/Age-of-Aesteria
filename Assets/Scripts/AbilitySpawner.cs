@@ -102,6 +102,9 @@ public class AbilitySpawner : MonoBehaviour
             meteors_active = true;
             // set Cooldown
             AbilityBar.GetComponent<AbilityBar>().setCooldown(1, meteorCooldown);
+        } else
+        {
+            AbilityBar.GetComponent<AbilityBar>().setWarning(1);
         }
     }
 
@@ -173,6 +176,9 @@ public class AbilitySpawner : MonoBehaviour
             resetSkillshotAbilities();
             skillshot_marker.GetComponent<Image>().enabled = true;
             skillshot = true;
+        } else
+        {
+            AbilityBar.GetComponent<AbilityBar>().setWarning(2);
         }
         
     }
@@ -236,7 +242,7 @@ public class AbilitySpawner : MonoBehaviour
 
             //apply damage
             float tmp = Time.time - fire_start;
-            Debug.Log("curDuration: " + tmp + ", nextFireTick: " + nextFireTick + ", Time: " + Time.time);
+            //Debug.Log("curDuration: " + tmp + ", nextFireTick: " + nextFireTick + ", Time: " + Time.time);
             if(Time.time - fire_start >= 1.0 && Time.time >= nextFireTick)
             {
                 nextFireTick = Time.time + fireTickRate;
@@ -248,7 +254,7 @@ public class AbilitySpawner : MonoBehaviour
                     UnitGeneral unitGeneral = nearbyObject.gameObject.GetComponent<UnitGeneral>();
                     if (unitGeneral != null && nearbyObject.name != "red_fort" && nearbyObject.name != "blue_fort")
                     {
-                        Debug.Log(unitGeneral.gameObject.name);
+                        //Debug.Log(unitGeneral.gameObject.name);
                         unitGeneral.hurt(fireDmgPerTick, 0.0f, false);
                     }
                 }
@@ -271,7 +277,10 @@ public class AbilitySpawner : MonoBehaviour
             resetSkillshotAbilities();
             fire_skillshot_img.GetComponent<Image>().enabled = true;
             fire_skillshot = true;
-        } 
+        } else
+        {
+            AbilityBar.GetComponent<AbilityBar>().setWarning(3);
+        }
     }
 
     public void updateCooldowns()
@@ -298,6 +307,10 @@ public class AbilitySpawner : MonoBehaviour
         skillshot_marker.GetComponent<Image>().enabled = false;
         //skillshot_marker.transform.position.Set(0f, atk_y, 0f);
         fire_skillshot_img.GetComponent<Image>().enabled = false;
+
+        atk_start = -10f;
+        fire_start = -10f;
+        atk_start = -10f;
     }
 
     // Update is called once per frame

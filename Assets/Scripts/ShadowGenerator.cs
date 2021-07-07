@@ -37,7 +37,7 @@ public class ShadowGenerator : MonoBehaviour {
             break;
         }
         GameObject newInstance = Instantiate(choosenPrefab) as GameObject;
-        Debug.Log("spawned!");
+        //Debug.Log("spawned!");
         int x = rand.Next(-8, 8);
         // knight figure has to be placed lower
         float y = prefabChoice == 1 ? -4.2f : -3.5f;

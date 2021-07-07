@@ -15,6 +15,23 @@ public class CameraPan : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            if(slider.value - 0.02f > slider.minValue)
+            {
+                slider.value -= 0.02f;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            if (slider.value + 0.02f <= slider.maxValue)
+            {
+                slider.value += 0.02f;
+            }
+        }
+
         target.transform.position = new Vector2(panningStrength * slider.value, target.transform.position.y);
     }
 

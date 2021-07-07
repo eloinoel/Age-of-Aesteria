@@ -164,6 +164,7 @@ public class AbilitySpawner : MonoBehaviour
     {
         if(timeSinceBuff >= buffCooldown)
         {
+            resetSkillshotAbilities();
             skillshot_marker.GetComponent<Image>().enabled = true;
             skillshot = true;
         }
@@ -259,6 +260,7 @@ public class AbilitySpawner : MonoBehaviour
     {
         if(timeSinceHellfire >= hellfireCooldown)
         {
+            resetSkillshotAbilities();
             fire_skillshot_img.GetComponent<Image>().enabled = true;
             fire_skillshot = true;
         } 
@@ -271,6 +273,14 @@ public class AbilitySpawner : MonoBehaviour
         timeSinceHellfire = Time.time - fire_start;
     }
 
+    //FISSURE
+    public void resetSkillshotAbilities()
+    {
+        fire_skillshot_img.GetComponent<Image>().enabled = false;
+        fire_skillshot = false;
+        skillshot_marker.GetComponent<Image>().enabled = false;
+        skillshot = false;
+    }
 
     // Start is called before the first frame update
     void Start()

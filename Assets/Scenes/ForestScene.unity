@@ -796,7 +796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 1
   unitType: 0
-  health: 15000
+  health: 500
   healthBar: {fileID: 938541782}
   lootDisplay: {fileID: 0}
   alwaysShowHealth: 1
@@ -4550,7 +4550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 0
   unitType: 0
-  health: 15000
+  health: 500
   healthBar: {fileID: 892304678}
   lootDisplay: {fileID: 0}
   alwaysShowHealth: 1
@@ -10124,7 +10124,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6326531, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

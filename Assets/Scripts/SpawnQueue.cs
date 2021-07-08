@@ -54,7 +54,7 @@ public class SpawnQueue : MonoBehaviour {
         timeSinceSpawn += Time.deltaTime;
         // TODO - for now cost is just 1,2,3 seconds
         // TODO - sometimes Peek() throws a Nullpointer apparently (The if should terminate earlier then though)
-        if(buildOrders.Count > 0 && timeSinceSpawn >= getSpawnDelay((int) buildOrders.Peek())) {
+        if(buildOrders.Count > 0 && timeSinceSpawn >= getSpawnDelay((int) buildOrders.Peek()) && spawn_engine.GetComponent<SpawnEngine>().isLeftClear()) {
             int next = (int) buildOrders.Dequeue();
             if(next == 1) {
                 spawn_engine.GetComponent<SpawnEngine>().spawnLeftBandit();

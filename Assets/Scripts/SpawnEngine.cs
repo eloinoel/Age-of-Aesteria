@@ -22,7 +22,7 @@ public class SpawnEngine : MonoBehaviour {
     }
 
     void Update() {
-        
+
     }
 
     public void spawnLeftBandit() {
@@ -77,11 +77,11 @@ public class SpawnEngine : MonoBehaviour {
     //spawn a random unit on the right side
     public void spawnRight() {
         float rnd = Random.value;
-        if(rnd < 0.4) {
+        if (rnd < 0.4) {
             spawnRightGoblin();
-        } else if(rnd < 0.7) {
+        } else if (rnd < 0.7) {
             spawnRightSkeleton();
-        } else if(rnd < 1.0) {
+        } else if (rnd < 1.0) {
             spawnRightFungus();
         }
     }
@@ -98,30 +98,38 @@ public class SpawnEngine : MonoBehaviour {
         }
     }
 
+    public bool isLeftClear() {
+        // this tests whether there is something blocking the spawn location
+        bool leftClear = true;
+        Collider2D[] left_collisions = new Collider2D[10];
+        Physics2D.OverlapBox(leftLocation, new Vector2(1.5f, 1.5f), 0.0f, new ContactFilter2D().NoFilter(), left_collisions);
+        foreach (Collider2D collision in left_collisions) {
+            if(collision == null || collision.gameObject == null) { continue; }
+            if(collision.gameObject.tag != "ground" && collision.gameObject.tag != "blue_fort") { leftClear = false; break; }
+        }
+        return leftClear;
+    }
+
+    public bool isRightClear() {
+        // this tests whether there is something blocking the spawn location
+        bool rightClear = true;
+        Collider2D[] right_collisions = new Collider2D[10];
+        Physics2D.OverlapBox(rightLocation, new Vector2(1.5f, 1.5f), 0.0f, new ContactFilter2D().NoFilter(), right_collisions);
+        foreach(Collider2D collision in right_collisions) {
+            if(collision == null || collision.gameObject == null) { continue; }
+            if(collision.gameObject.tag != "ground" && collision.gameObject.tag != "red_fort") { rightClear = false; break; }
+        }
+        return rightClear;
+    }
+
     private IEnumerator spawn() {
         while(true) {
             yield return new WaitForSeconds(respawnTime);
-            if(spawnLeftb) {
-                // this tests whether there is something blocking the spawn location
-                bool leftClear = true;
-                Collider2D[] left_collisions = new Collider2D[10];
-                Physics2D.OverlapBox(leftLocation, new Vector2(1.5f, 1.5f), 0.0f, new ContactFilter2D().NoFilter(), left_collisions);
-                foreach(Collider2D collision in left_collisions) {
-                    if(collision == null || collision.gameObject == null) { continue; }
-                    if(collision.gameObject.tag != "ground" && collision.gameObject.tag != "blue_fort") { leftClear = false; break; }
-                }
-                if(leftClear) { spawnLeft(); }
+            if(spawnLeftb && isLeftClear()) {
+                spawnLeft();
             }
-            if(spawnRightb) {
-                // this tests whether there is something blocking the spawn location
-                bool rightClear = true;
-                Collider2D[] right_collisions = new Collider2D[10];
-                Physics2D.OverlapBox(rightLocation, new Vector2(1.5f, 1.5f), 0.0f, new ContactFilter2D().NoFilter(), right_collisions);
-                foreach(Collider2D collision in right_collisions) {
-                    if(collision == null || collision.gameObject == null) { continue; }
-                    if(collision.gameObject.tag != "ground" && collision.gameObject.tag != "red_fort") { rightClear = false; break; }
-                }
-                if(rightClear) { spawnRight(); }
+            if(spawnRightb && isRightClear()) {
+                spawnRight();
             }
         }
     }

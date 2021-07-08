@@ -420,8 +420,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1186,8 +1186,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3461,8 +3461,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000034332, y: -120}
-  m_SizeDelta: {x: 211.3934, y: 65.3604}
+  m_AnchoredPosition: {x: -0.0000014305, y: -57.3}
+  m_SizeDelta: {x: 79.4565, y: 36.4051}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &783226970
 MonoBehaviour:
@@ -3592,8 +3592,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000022888009, y: 50.048}
-  m_SizeDelta: {x: 434.6632, y: 100.0966}
+  m_AnchoredPosition: {x: -0.0000079408, y: 50.3}
+  m_SizeDelta: {x: 266.6182, y: 66.2219}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &804291144
 MonoBehaviour:
@@ -3642,8 +3642,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3728,8 +3728,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000026703, y: -144}
-  m_SizeDelta: {x: 211.3934, y: 65.3604}
+  m_AnchoredPosition: {x: -0.0000054837, y: -65.947}
+  m_SizeDelta: {x: 75.4588, y: 41.9967}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &828481157
 MonoBehaviour:
@@ -3925,8 +3925,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015259, y: 117}
-  m_SizeDelta: {x: 1246.7556, y: 172.6048}
+  m_AnchoredPosition: {x: -0.000030518, y: 76.2}
+  m_SizeDelta: {x: 696.412, y: 122.9561}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &847527092
 MonoBehaviour:
@@ -3975,8 +3975,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4652,8 +4652,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000026703, y: -38}
-  m_SizeDelta: {x: 211.3934, y: 65.3604}
+  m_AnchoredPosition: {x: -0.00000095367, y: -14.9}
+  m_SizeDelta: {x: 99.1817, y: 37.5744}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &989290076
 MonoBehaviour:
@@ -5232,8 +5232,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5732,8 +5732,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7885,8 +7885,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000026703, y: -66}
-  m_SizeDelta: {x: 211.3934, y: 65.3604}
+  m_AnchoredPosition: {x: -0.0000023842, y: -22.474}
+  m_SizeDelta: {x: 117.9383, y: 44.949}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1707194202
 MonoBehaviour:
@@ -9940,7 +9940,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 13
   m_TargetDisplay: 0
@@ -10124,7 +10124,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6326531, y: 1}
+    m_SensorSize: {x: 1.9605411, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

@@ -10,6 +10,7 @@ public class UnitGeneral : MonoBehaviour {
 
     public LootDisplay lootDisplay;
     public bool alwaysShowHealth = false;
+    private bool wasAlwaysShowHealth = false;
     public float showHealthTime = 2.0f;
 
     public float deathTime = 1.0f; // length of afterdeath animation
@@ -28,6 +29,9 @@ public class UnitGeneral : MonoBehaviour {
     private int pendDamage = 0;
 
     private float regenerationBuff = 0.0f;
+    private bool regenerate = false;
+    private float sinceRegeneration;
+    private float regenerationTime;
 
     private Shader defaultShader;
     private Shader hurtShader;
@@ -76,7 +80,14 @@ public class UnitGeneral : MonoBehaviour {
         // this admittedly convoluted line fixes an error, where two units kill each other at around the same time and one of them does not execute its death animation
         //if(lifeTime != -1.0f && !died && !this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Death")) { died = true;  this.GetComponent<Animator>().SetTrigger("Death"); }
 
-        this.health = Mathf.Max(this.health + ((int) (this.regenerationBuff*this.healthBar.getMaxHealth())), this.health);
+        if(regenerate && Time.time - sinceRegeneration < regenerationTime) {
+            this.health = Mathf.Min(this.health + ((int) (this.regenerationBuff * this.healthBar.getMaxHealth())), this.healthBar.getMaxHealth());
+            Debug.Log("Healing for " + ((int) Mathf.Ceil(this.regenerationBuff * this.healthBar.getMaxHealth())));
+        } else if(regenerate) {
+            regenerate = false;
+            alwaysShowHealth = wasAlwaysShowHealth;
+            wasAlwaysShowHealth = false;
+        }
         this.healthBar.setHealth(this.health);
     }
 
@@ -115,7 +126,8 @@ public class UnitGeneral : MonoBehaviour {
 
     public bool getHurtIncepted() { return this.hurtIncepted; }
 
-    public void setRegenerationBuff(float regenerationBuff) { this.regenerationBuff = regenerationBuff; }
+    public void setRegenerationBuff(float regenerationBuff, float duration) { this.regenerationBuff = regenerationBuff; regenerate = true; regenerationTime = duration; wasAlwaysShowHealth = alwaysShowHealth;  alwaysShowHealth = true; activateHealthBar(); sinceRegeneration = Time.time;  }
+    //public void endRegenerationBuff() { this.regenerationBuff = regenerationBuff; regenerate = false; regenerationTime = duration; }
 
     public void lootAnimation() {
         LootDisplay lootPopup = Instantiate(lootDisplay, transform.position, Quaternion.identity).GetComponent<LootDisplay>();

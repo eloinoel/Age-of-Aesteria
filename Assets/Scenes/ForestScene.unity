@@ -10124,7 +10124,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.6326531, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10310,7 +10310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteor: {fileID: 1404296675533268182, guid: ac5b937195ce3174abaa6aecc4fa6be4, type: 3}
   startvelocity: {x: 10, y: -3}
-  meteorCooldown: 5
+  meteorCooldown: 15
   posleft: -25
   posright: 0
   height: 8
@@ -10323,7 +10323,7 @@ MonoBehaviour:
   atk_y: -4.5
   buffRadius: 2.9
   buff_duration: 10
-  buffCooldown: 3
+  buffCooldown: 10
   orb_vfx: {fileID: 7567199887679750944, guid: 366898d4184cdba42b26da99d5c78257, type: 3}
   explosion_vfx: {fileID: 5283124041093662892, guid: 2950e8d66eb1fdc48b18fa18bd280347, type: 3}
   fire_vfx: {fileID: 3581202134021124114, guid: 04a6ad38e13cd194da25a4303d4407a9, type: 3}
@@ -10332,5 +10332,5 @@ MonoBehaviour:
   fireDuration: 3
   fireDmgPerTick: 35
   fireTickRate: 0.5
-  hellfireCooldown: 7
+  hellfireCooldown: 20
   AbilityBar: {fileID: 35733105}

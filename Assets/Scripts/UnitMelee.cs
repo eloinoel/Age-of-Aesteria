@@ -68,7 +68,7 @@ public class UnitMelee : MonoBehaviour {
             buffed = false;
             attackBuff = 1.0f;
             this.GetComponent<UnitMovement>().setSpeedBuff(1.0f);
-            this.GetComponent<UnitGeneral>().setRegenerationBuff(0.0f);
+            //this.GetComponent<UnitGeneral>().endRegenerationBuff();
 
         }
     }
@@ -205,7 +205,7 @@ public class UnitMelee : MonoBehaviour {
         sinceBuff = Time.time;
         attackBuff = 1.5f;
         this.GetComponent<UnitMovement>().setSpeedBuff(1.5f);
-        this.GetComponent<UnitGeneral>().setRegenerationBuff(0.1f); //TODO
+        this.GetComponent<UnitGeneral>().setRegenerationBuff(0.02f, duration);
     }
 
     private void resetCombo() {

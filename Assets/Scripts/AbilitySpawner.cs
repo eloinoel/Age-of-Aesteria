@@ -8,7 +8,7 @@ public class AbilitySpawner : MonoBehaviour
     //METEOR VARIABLES
     public GameObject meteor;
     public Vector2 startvelocity = new Vector2(30, -3);
-    public float meteorCooldown = 5f;
+    public float meteorCooldown = 15f;
 
     public float posleft = -25;
     public float posright = 25;
@@ -28,8 +28,8 @@ public class AbilitySpawner : MonoBehaviour
     public Image skillshot_marker;
     public float atk_y = 0;
     public float buffRadius = 5f;
-    public float buff_duration = 10;
-    public float buffCooldown = 3f;
+    public float buff_duration = 10.0f;
+    public float buffCooldown = 10f;
 
     private bool skillshot = false;
     private bool skillactive = false;
@@ -48,7 +48,7 @@ public class AbilitySpawner : MonoBehaviour
     public float fireDuration = 3;
     public int fireDmgPerTick = 35;
     public float fireTickRate = 0.5f;
-    public float hellfireCooldown = 7f;
+    public float hellfireCooldown = 20f;
 
     private bool fire_skillshot = false;
     private bool fire_active = false;

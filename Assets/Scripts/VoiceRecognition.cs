@@ -37,6 +37,8 @@ public class VoiceRecognition : MonoBehaviour
         actions.Add("Feuer", Hellfire);
         actions.Add("feier", Hellfire);
         actions.Add("hellfeier", Hellfire);
+        actions.Add("Flammenschwall", Hellfire);
+        actions.Add("Explosion", Hellfire);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray()); //keys = strings
         Debug.Log("Started KeywordRecognizer" /*with words " + string.Join("\n", actions.Keys.ToArray())*/);

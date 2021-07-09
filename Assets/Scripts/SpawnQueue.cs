@@ -33,7 +33,7 @@ public class SpawnQueue : MonoBehaviour {
     // first elements are just for offset
     private string[] Names = { "", "Bandit", "Walküre", "Ritter" };
 
-    private int[] COST = { 0, 10, 15, 20 };
+    private int[] COST = { 0, 10, 20, 50 };
 
     void Start() {
         buildOrders = new Queue();

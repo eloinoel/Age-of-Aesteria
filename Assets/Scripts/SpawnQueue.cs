@@ -36,12 +36,7 @@ public class SpawnQueue : MonoBehaviour {
     private int[] COST = { 0, 10, 15, 20 };
 
     void Start() {
-        buildOrders = new Queue();
-        transform.GetChild(0).gameObject.SetActive(false);
-        transform.GetChild(1).gameObject.SetActive(false);
-        transform.GetChild(2).gameObject.SetActive(false);
-        transform.GetChild(3).gameObject.SetActive(false);
-        transform.GetChild(4).gameObject.SetActive(false);
+        resetQueue();
 
         cooldownAnimator = transform.GetChild(5).gameObject.GetComponent<Animator>();
 
@@ -125,5 +120,14 @@ public class SpawnQueue : MonoBehaviour {
     public void costAnimation(int cost) {
         LootDisplay costPopup = Instantiate(lootDisplay, castleLocation, Quaternion.identity).GetComponent<LootDisplay>();
         costPopup.SetLootText(cost * -1);
+    }
+
+    public void resetQueue() {
+        buildOrders = new Queue();
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);
+        transform.GetChild(3).gameObject.SetActive(false);
+        transform.GetChild(4).gameObject.SetActive(false);
     }
 }

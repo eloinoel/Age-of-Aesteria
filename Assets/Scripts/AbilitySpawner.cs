@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class AbilitySpawner : MonoBehaviour
 {
+    private bool meteorUsedOnce = false;
+    private bool fireUsedOnce = false;
+    private bool buffUsedOnce = false;
+
     //METEOR VARIABLES
     public GameObject meteor;
     public Vector2 startvelocity = new Vector2(30, -3);
@@ -98,6 +102,7 @@ public class AbilitySpawner : MonoBehaviour
     {
         if(timeSinceMeteor >= meteorCooldown)
         {
+            meteorUsedOnce = true;
             startTime = Time.time;
             meteors_active = true;
             // set Cooldown
@@ -122,7 +127,7 @@ public class AbilitySpawner : MonoBehaviour
         //spawn beam and despawn skillshot image
         if(skillshot && Input.GetMouseButton(0))
         {
-
+            buffUsedOnce = true;
             atk_start = Time.time;
             skillshot_marker.GetComponent<Image>().enabled = false;
             buffPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -171,7 +176,12 @@ public class AbilitySpawner : MonoBehaviour
 
     public void activateBuff()
     {
-        if(timeSinceBuff >= buffCooldown)
+        if (skillshot)
+        {
+            resetSkillshotAbilities();
+            return;
+        }
+        if (timeSinceBuff >= buffCooldown)
         {
             resetSkillshotAbilities();
             skillshot_marker.GetComponent<Image>().enabled = true;
@@ -205,6 +215,7 @@ public class AbilitySpawner : MonoBehaviour
         //spawn beam and despawn skillshot image
         if (fire_skillshot && Input.GetMouseButton(0))
         {
+            fireUsedOnce = true;
             //disable skillshot img
             fire_start = Time.time;
             fire_skillshot_img.GetComponent<Image>().enabled = false;
@@ -272,6 +283,11 @@ public class AbilitySpawner : MonoBehaviour
 
     public void activateHellFire()
     {
+        if(fire_skillshot)
+        {
+            resetSkillshotAbilities();
+            return;
+        }
         if(timeSinceHellfire >= hellfireCooldown)
         {
             resetSkillshotAbilities();
@@ -285,17 +301,28 @@ public class AbilitySpawner : MonoBehaviour
 
     public void updateCooldowns()
     {
-        if(Time.time >= 7)
+        if (fireUsedOnce)
         {
-            timeSinceMeteor = Time.time - startTime;
-            timeSinceBuff = Time.time - atk_start;
             timeSinceHellfire = Time.time - fire_start;
         } else
         {
-            timeSinceMeteor = meteorCooldown;
-            timeSinceBuff = buffCooldown;
-            timeSinceHellfire = hellfireCooldown;
+            timeSinceHellfire = hellfireCooldown + 1;
         }
+        if(buffUsedOnce)
+        {
+            timeSinceBuff = Time.time - atk_start;
+        } else
+        {
+            timeSinceBuff = buffCooldown + 1;
+        }
+        if(meteorUsedOnce)
+        {
+            timeSinceMeteor = Time.time - startTime;
+        } else
+        {
+            timeSinceMeteor = meteorCooldown + 1;
+        }
+
         
     }
 
@@ -330,7 +357,7 @@ public class AbilitySpawner : MonoBehaviour
 
         //------------------------------------------------------------------
         //Attack Buff
-        if (!skillshot && Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             activateBuff();
         }
@@ -344,7 +371,7 @@ public class AbilitySpawner : MonoBehaviour
 
         //------------------------------------------------------------------
         //Hellfire
-        if (!fire_skillshot && Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             activateHellFire();
         }

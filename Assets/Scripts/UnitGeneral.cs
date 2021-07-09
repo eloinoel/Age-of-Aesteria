@@ -82,7 +82,7 @@ public class UnitGeneral : MonoBehaviour {
 
         if(regenerate && Time.time - sinceRegeneration < regenerationTime) {
             this.health = Mathf.Min(this.health + ((int) (this.regenerationBuff * this.healthBar.getMaxHealth())), this.healthBar.getMaxHealth());
-            Debug.Log("Healing for " + ((int) Mathf.Ceil(this.regenerationBuff * this.healthBar.getMaxHealth())));
+            //Debug.Log("Healing for " + ((int) Mathf.Ceil(this.regenerationBuff * this.healthBar.getMaxHealth())));
         } else if(regenerate) {
             regenerate = false;
             alwaysShowHealth = wasAlwaysShowHealth;
@@ -93,7 +93,7 @@ public class UnitGeneral : MonoBehaviour {
 
     // if you want to kill your boy...
     public void die() {
-        if(!onLeftPlayerSide) {
+        if(!onLeftPlayerSide && this.name != "red_fort") {
             Money.money += LOOT[this.unitType];
             lootAnimation();
         }

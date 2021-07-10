@@ -11182,7 +11182,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6349024, y: 1}
+    m_SensorSize: {x: 1.8725603, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11323,6 +11323,75 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene_camera: {fileID: 519420028}
   parallaxStrength: 0.05
+--- !u!1001 &6615114939654128200
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6615114940475714844, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714845, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714845, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714845, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714845, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714845, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714845, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714845, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714845, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714845, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714845, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714845, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714846, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: sounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714846, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 76c0c203a1eba3b4e933c1b56abaee35, type: 3}
+    - target: {fileID: 6615114940475714846, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: music_relaxed
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
 --- !u!4 &8191114097910919578
 Transform:
   m_ObjectHideFlags: 0

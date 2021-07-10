@@ -7,6 +7,7 @@ public class CameraPan : MonoBehaviour {
     public Slider slider;
     public GameObject target;
     public int panningStrength = 5;
+    private float cameraPan = 0.0075f;
 
     // Start is called before the first frame update
     void Start() {
@@ -18,17 +19,17 @@ public class CameraPan : MonoBehaviour {
 
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            if(slider.value - 0.02f > slider.minValue)
+            if(slider.value - cameraPan > slider.minValue)
             {
-                slider.value -= 0.02f;
+                slider.value -= cameraPan;
             }
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            if (slider.value + 0.02f <= slider.maxValue)
+            if (slider.value + cameraPan <= slider.maxValue)
             {
-                slider.value += 0.02f;
+                slider.value += cameraPan;
             }
         }
 

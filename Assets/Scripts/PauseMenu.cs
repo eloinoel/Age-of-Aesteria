@@ -10,6 +10,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject PauseMenuUI;
     public GameObject money;
 
+    public Texture2D arrowCursor;
+
+    private void Start()
+    {
+        Cursor.SetCursor(arrowCursor, Vector2.zero, CursorMode.ForceSoftware);
+    }
+
     // Update is called once per frame
     void Update()
     {

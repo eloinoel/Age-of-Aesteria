@@ -102,7 +102,7 @@ public class SpawnEngine : MonoBehaviour {
         // this tests whether there is something blocking the spawn location
         bool leftClear = true;
         Collider2D[] left_collisions = new Collider2D[10];
-        Physics2D.OverlapBox(leftLocation, new Vector2(1.5f, 1.5f), 0.0f, new ContactFilter2D().NoFilter(), left_collisions);
+        Physics2D.OverlapBox(leftLocation, new Vector2(2.0f, 2.0f), 0.0f, new ContactFilter2D().NoFilter(), left_collisions);
         foreach (Collider2D collision in left_collisions) {
             if(collision == null || collision.gameObject == null) { continue; }
             if(collision.gameObject.tag != "ground" && collision.gameObject.tag != "blue_fort") { leftClear = false; break; }
@@ -114,7 +114,7 @@ public class SpawnEngine : MonoBehaviour {
         // this tests whether there is something blocking the spawn location
         bool rightClear = true;
         Collider2D[] right_collisions = new Collider2D[10];
-        Physics2D.OverlapBox(rightLocation, new Vector2(1.5f, 1.5f), 0.0f, new ContactFilter2D().NoFilter(), right_collisions);
+        Physics2D.OverlapBox(rightLocation, new Vector2(2.0f, 2.0f), 0.0f, new ContactFilter2D().NoFilter(), right_collisions);
         foreach(Collider2D collision in right_collisions) {
             if(collision == null || collision.gameObject == null) { continue; }
             if(collision.gameObject.tag != "ground" && collision.gameObject.tag != "red_fort") { rightClear = false; break; }

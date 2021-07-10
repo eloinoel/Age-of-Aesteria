@@ -46,6 +46,12 @@ public class UnitMelee : MonoBehaviour {
     private float dodgeDelay = 0.0f;
     private float sinceDodgeInception = 0.0f;
 
+    private float hurtPower = 0.0f;
+    public float hurtPowerSpeed = 0.1f;
+    public float minHurtDelay = 1.0f;
+    public float minAttack1Delay = 1.0f;
+    public float minAttack2Delay = 1.0f;
+    public float minAttack3Delay = 1.0f;
 
     void Start() {
         m_animator = this.GetComponent<Animator>();
@@ -151,7 +157,9 @@ public class UnitMelee : MonoBehaviour {
             }
             m_animator.SetTrigger("Attack" + (attackCounter+1));
         }
+        delay = Mathf.Max(delay - hurtPower * hurtPowerSpeed, delay);
         timeSinceAttack = 0.0f;
+        hurtPower = Mathf.Max(hurtPower - 1.0f, -3.0f);
     }
 
     public void beAttacked(GameObject enemy, int damage, float stun, float hurtDelay) {
@@ -164,8 +172,9 @@ public class UnitMelee : MonoBehaviour {
                 fighting = false;
                 enemy.GetComponent<UnitMelee>().winFight();
             } else {
-                delay += hurtLag + stun;
+                delay += Mathf.Max(hurtLag + stun - hurtPower*hurtPowerSpeed, minHurtDelay);
                 //m_animator.SetTrigger("Hurt");
+                hurtPower = Mathf.Min(hurtPower + 1.0f, 3.0f);
             }
         } else {
             if(dodgeIsResist) {
@@ -206,6 +215,7 @@ public class UnitMelee : MonoBehaviour {
         attackBuff = 1.5f;
         this.GetComponent<UnitMovement>().setSpeedBuff(1.5f);
         this.GetComponent<UnitGeneral>().setRegenerationBuff(0.02f, duration);
+        this.hurtPower = 3.0f;
     }
 
     private void resetCombo() {

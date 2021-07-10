@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doFight: 1
-  attackDamage: 50
+  attackDamage: 40
   attackStun: 0
   dodgeChance: 0.6
   comboChance: 0
@@ -327,6 +327,11 @@ MonoBehaviour:
   retaliateHurtDelay: 0
   buffTime: 5
   sinceBuff: 0
+  hurtPowerSpeed: 0.15
+  minHurtDelay: 0.5
+  minAttack1Delay: 0.75
+  minAttack2Delay: 0.75
+  minAttack3Delay: 0.75
 --- !u!1 &3460906271283494771
 GameObject:
   m_ObjectHideFlags: 0

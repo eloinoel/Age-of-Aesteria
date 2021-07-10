@@ -1,9 +1,10 @@
 Blue Fort: https://www.deviantart.com/phewcumber/art/Blue-Town-731400401
 Red Fort: https://www.deviantart.com/phewcumber/art/Red-Town-731400849
 Meteor Fire: https://assetstore.unity.com/packages/vfx/particles/fire-explosions/procedural-fire-141496
+Speech Indicator (Talk_no_Jutsu.png): https://www.shutterstock.com/de/image-vector/voice-control-icon-speak-talk-recognition-1355916545
 
 ////////////SELF CREATED ASSETS/////////////
 CooldownClock_*, where * is element of {0, ..., 16}
 QueueFrame
-Icons are just other edited assets
+ButtonIcons are just other edited assets
 Healthbar stuff edited from Brackeys tutorial

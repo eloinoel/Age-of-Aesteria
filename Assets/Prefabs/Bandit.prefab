@@ -247,7 +247,7 @@ MonoBehaviour:
   unitType: 0
   health: 75
   healthBar: {fileID: 4158092488349392528}
-  lootPopup: {fileID: 8422982290847985692, guid: 56f090f22166ec511ba8e5c43b90c983, type: 3}
+  lootDisplay: {fileID: 0}
   alwaysShowHealth: 0
   showHealthTime: 2
   deathTime: 1
@@ -288,9 +288,9 @@ MonoBehaviour:
   dodgeRetaliate: 0
   dodgeRetaliationDamage: 10
   dodgeRetaliationStun: 1
-  attack1Lag: 1
-  attack2Lag: 1
-  attack3Lag: 1
+  attack1Lag: 1.25
+  attack2Lag: 1.25
+  attack3Lag: 1.25
   hurtLag: 1
   dodgeLag: 1
   combo1Lag: 1
@@ -302,6 +302,11 @@ MonoBehaviour:
   retaliateHurtDelay: 0
   buffTime: 5
   sinceBuff: 0
+  hurtPowerSpeed: 0.1
+  minHurtDelay: 0.75
+  minAttack1Delay: 1
+  minAttack2Delay: 1
+  minAttack3Delay: 1
 --- !u!1 &4158092487858629731
 GameObject:
   m_ObjectHideFlags: 0

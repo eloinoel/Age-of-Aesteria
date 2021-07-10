@@ -973,6 +973,11 @@ MonoBehaviour:
   retaliateHurtDelay: 0
   buffTime: 5
   sinceBuff: 0
+  hurtPowerSpeed: 0.1
+  minHurtDelay: 1
+  minAttack1Delay: 1
+  minAttack2Delay: 1
+  minAttack3Delay: 1
 --- !u!95 &173001179
 Animator:
   serializedVersion: 3
@@ -1903,7 +1908,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 30}
+  m_AnchoredPosition: {x: 0, y: 20}
   m_SizeDelta: {x: 300, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &425422398
@@ -5050,6 +5055,11 @@ MonoBehaviour:
   retaliateHurtDelay: 0
   buffTime: 5
   sinceBuff: 0
+  hurtPowerSpeed: 0.1
+  minHurtDelay: 1
+  minAttack1Delay: 1
+  minAttack2Delay: 1
+  minAttack3Delay: 1
 --- !u!114 &940205814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7654,7 +7664,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502491411}
+  m_GameObject: {fileID: 1478142042}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
@@ -7673,7 +7683,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502491411}
+  m_GameObject: {fileID: 1478142042}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -7703,7 +7713,7 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502491411}
+  m_GameObject: {fileID: 1478142042}
   m_CullTransparentMesh: 1
 --- !u!1 &1520079752
 GameObject:
@@ -11095,7 +11105,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.3021584, y: 1}
+    m_SensorSize: {x: 1.6326531, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

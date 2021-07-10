@@ -381,7 +381,7 @@ MonoBehaviour:
   doFight: 1
   attackDamage: 15
   attackStun: 0
-  dodgeChance: 0
+  dodgeChance: 0.3
   comboChance: 0.2
   dodgeIsResist: 0
   resistFactor: 0.5
@@ -402,6 +402,11 @@ MonoBehaviour:
   retaliateHurtDelay: 1.1
   buffTime: 5
   sinceBuff: 0
+  hurtPowerSpeed: 0.1
+  minHurtDelay: 0.75
+  minAttack1Delay: 1
+  minAttack2Delay: 1
+  minAttack3Delay: 1
 --- !u!1 &5780279225859584508
 GameObject:
   m_ObjectHideFlags: 0

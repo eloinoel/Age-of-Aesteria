@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 1
-  unitType: 3
+  unitType: 2
   health: 80
   healthBar: {fileID: 170875915181969043}
   lootDisplay: {fileID: 4717637458432036455, guid: c023eb1823d9902b2b40e071e4c25131, type: 3}
@@ -542,7 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ceeb7fdb7076324494668ea4fe89f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 5
   waitTime: 0.5
 --- !u!114 &8684944776907128980
 MonoBehaviour:
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doFight: 1
-  attackDamage: 25
+  attackDamage: 20
   attackStun: 0
   dodgeChance: 0
   comboChance: 0.75
@@ -566,9 +566,9 @@ MonoBehaviour:
   dodgeRetaliate: 0
   dodgeRetaliationDamage: 10
   dodgeRetaliationStun: 1
-  attack1Lag: 0.75
-  attack2Lag: 0.75
-  attack3Lag: 0.75
+  attack1Lag: 1
+  attack2Lag: 1
+  attack3Lag: 1
   hurtLag: 1
   dodgeLag: 1
   combo1Lag: 0.75
@@ -580,3 +580,8 @@ MonoBehaviour:
   retaliateHurtDelay: 0
   buffTime: 5
   sinceBuff: 0
+  hurtPowerSpeed: 0.1
+  minHurtDelay: 0.75
+  minAttack1Delay: 0.75
+  minAttack2Delay: 0.75
+  minAttack3Delay: 0.75

@@ -5732,7 +5732,7 @@ GameObject:
   - component: {fileID: 1987887949}
   - component: {fileID: 1987887950}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: VolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6192,9 +6192,21 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6615114940475714846, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: sounds.Array.data[0].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714846, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: sounds.Array.data[1].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714846, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
       propertyPath: sounds.Array.data[2].clip
       value: 
       objectReference: {fileID: 8300000, guid: 76c0c203a1eba3b4e933c1b56abaee35, type: 3}
+    - target: {fileID: 6615114940475714846, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: sounds.Array.data[2].loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6615114940475714846, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
       propertyPath: sounds.Array.data[2].name
       value: music_relaxed

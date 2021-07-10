@@ -61,7 +61,7 @@ public class AudioManager : MonoBehaviour
 
         
 
-        if(activeScene == "MainMenuScene" && slider != null)
+        /*if(activeScene == "MainMenuScene" && slider != null)
         {
             volume = slider.value;
         } else if(activeScene == "MainMenuScene" && slider == null)
@@ -72,7 +72,7 @@ public class AudioManager : MonoBehaviour
         {
             volume = lastSliderValue;
             Debug.Log("Debug: slider null");
-        }
+        }*/
 
         //upon scene change
         if(activeScene != currentScene)
@@ -97,7 +97,7 @@ public class AudioManager : MonoBehaviour
                 timeSinceScene = 0f;
             }
         }
-        lastSliderValue = slider.value;
+        //lastSliderValue = slider.value;
     }
 
 

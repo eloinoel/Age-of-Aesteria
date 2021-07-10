@@ -11182,7 +11182,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8725603, y: 1}
+    m_SensorSize: {x: 2.4162962, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11383,9 +11383,21 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6615114940475714846, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: sounds.Array.data[0].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714846, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: sounds.Array.data[1].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114940475714846, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
       propertyPath: sounds.Array.data[2].clip
       value: 
       objectReference: {fileID: 8300000, guid: 76c0c203a1eba3b4e933c1b56abaee35, type: 3}
+    - target: {fileID: 6615114940475714846, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
+      propertyPath: sounds.Array.data[2].loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6615114940475714846, guid: 44f3734fcc054be409f26f9e3bc20af0, type: 3}
       propertyPath: sounds.Array.data[2].name
       value: music_relaxed

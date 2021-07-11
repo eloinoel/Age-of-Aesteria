@@ -9272,7 +9272,7 @@ MonoBehaviour:
   spawnLeftb: 0
   spawnRightb: 0
   leftLocation: {x: -16, y: -4.5}
-  rightLocation: {x: 16, y: -4.5}
+  rightLocation: {x: 16, y: -4}
 --- !u!4 &1841868783
 Transform:
   m_ObjectHideFlags: 0
@@ -11183,7 +11183,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2377622, y: 1}
+    m_SensorSize: {x: 1.6326531, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

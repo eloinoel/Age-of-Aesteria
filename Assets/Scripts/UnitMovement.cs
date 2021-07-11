@@ -31,7 +31,8 @@ public class UnitMovement : MonoBehaviour {
         /*if(transform.position.x < screenBounds.x) {
             Destroy(this.gameObject);
         }*/
-        if(this.GetComponent<UnitMelee>().getFighting()) {
+        rigid_body.angularVelocity = 0.0f;
+        if (this.GetComponent<UnitMelee>().getFighting()) {
             if(this.GetComponent<UnitGeneral>().onLeftPlayerSide) {
                 rigid_body.velocity = new Vector2(speed, 0);
             } else {

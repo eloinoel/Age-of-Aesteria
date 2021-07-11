@@ -44,6 +44,7 @@ public class UnitGeneral : MonoBehaviour {
         hurtShader = Shader.Find("GUI/Text Shader");
         healthBar.setMaxHealth(health);
         deactivateHealthBar();
+        deactivateBuffIndicator();
     }
 
     void Update() {
@@ -116,17 +117,25 @@ public class UnitGeneral : MonoBehaviour {
     }
 
     public void activateHealthBar() {
-        if(transform.GetChild(0).gameObject != null) { transform.GetChild(0).gameObject.SetActive(true); }
+        if(transform.childCount > 0 && transform.GetChild(0).gameObject != null) { transform.GetChild(0).gameObject.SetActive(true); }
     }
 
     public void deactivateHealthBar() {
         if(alwaysShowHealth) { return; }
-        transform.GetChild(0).gameObject.SetActive(false);
+        if(transform.childCount > 0 && transform.GetChild(0).gameObject != null) { transform.GetChild(0).gameObject.SetActive(false); }
+    }
+
+    public void activateBuffIndicator() {
+        if(transform.childCount > 1 && transform.GetChild(1).gameObject != null) { transform.GetChild(1).gameObject.SetActive(true); }
+    }
+
+    public void deactivateBuffIndicator() {
+        if(transform.childCount > 1 && transform.GetChild(1).gameObject != null) { transform.GetChild(1).gameObject.SetActive(false); }
     }
 
     public bool getHurtIncepted() { return this.hurtIncepted; }
 
-    public void setRegenerationBuff(float regenerationBuff, float duration) { this.regenerationBuff = regenerationBuff; regenerate = true; regenerationTime = duration; wasAlwaysShowHealth = alwaysShowHealth;  alwaysShowHealth = true; activateHealthBar(); sinceRegeneration = Time.time;  }
+    public void setRegenerationBuff(float regenerationBuff, float duration) { this.regenerationBuff = regenerationBuff; regenerate = true; regenerationTime = duration; wasAlwaysShowHealth = alwaysShowHealth;  alwaysShowHealth = true; activateHealthBar(); sinceRegeneration = Time.time; }
     //public void endRegenerationBuff() { this.regenerationBuff = regenerationBuff; regenerate = false; regenerationTime = duration; }
 
     public void lootAnimation() {

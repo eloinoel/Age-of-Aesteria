@@ -74,6 +74,7 @@ public class UnitMelee : MonoBehaviour {
             buffed = false;
             attackBuff = 1.0f;
             this.GetComponent<UnitMovement>().setSpeedBuff(1.0f);
+            this.GetComponent<UnitGeneral>().deactivateBuffIndicator();
             //this.GetComponent<UnitGeneral>().endRegenerationBuff();
 
         }
@@ -215,6 +216,7 @@ public class UnitMelee : MonoBehaviour {
         attackBuff = 1.5f;
         this.GetComponent<UnitMovement>().setSpeedBuff(1.5f);
         this.GetComponent<UnitGeneral>().setRegenerationBuff(0.02f, duration);
+        this.GetComponent<UnitGeneral>().activateBuffIndicator();
         this.hurtPower = 3.0f;
     }
 

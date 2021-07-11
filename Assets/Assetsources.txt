@@ -3,12 +3,19 @@ Red Fort: https://www.deviantart.com/phewcumber/art/Red-Town-731400849
 Meteor Fire: https://assetstore.unity.com/packages/vfx/particles/fire-explosions/procedural-fire-141496
 Speech Indicator (Talk_no_Jutsu.png): https://www.shutterstock.com/de/image-vector/voice-control-icon-speak-talk-recognition-1355916545
 
-////////////SELF CREATED ASSETS/////////////
-CooldownClock_*, where * is element of {0, ..., 16}
-QueueFrame
-ButtonIcons are just other edited assets
-Healthbar stuff edited from Brackeys tutorial
+Cursor: https://assetstore.unity.com/packages/2d/gui/icons/pixel-cursors-109256
+Buff Sword: https://assetstore.unity.com/packages/2d/textures-materials/basic-rpg-cursors-139404
 
+//VFX
+Meteor: https://assetstore.unity.com/packages/vfx/particles/fire-explosions/procedural-fire-141496
+Fire: https://assetstore.unity.com/packages/vfx/particles/dl-fantasy-rpg-effects-68246
+      https://assetstore.unity.com/packages/vfx/particles/fantasy-effect-50310
+Light: https://assetstore.unity.com/packages/vfx/particles/cartoon-fx-free-109565
+Embers: https://assetstore.unity.com/packages/vfx/particles/cartoon-fx-free-109565
 
 ///////////MUSIC////////////
-https://www.youtube.com/watch?v=xSE7856pDuU
+Main Menu and Forestscene https://www.youtube.com/watch?v=xSE7856pDuU
+alternative main menu: Danheim - Atgeir
+
+
+everything else is selfmade :^]

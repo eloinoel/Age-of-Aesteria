@@ -642,7 +642,7 @@ MonoBehaviour:
   attack1Lag: 0.9
   attack2Lag: 0.9
   attack3Lag: 1.35
-  hurtLag: 1
+  hurtLag: 0.2
   dodgeLag: 1.25
   combo1Lag: 0.6
   combo2Lag: 0.6

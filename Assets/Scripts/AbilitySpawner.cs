@@ -10,6 +10,7 @@ public class AbilitySpawner : MonoBehaviour
     private bool buffUsedOnce = false;
 
     //METEOR VARIABLES
+    public int meteorCost = 20;
     public GameObject meteor;
     public Vector2 startvelocity = new Vector2(30, -3);
     public float meteorCooldown = 15f;
@@ -27,6 +28,7 @@ public class AbilitySpawner : MonoBehaviour
     private float timeSinceMeteor = 0f;
 
     //ATTACK BUFF VARIABLES
+    public int buffCost = 15;
     public GameObject ressurection_vfx;
     public GameObject buff_vfx;
     public Image skillshot_marker;
@@ -44,6 +46,7 @@ public class AbilitySpawner : MonoBehaviour
     private float timeSinceBuff;
 
     //HELL FIRE VARIABLES
+    public int fireCost = 30;
     public GameObject orb_vfx;
     public GameObject explosion_vfx;
     public GameObject fire_vfx;
@@ -65,6 +68,7 @@ public class AbilitySpawner : MonoBehaviour
     private float timeSinceHellfire;
 
     public GameObject AbilityBar;
+    public GameObject Money;
 
     private void SpawnMeteors()
     {
@@ -100,8 +104,10 @@ public class AbilitySpawner : MonoBehaviour
 
     public void activateMeteorShower()
     {
-        if(timeSinceMeteor >= meteorCooldown)
+        Money money = Money.GetComponent<Money>();
+        if (timeSinceMeteor >= meteorCooldown && money.getMoney() >= meteorCost)
         {
+            money.subMoney(meteorCost);
             meteorUsedOnce = true;
             startTime = Time.time;
             meteors_active = true;
@@ -125,7 +131,8 @@ public class AbilitySpawner : MonoBehaviour
         }
 
         //spawn beam and despawn skillshot image
-        if(skillshot && Input.GetMouseButton(0))
+        Money money = Money.GetComponent<Money>();
+        if (skillshot && Input.GetMouseButton(0) && money.getMoney() >= buffCost)
         {
             buffUsedOnce = true;
             atk_start = Time.time;
@@ -137,11 +144,16 @@ public class AbilitySpawner : MonoBehaviour
             skillactive = true;
             buffvfx = false;
             // set Cooldown
+            money.subMoney(buffCost);
             AbilityBar.GetComponent<AbilityBar>().setCooldown(2, buffCooldown);
+        } else if (skillshot && Input.GetMouseButton(0))
+        {
+            // TODO disable skillshot
+            // TODO ability blink
         }
 
         //while ability is active
-        if(skillactive)
+        if (skillactive)
         {
             //spawn field with delay
             if (!buffvfx && Time.time - atk_start >= 0.7)
@@ -181,7 +193,8 @@ public class AbilitySpawner : MonoBehaviour
             resetSkillshotAbilities();
             return;
         }
-        if (timeSinceBuff >= buffCooldown)
+        Money money = Money.GetComponent<Money>();
+        if (timeSinceBuff >= buffCooldown && money.getMoney() >= buffCost)
         {
             resetSkillshotAbilities();
             skillshot_marker.GetComponent<Image>().enabled = true;
@@ -213,7 +226,8 @@ public class AbilitySpawner : MonoBehaviour
         }
 
         //spawn beam and despawn skillshot image
-        if (fire_skillshot && Input.GetMouseButton(0))
+        Money money = Money.GetComponent<Money>();
+        if (fire_skillshot && Input.GetMouseButton(0) && money.getMoney() >= fireCost)
         {
             fireUsedOnce = true;
             //disable skillshot img
@@ -223,17 +237,22 @@ public class AbilitySpawner : MonoBehaviour
             //instantiate first particle system
             firePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             GameObject orb = Instantiate(orb_vfx) as GameObject;
-            orb.transform.position = new Vector3(firePosition.x, atk_y + fireHitBox.y/4, 0f); 
+            orb.transform.position = new Vector3(firePosition.x, atk_y + fireHitBox.y / 4, 0f);
             fire_skillshot = false;
             fire_active = true;
             explosion_instantiated = false;
             fire_instantiated = false;
             // set Cooldown
+            money.subMoney(fireCost);
             AbilityBar.GetComponent<AbilityBar>().setCooldown(3, hellfireCooldown);
+        } else if (fire_skillshot && Input.GetMouseButton(0))
+        {
+            // TODO disable skillshot
+            // TODO ability blink
         }
 
         //while skill active, spawn particle systems, apply damage
-        if(fire_active)
+        if (fire_active)
         {
             //instantiate explosion
             if(!explosion_instantiated && Time.time - fire_start >= 0.7)   //TODO
@@ -288,7 +307,9 @@ public class AbilitySpawner : MonoBehaviour
             resetSkillshotAbilities();
             return;
         }
-        if(timeSinceHellfire >= hellfireCooldown)
+
+        Money money = Money.GetComponent<Money>();
+        if (timeSinceHellfire >= hellfireCooldown && money.getMoney() >= fireCost)
         {
             resetSkillshotAbilities();
             fire_skillshot_img.GetComponent<Image>().enabled = true;

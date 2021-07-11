@@ -316,7 +316,7 @@ MonoBehaviour:
   attack1Lag: 1
   attack2Lag: 1
   attack3Lag: 1
-  hurtLag: 1.5
+  hurtLag: 0.3
   dodgeLag: 1
   combo1Lag: 3
   combo2Lag: 3

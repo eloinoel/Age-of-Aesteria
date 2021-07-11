@@ -35,6 +35,7 @@ public class VoiceRecognition : MonoBehaviour
         actions.Add("Höllenfeuer", Hellfire);
         actions.Add("Höllenbrand", Hellfire);
         actions.Add("Brand", Hellfire);
+        actions.Add("vorher", Hellfire);
         actions.Add("Feuer", Hellfire);
         actions.Add("fire", Hellfire);
         actions.Add("hellfire", Hellfire);

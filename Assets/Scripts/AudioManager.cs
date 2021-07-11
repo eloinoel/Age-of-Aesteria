@@ -9,9 +9,6 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
-    public Slider slider;
-    private float volume = 0.3f;
-    private float lastSliderValue;
 
     //singleton
     public static AudioManager instance;
@@ -41,16 +38,12 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = s.group;
         }
     }
 
     void Start()
     {
-        if(slider != null)
-        {
-            slider.value = 0.3f;
-        }
-        lastSliderValue = 0.3f;
         Play("music_relaxed");
     }
 
@@ -59,33 +52,51 @@ public class AudioManager : MonoBehaviour
         string activeScene = SceneManager.GetActiveScene().name;
         timeSinceScene += Time.deltaTime;
 
+        //play next song
+        if(timeSinceScene >= currectlyPlayingMusic.clip.length)
+        {
+            if (activeScene == "MainMenuScene")
+            {
+                string nextSong = "atgeir";
+                if (currectlyPlayingMusic != null) {
+                    if (currectlyPlayingMusic.name == "atgeir")
+                    {
+                        nextSong = "music_relaxed";
+                    }
+                    FadeOut(currectlyPlayingMusic.name); 
+                }
+                Play(nextSong);   
+                
+            }
+
+            if(activeScene == "ForestScene")
+            {
+                string nextSong = "music_wDrums";
+                if (currectlyPlayingMusic != null) {
+                    if (currectlyPlayingMusic.name == "music_wDrums")
+                    {
+                        nextSong = "music_Fate";
+                    }
+                    FadeOut(currectlyPlayingMusic.name); 
+                }
+                Play(nextSong);
+            }
+            timeSinceScene = 0f;
+        }
+
         
-
-        /*if(activeScene == "MainMenuScene" && slider != null)
-        {
-            volume = slider.value;
-        } else if(activeScene == "MainMenuScene" && slider == null)
-        {
-            slider = GameObject.Find("VolumeSlider").GetComponent<Slider>();
-            slider.value = lastSliderValue;
-        } else 
-        {
-            volume = lastSliderValue;
-            Debug.Log("Debug: slider null");
-        }*/
-
         //upon scene change
         if(activeScene != currentScene)
         {
+            timeSinceScene = 0f;
             currentScene = activeScene;
             if (activeScene == "ForestScene")
             {
                 if (currectlyPlayingMusic != null)
-                {
+                {  
                     FadeOut(currectlyPlayingMusic.name);
                 }
                 Play("music_Fate");
-                timeSinceScene = 0f;
             }
             if (activeScene == "MainMenuScene")
             {
@@ -94,10 +105,8 @@ public class AudioManager : MonoBehaviour
                     FadeOut(currectlyPlayingMusic.name);
                 }                
                 Play("music_relaxed");
-                timeSinceScene = 0f;
             }
         }
-        //lastSliderValue = slider.value;
     }
 
 
@@ -110,7 +119,7 @@ public class AudioManager : MonoBehaviour
             Debug.Log("Play(): Sound " + name + " doesn't exist");
             return;
         }
-        s.source.volume = volume;
+        s.source.volume = 1;
         s.source.Play();
         currectlyPlayingMusic = s;
     }

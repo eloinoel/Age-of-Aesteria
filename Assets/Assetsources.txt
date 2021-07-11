@@ -1,9 +1,17 @@
+////////////BACKGROUND/SCENE ASSETS/////////////
 Blue Fort: https://www.deviantart.com/phewcumber/art/Blue-Town-731400401
 Red Fort: https://www.deviantart.com/phewcumber/art/Red-Town-731400849
-Meteor Fire: https://assetstore.unity.com/packages/vfx/particles/fire-explosions/procedural-fire-141496
-Speech Indicator (Talk_no_Jutsu.png): https://www.shutterstock.com/de/image-vector/voice-control-icon-speak-talk-recognition-1355916545
-
+Parallax Forest: https://assetstore.unity.com/packages/2d/textures-materials/nature/free-pixel-art-forest-133112
 Cursor: https://assetstore.unity.com/packages/2d/gui/icons/pixel-cursors-109256
+
+////////////UNIT ASSETS/////////////
+HeroKnight: https://assetstore.unity.com/packages/2d/characters/hero-knight-pixel-art-165188
+Bandit: https://assetstore.unity.com/packages/2d/characters/bandits-pixel-art-104130
+Valkyrie: https://assetstore.unity.com/packages/2d/characters/warrior-free-asset-195707
+Monsters: https://assetstore.unity.com/packages/2d/characters/monsters-creatures-fantasy-167949
+
+////////////SPELL ASSETS/////////////
+Speech Indicator (Talk_no_Jutsu.png): https://www.shutterstock.com/de/image-vector/voice-control-icon-speak-talk-recognition-1355916545
 Buff Sword: https://assetstore.unity.com/packages/2d/textures-materials/basic-rpg-cursors-139404
 
 //VFX
@@ -17,5 +25,5 @@ Embers: https://assetstore.unity.com/packages/vfx/particles/cartoon-fx-free-1095
 Main Menu and Forestscene https://www.youtube.com/watch?v=xSE7856pDuU
 alternative main menu: Danheim - Atgeir
 
-
+///////////
 everything else is selfmade :^]

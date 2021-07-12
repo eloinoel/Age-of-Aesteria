@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class ParallaxAutomaticScroll : MonoBehaviour
 {
-    private float moveSpeed = 0.02f;
+    private float moveSpeed = 10f;
+    private float nextFire = 0f;
+    private float offset = 0.1f;
+    
 
 
     // Update is called once per frame
+
+    private void Start()
+    {
+        nextFire = Time.time;
+    }
+
     void Update()
     {
-        transform.position += moveSpeed * new Vector3(0.1f, 0, 0);
+        Vector3 desiredPosition = this.transform.position + new Vector3(offset, 0, 0);
+        Vector3 smoothedPosition = Vector3.Lerp(this.transform.position, desiredPosition, moveSpeed * Time.deltaTime);
+        this.transform.position = smoothedPosition;
+        
     }
 }

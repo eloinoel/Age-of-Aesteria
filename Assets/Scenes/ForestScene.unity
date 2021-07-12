@@ -8501,7 +8501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 1921495073}
   money: {fileID: 2041030566}
-  arrowCursor: {fileID: 2800000, guid: a75c7f7ee3244c1489076a5206fcacbc, type: 3}
+  arrowCursor: {fileID: 2800000, guid: ebedac04d6c0790409976519b8cdb08f, type: 3}
 --- !u!1 &1568507179
 GameObject:
   m_ObjectHideFlags: 0

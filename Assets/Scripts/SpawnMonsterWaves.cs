@@ -6,6 +6,7 @@ public class SpawnMonsterWaves : MonoBehaviour {
 
     public GameObject spawn_engine;
 
+    public float startSpawning = 5.0f;
     public float waveSpawnTime = 10.0f;
     public float maxSpawnTimeDeviation = 3.0f;
     private float sinceLastWave = 0.0f;
@@ -28,7 +29,7 @@ public class SpawnMonsterWaves : MonoBehaviour {
     private string[] spacings = {"None", "Constant", "LinearIncrease", "LinearDecrease", "LinearPalindrom", "Bunched", "Random"};
 
     void Start() {
-        
+        sinceLastWave = startSpawning - waveSpawnTime;
     }
 
     void Update() {

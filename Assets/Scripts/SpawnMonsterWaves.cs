@@ -23,7 +23,7 @@ public class SpawnMonsterWaves : MonoBehaviour {
     private float ConstantSpacing;
     private int BunchSize;
 
-    private string[] waves = {"Goblinpack", "Skeletthorde", "Fungusfamilie", "Random", "Random", "Random" };
+    private string[] waves = {"Goblinpack", "Skeletthorde", "Fungusfamilie", "SkelettFungi", "Random", "Random" };
     private string[] units = {"Goblin", "Skelett", "Fungus"};
 
     private string[] spacings = {"None", "Constant", "LinearIncrease", "LinearDecrease", "LinearPalindrom", "Bunched", "Random"};
@@ -78,6 +78,18 @@ public class SpawnMonsterWaves : MonoBehaviour {
             case "Fungusfamilie":
                 spawn("Fungus");
                 break;
+            case "SkelettFungi":
+                if(spawnsLeft >= 3)
+                {
+                    spawn("Fungus");
+                } else if(spawnsLeft >= 2)
+                {
+                    spawn("Skelett");
+                } else
+                {
+                    spawn("Fungus");
+                }
+                break;
             case "Random":
                 spawn(units[(int) Mathf.Round(Random.Range(0.0f, units.Length - 1))]);
                 break;
@@ -90,13 +102,15 @@ public class SpawnMonsterWaves : MonoBehaviour {
     private int determineSpawnCount(string wavetype) {
         switch(wavetype) {
             case "Goblinpack":
-                return (int) Mathf.Round(Random.Range(2, 4));
+                return (int) Mathf.Round(Random.Range(3, 4));
             case "Skeletthorde":
                 return (int) Mathf.Round(Random.Range(2, 3));
             case "Fungusfamilie":
-                return (int) Mathf.Round(Random.Range(1.0f, 2));
+                return (int) Mathf.Round(Random.Range(2, 2));
             case "Random":
-                return (int) Mathf.Round(Random.Range(1.0f, 4.0f));
+                return (int) Mathf.Round(Random.Range(1.0f, 3));
+            case "SkelettFungi":
+                return (int)Mathf.Round(Random.Range(2, 3));
             default:
                 Debug.Log("This Wave does not exist");
                 return 0;

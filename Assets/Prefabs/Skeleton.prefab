@@ -542,7 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ceeb7fdb7076324494668ea4fe89f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
   waitTime: 0.5
 --- !u!114 &8684944776907128980
 MonoBehaviour:
@@ -579,7 +579,6 @@ MonoBehaviour:
   attack3HurtDelay: 0.5
   retaliateHurtDelay: 0
   buffTime: 5
-  sinceBuff: 0
   hurtPowerSpeed: 0.1
   minHurtDelay: 0.5
   minAttack1Delay: 0.5

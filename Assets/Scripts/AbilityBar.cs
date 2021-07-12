@@ -180,19 +180,19 @@ public class AbilityBar : MonoBehaviour {
             case 1:
                 // Meteor Warning
                 meteorWarning = false;
-                transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.SetActive(meteorWarning);
+                transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.SetActive(meteorOnCooldown);
                 transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = grey;
                 break;
             case 2:
                 // Light Cooldown
                 lightWarning = false;
-                transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.SetActive(lightWarning);
+                transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.SetActive(lightOnCooldown);
                 transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = grey;
                 break;
             case 3:
                 // Fire Cooldown
                 fireWarning = false;
-                transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.SetActive(fireWarning);
+                transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.SetActive(fireOnCooldown);
                 transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = grey;
                 break;
         }

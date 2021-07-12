@@ -451,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30
+  m_text: 20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12176,7 +12176,7 @@ MonoBehaviour:
   duration: 5
   meteorsPerSpawn: 2
   fireRate: 0.5
-  buffCost: 30
+  buffCost: 20
   ressurection_vfx: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 3}
   buff_vfx: {fileID: 100006, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
   skillshot_marker: {fileID: 1792200359}

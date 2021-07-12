@@ -23,7 +23,7 @@ public class SpawnMonsterWaves : MonoBehaviour {
     private float ConstantSpacing;
     private int BunchSize;
 
-    private string[] waves = {"Goblinpack", "Skeletthorde", "Fungusfamilie", "SkelettFungi", "Random", "Random" };
+    private string[] waves = {"Goblinpack", "Skeletthorde", "Fungusfamilie", "SkelettFungi", "Random"};
     private string[] units = {"Goblin", "Skelett", "Fungus"};
 
     private string[] spacings = {"None", "Constant", "LinearIncrease", "LinearDecrease", "LinearPalindrom", "Bunched", "Random"};

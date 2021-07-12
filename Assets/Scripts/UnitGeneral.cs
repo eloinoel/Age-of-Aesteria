@@ -29,8 +29,8 @@ public class UnitGeneral : MonoBehaviour {
     private int pendDamage = 0;
 
     private float regenerationBuff = 0.0f;
-    private float buffInterval = 0.5f;
-    private float nextBuffTick = 0f;
+    //private float buffInterval = 0.5f;
+    private float sinceRegenerationTick = 0f;
     private bool regenerate = false;
     private float sinceRegeneration;
     private float regenerationTime;
@@ -83,11 +83,15 @@ public class UnitGeneral : MonoBehaviour {
         // this admittedly convoluted line fixes an error, where two units kill each other at around the same time and one of them does not execute its death animation
         //if(lifeTime != -1.0f && !died && !this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Death")) { died = true;  this.GetComponent<Animator>().SetTrigger("Death"); }
 
-        if(regenerate && Time.time - sinceRegeneration < regenerationTime && nextBuffTick >= Time.time) {
-            nextBuffTick += buffInterval;
+        if(regenerate && Time.time - sinceRegeneration < regenerationTime && (int)(this.regenerationBuff * this.healthBar.getMaxHealth()) < 1) {
+            if((1.0f/(this.regenerationBuff * this.healthBar.getMaxHealth())) >= Time.time - sinceRegenerationTick) { 
+                this.health = Mathf.Min(this.health + 1, this.healthBar.getMaxHealth());
+            }
+            sinceRegenerationTick = Time.time;
+        } else if(regenerate && Time.time - sinceRegeneration < regenerationTime && (int)(this.regenerationBuff * this.healthBar.getMaxHealth()) >= 1) {
             this.health = Mathf.Min(this.health + ((int) (this.regenerationBuff * this.healthBar.getMaxHealth())), this.healthBar.getMaxHealth());
             //Debug.Log("Healing for " + ((int) Mathf.Ceil(this.regenerationBuff * this.healthBar.getMaxHealth())));
-        } 
+        }
         if(regenerate && Time.time - sinceRegeneration > regenerationTime) {
             regenerate = false;
             alwaysShowHealth = wasAlwaysShowHealth;
@@ -147,7 +151,6 @@ public class UnitGeneral : MonoBehaviour {
         alwaysShowHealth = true; 
         activateHealthBar(); 
         sinceRegeneration = Time.time;
-        nextBuffTick = Time.time;
     }
     //public void endRegenerationBuff() { this.regenerationBuff = regenerationBuff; regenerate = false; regenerationTime = duration; }
 

@@ -215,7 +215,7 @@ public class UnitMelee : MonoBehaviour {
         sinceBuff = Time.time;
         attackBuff = 1.5f;
         this.GetComponent<UnitMovement>().setSpeedBuff(1.5f);
-        this.GetComponent<UnitGeneral>().setRegenerationBuff(0.01f, duration);
+        this.GetComponent<UnitGeneral>().setRegenerationBuff(0.005f, duration);
         this.GetComponent<UnitGeneral>().activateBuffIndicator();
         this.hurtPower = 3.0f;
     }

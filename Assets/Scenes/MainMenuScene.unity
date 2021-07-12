@@ -1933,7 +1933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03dd36ae00fe9304cb5579af3a197ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorArrow: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+  cursorArrow: {fileID: 2800000, guid: ebedac04d6c0790409976519b8cdb08f, type: 3}
   audioMixer: {fileID: 24100000, guid: 37d8728cdc3d3de4b8c5f23791338e8c, type: 2}
 --- !u!1 &651042154
 GameObject:

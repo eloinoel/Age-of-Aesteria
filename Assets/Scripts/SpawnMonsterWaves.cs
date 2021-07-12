@@ -90,11 +90,11 @@ public class SpawnMonsterWaves : MonoBehaviour {
     private int determineSpawnCount(string wavetype) {
         switch(wavetype) {
             case "Goblinpack":
-                return (int) Mathf.Round(Random.Range(3.0f, 6.0f));
+                return (int) Mathf.Round(Random.Range(2, 4));
             case "Skeletthorde":
-                return (int) Mathf.Round(Random.Range(2.0f, 5.0f));
+                return (int) Mathf.Round(Random.Range(2, 3));
             case "Fungusfamilie":
-                return (int) Mathf.Round(Random.Range(1.0f, 4.0f));
+                return (int) Mathf.Round(Random.Range(1.0f, 2));
             case "Random":
                 return (int) Mathf.Round(Random.Range(1.0f, 4.0f));
             default:

@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doFight: 1
-  attackDamage: 40
+  attackDamage: 60
   attackStun: 0
   dodgeChance: 0.6
   comboChance: 0
@@ -313,10 +313,10 @@ MonoBehaviour:
   dodgeRetaliate: 0
   dodgeRetaliationDamage: 10
   dodgeRetaliationStun: 1
-  attack1Lag: 1
-  attack2Lag: 1
-  attack3Lag: 1
-  hurtLag: 0.3
+  attack1Lag: 1.4
+  attack2Lag: 1.4
+  attack3Lag: 1.4
+  hurtLag: 0.2
   dodgeLag: 1
   combo1Lag: 3
   combo2Lag: 3

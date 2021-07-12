@@ -596,7 +596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 1
   unitType: 0
-  health: 100
+  health: 200
   healthBar: {fileID: 6681531603030967860}
   lootDisplay: {fileID: 0}
   alwaysShowHealth: 0
@@ -654,9 +654,9 @@ MonoBehaviour:
   buffTime: 5
   sinceBuff: 0
   hurtPowerSpeed: 0.1
-  minHurtDelay: 0.75
-  minAttack1Delay: 0.75
-  minAttack2Delay: 0.75
+  minHurtDelay: 0.6
+  minAttack1Delay: 0.6
+  minAttack2Delay: 0.6
   minAttack3Delay: 1
 --- !u!1 &9218465322725276586
 GameObject:

@@ -31,7 +31,7 @@ public class UnitMelee : MonoBehaviour {
 
     private bool buffed = false;
     public float buffTime = 5.0f;
-    public float sinceBuff = 0.0f;
+    private float sinceBuff = 0.0f;
     private float attackBuff = 1.0f;
 
     private GameObject enemy = null;

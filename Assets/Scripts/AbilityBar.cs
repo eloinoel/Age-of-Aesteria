@@ -31,7 +31,7 @@ public class AbilityBar : MonoBehaviour {
     private float sinceMeteorWarning;
     private float sinceLightWarning;
     private float sinceFireWarning;
-    private float warningTime = 0.01f;
+    private float warningTime = 0.025f;
 
     void Start() {
         endAllCooldowns();
@@ -155,21 +155,21 @@ public class AbilityBar : MonoBehaviour {
                 // Meteor Warning
                 meteorWarning = true;
                 sinceMeteorWarning = Time.time;
-                //transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = warnColor;
                 break;
             case 2:
                 // Light Warning
                 lightWarning = true;
                 sinceLightWarning = Time.time;
-                //transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = warnColor;
                 break;
             case 3:
                 // Fire Warning
                 fireWarning = true;
                 sinceFireWarning = Time.time;
-                //transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = warnColor;
                 break;
         }
@@ -180,19 +180,19 @@ public class AbilityBar : MonoBehaviour {
             case 1:
                 // Meteor Warning
                 meteorWarning = false;
-                //transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.SetActive(meteorWarning);
                 transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = grey;
                 break;
             case 2:
                 // Light Cooldown
                 lightWarning = false;
-                //transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.SetActive(lightWarning);
                 transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = grey;
                 break;
             case 3:
                 // Fire Cooldown
                 fireWarning = false;
-                //transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.SetActive(fireWarning);
                 transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = grey;
                 break;
         }

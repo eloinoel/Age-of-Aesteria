@@ -596,7 +596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 1
   unitType: 0
-  health: 200
+  health: 150
   healthBar: {fileID: 6681531603030967860}
   lootDisplay: {fileID: 0}
   alwaysShowHealth: 0

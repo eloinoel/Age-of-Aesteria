@@ -11465,7 +11465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 696613935}
-  startmoney: 100
+  startmoney: 60
   passiveIncome: 1
   passiveIncomeInterval: 1
 --- !u!1 &2055196096
@@ -11833,7 +11833,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6326531, y: 1}
+    m_SensorSize: {x: 2.1134021, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

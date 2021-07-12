@@ -1182,7 +1182,6 @@ MonoBehaviour:
   attack3HurtDelay: 0
   retaliateHurtDelay: 0
   buffTime: 5
-  sinceBuff: 0
   hurtPowerSpeed: 0.1
   minHurtDelay: 1
   minAttack1Delay: 1
@@ -5563,7 +5562,6 @@ MonoBehaviour:
   attack3HurtDelay: 0
   retaliateHurtDelay: 0
   buffTime: 5
-  sinceBuff: 0
   hurtPowerSpeed: 0.1
   minHurtDelay: 1
   minAttack1Delay: 1
@@ -5662,6 +5660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn_engine: {fileID: 1841868781}
+  startSpawning: 5
   waveSpawnTime: 15
   maxSpawnTimeDeviation: 3
   spacingQuantization: 1
@@ -8502,7 +8501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 1921495073}
   money: {fileID: 2041030566}
-  arrowCursor: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+  arrowCursor: {fileID: 2800000, guid: a75c7f7ee3244c1489076a5206fcacbc, type: 3}
 --- !u!1 &1568507179
 GameObject:
   m_ObjectHideFlags: 0
@@ -11834,7 +11833,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2816398, y: 1}
+    m_SensorSize: {x: 2.0189273, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

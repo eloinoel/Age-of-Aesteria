@@ -451,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 15
+  m_text: 30
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1182,7 +1182,6 @@ MonoBehaviour:
   attack3HurtDelay: 0
   retaliateHurtDelay: 0
   buffTime: 5
-  sinceBuff: 0
   hurtPowerSpeed: 0.1
   minHurtDelay: 1
   minAttack1Delay: 1
@@ -5050,7 +5049,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30
+  m_text: 50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5563,7 +5562,6 @@ MonoBehaviour:
   attack3HurtDelay: 0
   retaliateHurtDelay: 0
   buffTime: 5
-  sinceBuff: 0
   hurtPowerSpeed: 0.1
   minHurtDelay: 1
   minAttack1Delay: 1
@@ -5662,6 +5660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn_engine: {fileID: 1841868781}
+  startSpawning: 5
   waveSpawnTime: 15
   maxSpawnTimeDeviation: 3
   spacingQuantization: 1
@@ -7443,7 +7442,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20
+  m_text: 35
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11834,7 +11833,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2816398, y: 1}
+    m_SensorSize: {x: 1.996134, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12167,7 +12166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206e0712daaf3bf4e9e2e9e42ddc4f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meteorCost: 20
+  meteorCost: 35
   meteor: {fileID: 1404296675533268182, guid: ac5b937195ce3174abaa6aecc4fa6be4, type: 3}
   startvelocity: {x: 10, y: -3}
   meteorCooldown: 15
@@ -12177,7 +12176,7 @@ MonoBehaviour:
   duration: 5
   meteorsPerSpawn: 2
   fireRate: 0.5
-  buffCost: 15
+  buffCost: 30
   ressurection_vfx: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 3}
   buff_vfx: {fileID: 100006, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
   skillshot_marker: {fileID: 1792200359}
@@ -12185,14 +12184,14 @@ MonoBehaviour:
   buffRadius: 2.9
   buff_duration: 10
   buffCooldown: 10
-  fireCost: 30
+  fireCost: 50
   orb_vfx: {fileID: 7567199887679750944, guid: 366898d4184cdba42b26da99d5c78257, type: 3}
   explosion_vfx: {fileID: 5283124041093662892, guid: 2950e8d66eb1fdc48b18fa18bd280347, type: 3}
   fire_vfx: {fileID: 3581202134021124114, guid: 04a6ad38e13cd194da25a4303d4407a9, type: 3}
   fire_skillshot_img: {fileID: 1881430682}
   fireHitBox: {x: 5.2, y: 3}
   fireDuration: 3
-  fireDmgPerTick: 35
+  fireDmgPerTick: 30
   fireTickRate: 0.5
   hellfireCooldown: 20
   AbilityBar: {fileID: 35733105}

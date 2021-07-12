@@ -421,7 +421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLeftPlayerSide: 1
   unitType: 0
-  health: 60
+  health: 61
   healthBar: {fileID: 4158092488349392528}
   lootDisplay: {fileID: 0}
   alwaysShowHealth: 0
@@ -464,10 +464,10 @@ MonoBehaviour:
   dodgeRetaliate: 0
   dodgeRetaliationDamage: 10
   dodgeRetaliationStun: 1.1
-  attack1Lag: 1.1
-  attack2Lag: 1.1
-  attack3Lag: 1.25
-  hurtLag: 0.2
+  attack1Lag: 0.8
+  attack2Lag: 0.8
+  attack3Lag: 0.8
+  hurtLag: 0.1
   dodgeLag: 1
   combo1Lag: 1
   combo2Lag: 1
@@ -477,7 +477,6 @@ MonoBehaviour:
   attack3HurtDelay: 0.5
   retaliateHurtDelay: 0
   buffTime: 5
-  sinceBuff: 0
   hurtPowerSpeed: 0.1
   minHurtDelay: 0.6
   minAttack1Delay: 1

@@ -37,7 +37,7 @@ public class UnitGeneral : MonoBehaviour {
     private Shader hurtShader;
 
     // TODO: clarify unit indices
-    private int[] LOOT = { 0, 8, 16, 40 };
+    private int[] LOOT = { 0, 7, 14, 38 };
 
     void Start() {
         defaultShader = Shader.Find("Sprites/Default");

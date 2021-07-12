@@ -639,10 +639,10 @@ MonoBehaviour:
   dodgeRetaliate: 0
   dodgeRetaliationDamage: 0
   dodgeRetaliationStun: 0
-  attack1Lag: 0.9
-  attack2Lag: 0.9
+  attack1Lag: 1
+  attack2Lag: 1
   attack3Lag: 1.35
-  hurtLag: 0.2
+  hurtLag: 0.1
   dodgeLag: 1.25
   combo1Lag: 0.6
   combo2Lag: 0.6
@@ -652,11 +652,10 @@ MonoBehaviour:
   attack3HurtDelay: 0.2
   retaliateHurtDelay: 0
   buffTime: 5
-  sinceBuff: 0
   hurtPowerSpeed: 0.1
-  minHurtDelay: 0.6
-  minAttack1Delay: 0.6
-  minAttack2Delay: 0.6
+  minHurtDelay: 0.4
+  minAttack1Delay: 0.8
+  minAttack2Delay: 0.8
   minAttack3Delay: 1
 --- !u!1 &9218465322725276586
 GameObject:

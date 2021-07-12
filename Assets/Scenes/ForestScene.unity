@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 65290464}
   - component: {fileID: 65290463}
   m_Layer: 5
-  m_Name: ValkyrieCost
+  m_Name: HeroKnightCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 50
+  m_text: 40
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5049,7 +5049,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 50
+  m_text: 40
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11833,7 +11833,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1134021, y: 1}
+    m_SensorSize: {x: 1.6326531, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12184,7 +12184,7 @@ MonoBehaviour:
   buffRadius: 2.9
   buff_duration: 10
   buffCooldown: 10
-  fireCost: 50
+  fireCost: 40
   orb_vfx: {fileID: 7567199887679750944, guid: 366898d4184cdba42b26da99d5c78257, type: 3}
   explosion_vfx: {fileID: 5283124041093662892, guid: 2950e8d66eb1fdc48b18fa18bd280347, type: 3}
   fire_vfx: {fileID: 3581202134021124114, guid: 04a6ad38e13cd194da25a4303d4407a9, type: 3}

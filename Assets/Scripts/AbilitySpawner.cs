@@ -148,8 +148,14 @@ public class AbilitySpawner : MonoBehaviour
             AbilityBar.GetComponent<AbilityBar>().setCooldown(2, buffCooldown);
         } else if (skillshot && Input.GetMouseButton(0))
         {
-            // TODO disable skillshot
-            // TODO ability blink
+            //disable skillshot
+            skillshot_marker.GetComponent<Image>().enabled = false;
+            skillshot = false;
+            skillactive = false;
+
+            //ability blink
+            AbilityBar.GetComponent<AbilityBar>().setWarning(2);
+
         }
 
         //while ability is active
@@ -194,7 +200,7 @@ public class AbilitySpawner : MonoBehaviour
             return;
         }
         Money money = Money.GetComponent<Money>();
-        if (timeSinceBuff >= buffCooldown && money.getMoney() >= buffCost)
+        if (timeSinceBuff >= buffCooldown)
         {
             resetSkillshotAbilities();
             skillshot_marker.GetComponent<Image>().enabled = true;
@@ -247,8 +253,13 @@ public class AbilitySpawner : MonoBehaviour
             AbilityBar.GetComponent<AbilityBar>().setCooldown(3, hellfireCooldown);
         } else if (fire_skillshot && Input.GetMouseButton(0))
         {
-            // TODO disable skillshot
-            // TODO ability blink
+            //disable skillshot
+            fire_skillshot_img.GetComponent<Image>().enabled = false;
+            fire_skillshot = false;
+            fire_active = false;
+
+            //ability blink
+            AbilityBar.GetComponent<AbilityBar>().setWarning(3);
         }
 
         //while skill active, spawn particle systems, apply damage
@@ -309,7 +320,7 @@ public class AbilitySpawner : MonoBehaviour
         }
 
         Money money = Money.GetComponent<Money>();
-        if (timeSinceHellfire >= hellfireCooldown && money.getMoney() >= fireCost)
+        if (timeSinceHellfire >= hellfireCooldown)
         {
             resetSkillshotAbilities();
             fire_skillshot_img.GetComponent<Image>().enabled = true;

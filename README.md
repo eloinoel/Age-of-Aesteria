@@ -5,6 +5,10 @@ Defend yourself against hordes of monsters and destroy the enemy castle to attai
 - Send your knights into battle
 - Cast magic to buff your troops or let fire rain upon your foes
   - VoiceRecognition: "Meteorhagel", "Lichtsegen", "Höllenfeuer"; in english: "meteor", "blessing", "fire"
+  - Meteorhagel/Meteor: Starts are meteor rain which only hits the enemy units.
+  - Lichtsegen/Blessing: Give a buff to all allied units at a targeted area, which increases their attack damage, movement speed and health regeneration for a short period of time.
+  - Höllenfeuer/Fire: Spawns a hellfire at the targeted location which damages all units standing in the area of the spell for 5 seconds.
+- Every Unit or spell costs crystals to use. Initially you have 60. You get crystals back over time or by killing enemy units.
 
 <h3>Lore</h3>
 
@@ -18,7 +22,5 @@ Defend yourself against hordes of monsters and destroy the enemy castle to attai
 <h3>Running the game </h3>
 
 - This game was made in Unity 2021.1.14f1. If you want to run it you can either open it up in Unity or execute "/build/AgeofAesteria.exe".
-
 - Make sure you have the correct microphone selected under Windows sound settings. For the voice recognition to work, you need to have German or English as your System's Language.
-
 - If you dont have a microphone, you could also play it via mouse and keyboard.

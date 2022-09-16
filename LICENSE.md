@@ -5,7 +5,7 @@ All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
-* The owner of the repository has granted the permission to publish or modify the source code
+* The owner of the repository has granted written permission to use, publish or modify the source code
 
 * Redistributions of source code must retain the above copyright notice, this
   list of conditions and the following disclaimer.

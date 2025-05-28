@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+    #if !UNITY_WEBGL
 using UnityEngine.Windows.Speech;
+    #endif
 using System;
 using System.Linq;
 
 public class VoiceRecognition : MonoBehaviour
 {
-    private KeywordRecognizer keywordRecognizer;
-    private Dictionary<string, Action> actions = new Dictionary<string, Action>();
-
     public GameObject abilitySpawner;
 
-
+#if !UNITY_WEBGL
+    private KeywordRecognizer keywordRecognizer;
+    private Dictionary<string, Action> actions = new Dictionary<string, Action>();
 
     void Start() {
         actions.Add("Meteor", MeteorRain);
@@ -32,8 +33,8 @@ public class VoiceRecognition : MonoBehaviour
         actions.Add("Licht", Buff);
         actions.Add("baff", Buff);
         actions.Add("Licht Segen", Buff);
-        actions.Add("Höllenfeuer", Hellfire);
-        actions.Add("Höllenbrand", Hellfire);
+        actions.Add("Hï¿½llenfeuer", Hellfire);
+        actions.Add("Hï¿½llenbrand", Hellfire);
         actions.Add("Brand", Hellfire);
         actions.Add("vorher", Hellfire);
         actions.Add("Feuer", Hellfire);
@@ -65,6 +66,7 @@ public class VoiceRecognition : MonoBehaviour
         Debug.Log(speech.text);
         actions[speech.text].Invoke();
     }
+#endif
 
     private void MeteorRain()
     {

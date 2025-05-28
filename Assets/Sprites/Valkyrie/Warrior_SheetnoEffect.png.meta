@@ -300,7 +300,7 @@ TextureImporter:
       213: 626327368723908316
     second: Warrior_SheetnoEffect_98
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -321,6 +321,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -359,6 +360,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -398,6 +400,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2500,6 +2526,106 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Warrior_SheetnoEffect_0: 1459458051413904079
+      Warrior_SheetnoEffect_1: 359170815697947668
+      Warrior_SheetnoEffect_10: -4531196692211296701
+      Warrior_SheetnoEffect_11: -1002207024202496282
+      Warrior_SheetnoEffect_12: -3633421932862571679
+      Warrior_SheetnoEffect_13: -7809123221476925388
+      Warrior_SheetnoEffect_14: -7826861071389423882
+      Warrior_SheetnoEffect_15: 6119079320171274209
+      Warrior_SheetnoEffect_16: 5367960543324356744
+      Warrior_SheetnoEffect_17: -7953904400877069620
+      Warrior_SheetnoEffect_18: -1755196195047778427
+      Warrior_SheetnoEffect_19: -3610891807505899824
+      Warrior_SheetnoEffect_2: -8220729467712961139
+      Warrior_SheetnoEffect_20: -2457495719821501130
+      Warrior_SheetnoEffect_21: 2335949746256416935
+      Warrior_SheetnoEffect_22: 2281034495841147979
+      Warrior_SheetnoEffect_23: -8790582103094051324
+      Warrior_SheetnoEffect_24: 4910841173174485456
+      Warrior_SheetnoEffect_25: -7048519384785837501
+      Warrior_SheetnoEffect_26: 4739410361002896916
+      Warrior_SheetnoEffect_27: 8803923152949617137
+      Warrior_SheetnoEffect_28: 7405160166243886877
+      Warrior_SheetnoEffect_29: -6930562774783334623
+      Warrior_SheetnoEffect_3: 5872842931014740882
+      Warrior_SheetnoEffect_30: 5847282133147261615
+      Warrior_SheetnoEffect_31: 3256854589360385887
+      Warrior_SheetnoEffect_32: 2663064787322560717
+      Warrior_SheetnoEffect_33: -7761232957135373661
+      Warrior_SheetnoEffect_34: -718568859206869386
+      Warrior_SheetnoEffect_35: 8259480690542273036
+      Warrior_SheetnoEffect_36: 4069662938972889761
+      Warrior_SheetnoEffect_37: 456946378823254976
+      Warrior_SheetnoEffect_38: -6998019777905318313
+      Warrior_SheetnoEffect_39: 1240805322172666571
+      Warrior_SheetnoEffect_4: 6813737609034609192
+      Warrior_SheetnoEffect_40: 8298387396569154617
+      Warrior_SheetnoEffect_41: -6202454919972933791
+      Warrior_SheetnoEffect_42: -1306023488744233559
+      Warrior_SheetnoEffect_43: 6753789944390083632
+      Warrior_SheetnoEffect_44: -5291440411977846726
+      Warrior_SheetnoEffect_45: 5173469159935111762
+      Warrior_SheetnoEffect_46: -2749051431520427751
+      Warrior_SheetnoEffect_47: -1663813028376188481
+      Warrior_SheetnoEffect_48: -4746090456694959965
+      Warrior_SheetnoEffect_49: 8456781455918796069
+      Warrior_SheetnoEffect_5: 1252741959807183917
+      Warrior_SheetnoEffect_50: -6198279566977372875
+      Warrior_SheetnoEffect_51: 8831371568066152587
+      Warrior_SheetnoEffect_52: 5358277598789592532
+      Warrior_SheetnoEffect_53: -2690619919191375969
+      Warrior_SheetnoEffect_54: -6197311563536490153
+      Warrior_SheetnoEffect_55: -780802658179346811
+      Warrior_SheetnoEffect_56: -3992741688669438026
+      Warrior_SheetnoEffect_57: 5574794532253237584
+      Warrior_SheetnoEffect_58: 8676734833561832908
+      Warrior_SheetnoEffect_59: -4379293928849917247
+      Warrior_SheetnoEffect_6: -589479829849459968
+      Warrior_SheetnoEffect_60: 2776984075451380501
+      Warrior_SheetnoEffect_61: 3602916698307403072
+      Warrior_SheetnoEffect_62: 8857661451550244838
+      Warrior_SheetnoEffect_63: 4681548934482222617
+      Warrior_SheetnoEffect_64: 7219762561262908552
+      Warrior_SheetnoEffect_65: -120700786213653087
+      Warrior_SheetnoEffect_66: 2609196364727710751
+      Warrior_SheetnoEffect_67: 7133254357242421846
+      Warrior_SheetnoEffect_68: -8804831404700281966
+      Warrior_SheetnoEffect_69: 7796489720157118539
+      Warrior_SheetnoEffect_7: -2225303593433192470
+      Warrior_SheetnoEffect_70: 4151046763693669347
+      Warrior_SheetnoEffect_71: -4162129941589120387
+      Warrior_SheetnoEffect_72: 3032867974267129088
+      Warrior_SheetnoEffect_73: -1829377064002598094
+      Warrior_SheetnoEffect_74: -956870321305392998
+      Warrior_SheetnoEffect_75: -4280123317493518697
+      Warrior_SheetnoEffect_76: 638301610157169233
+      Warrior_SheetnoEffect_77: -5545493219511776571
+      Warrior_SheetnoEffect_78: 4171936540592933651
+      Warrior_SheetnoEffect_79: -2227078935734850399
+      Warrior_SheetnoEffect_8: 711731054339644605
+      Warrior_SheetnoEffect_80: 5002333559132555977
+      Warrior_SheetnoEffect_81: 1269608071664470536
+      Warrior_SheetnoEffect_82: -5649971472603466743
+      Warrior_SheetnoEffect_83: 1945226468877558368
+      Warrior_SheetnoEffect_84: -3602231187581361685
+      Warrior_SheetnoEffect_85: -8151579037687842364
+      Warrior_SheetnoEffect_86: 8302211577951854100
+      Warrior_SheetnoEffect_87: -2239141060947697248
+      Warrior_SheetnoEffect_88: -8688942437272331585
+      Warrior_SheetnoEffect_89: -911998533861133671
+      Warrior_SheetnoEffect_9: 8827041205860659437
+      Warrior_SheetnoEffect_90: -423483337211887903
+      Warrior_SheetnoEffect_91: -2968783049134217904
+      Warrior_SheetnoEffect_92: 703853497055010165
+      Warrior_SheetnoEffect_93: 4362404520178182635
+      Warrior_SheetnoEffect_94: 4674258658674478611
+      Warrior_SheetnoEffect_95: -513994488956476597
+      Warrior_SheetnoEffect_96: -6076401008233008812
+      Warrior_SheetnoEffect_97: -3900595950621344200
+      Warrior_SheetnoEffect_98: 626327368723908316
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -21,7 +21,12 @@ Defend yourself against hordes of monsters and destroy the enemy castle to attai
   losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed
   him in his sleep. Ironic. He could save others from death, but not himself.
 
-<h3>Running the game </h3>
+<h3>Try the game at: https://eloinoel.github.io/Age-of-Aesteria/</h3>
+
+- However, voice recognition does not work in this web version. You can use the Space, E and Q keys to cast abilities instead.
+  
+
+<h3>Running the Game Locally</h3>
 
 - This game was made in Unity 2021.1.14f1. If you want to run it you can either open it up in Unity or execute "/build/AgeofAesteria.exe".
 - Make sure you have the correct microphone selected under Windows sound settings. For the voice recognition to work, you need to have German or English as your System's Language.
